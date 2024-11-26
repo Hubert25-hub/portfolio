@@ -103,6 +103,7 @@ body {
                 border-radius: 10px;
                 box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2); 
                 transition: transform 0.3s ease, box-shadow 0.3s ease;
+                cursor: pointer;
             }
             .gallery img:hover {
                 transform: scale(1.05);
