@@ -85,7 +85,7 @@ p {
     border-radius: 8px;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 480px) {
     .questionnaire {
         padding: 20px;
     }
