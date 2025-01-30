@@ -155,14 +155,14 @@ body {
                 margin-top: 20px; 
             }
             
-            .instagram-icon {
+            .facebok-icon {
                 font-size: 40px; 
                 color: #E1306C;
                 transition: transform 0.3s, color 0.3s, box-shadow 0.3s; 
                 text-decoration: none;
             }
             
-            .instagram-icon:hover {
+            .facebook-icon:hover {
                 transform: scale(1.1); 
                 color: #C13584; 
                 box-shadow: 0 0 15px rgba(0, 0, 0, 0.3); 
