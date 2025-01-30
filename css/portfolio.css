@@ -173,7 +173,7 @@ body {
             }
 @media (max-width: 768px) {
     .banner {
-        padding: 5px;}
+        padding: 20px;}
   .navbar {
     flex-direction: column;
     padding: 20px;
