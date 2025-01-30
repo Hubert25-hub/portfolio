@@ -172,6 +172,8 @@ body {
                 box-shadow: 0 0 15px rgba(0, 0, 0, 0.3); 
             }
 @media (max-width: 768px) {
+    .banner {
+        padding: 5px;}
   .navbar {
     flex-direction: column;
     padding: 20px;
@@ -185,7 +187,7 @@ body {
     font-size: 20px;
   }
      .banner h1 {
-        font-size: 30px; /* Ajustez la taille de la police */
+        font-size: 35px; /* Ajustez la taille de la police */
     }
     .banner p {
         font-size: 10px;
