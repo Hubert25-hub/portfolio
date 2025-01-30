@@ -85,14 +85,20 @@ p {
     border-radius: 8px;
 }
 
-@media (max-width: 780px) {
-    .questionnaire {
-        padding: 20px;
-    }
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    padding: 20px;
+  }
 
-    .questionnaire iframe {
-        height: 100%;
-    }
+  .navbar .nav-links {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .navbar .nav-links a {
+    font-size: 20px;
+  }
 }
 
 .b1, .b2 {
