@@ -1,5 +1,7 @@
 body {
     margin: 0;
+    padding: 0;
+    overflow-x: hidden;
     font-family: 'Montserrat', sans-serif;
     background-color: #d7d7d7;
       background-size: cover;
@@ -87,7 +89,9 @@ body {
             padding: 60px 20px 20px;
             background-color: white;
             margin-top: 10px;
-            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);}
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            box-sizing: border-box;
+            width: 100%;  }
             .gallery {
                 display: flex;
                 flex-wrap: wrap; 
@@ -177,9 +181,20 @@ body {
     flex-direction: column;
     gap: 10px;
   }
-
   .navbar .nav-links a {
     font-size: 20px;
   }
+     .banner h1 {
+        font-size: 24px; /* Ajustez la taille de la police */
+    }
+    .banner p {
+        font-size: 16px;
+        text-align: center; /* Centrez le texte */
+        padding: 0 10px; /* Ajoutez des marges internes */
+    }
+}
+img {
+    max-width: 100%;
+    height: auto;
 }
             
