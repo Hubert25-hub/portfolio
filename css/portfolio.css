@@ -17,6 +17,7 @@ body {
         padding: 15px 30px; /* Increased padding for a more spacious feel */
         background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
         box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5); /* Subtle shadow for depth */
+        width: 100%;
     }
     
     .logo img {
