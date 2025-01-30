@@ -44,7 +44,7 @@ body {
     }
 
         .banner h1 {
-            font-size: 105px;
+            font-size: 50px;
             font-weight: 600;
             margin: 0;
         }
@@ -188,7 +188,7 @@ body {
         font-size: 24px; /* Ajustez la taille de la police */
     }
     .banner p {
-        font-size: 16px;
+        font-size: 10px;
         text-align: center; /* Centrez le texte */
         padding: 0 10px; /* Ajoutez des marges internes */
     }
