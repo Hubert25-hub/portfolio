@@ -187,3 +187,16 @@ body {
     border: 2px solid #ccc;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
+.logo img {
+  height: 90px;          /* augmente la taille du logo */
+  width: auto;
+  display: block;
+  object-fit: contain;
+  filter: brightness(2);  /* éclaircit un peu si le logo est sombre */
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.logo img:hover {
+  transform: scale(1.05); /* petit effet au survol */
+  filter: brightness(2.5);
+}
