@@ -90,3 +90,43 @@ body::before {
     font-size: 20px;
   }
 }
+/* ===== Bouton directionnel en bas ===== */
+.bottom-button {
+  position: fixed;
+  bottom: 30px;
+  right: 30px; /* bouton en bas à droite */
+  z-index: 1000;
+}
+
+.go-portfolio {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background-color: #0078ff;
+  color: white;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  padding: 12px 24px;
+  border-radius: 30px;
+  text-decoration: none;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  transition: background-color 0.3s ease;
+}
+
+.go-portfolio:hover {
+  background-color: #005fcc;
+}
+
+/* ===== Animation flèche ===== */
+.arrow {
+  display: inline-block;
+  animation: moveRight 1s infinite;
+}
+
+@keyframes moveRight {
+  0% { transform: translateX(0); opacity: 1; }
+  50% { transform: translateX(6px); opacity: 0.7; }
+  100% { transform: translateX(0); opacity: 1; }
+}
+
