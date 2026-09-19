@@ -1,29 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="css/index.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
-    <title>CREATIVE</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hubert | Graphic Designer & Web Developer</title>
+<meta name="description" content="Event flyers, logos, branding and websites by Hubert, a graphic designer and web developer. See my work and start a project.">
+<link rel="icon" href="image/creative2.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+<link href="css/home.css" rel="stylesheet">
 </head>
 <body>
-    <nav class="navbar">
-        <div class="logo">
-            <img src="image/creative2.png" alt="Logo">
+
+<header class="nav">
+  <a href="index.html"><img src="image/creative2.png" alt="Creative logo"></a>
+  <nav>
+    <ul>
+      <li><a href="index.html" aria-current="page">Home</a></li>
+      <li><a href="Portfolio.html">Portfolio</a></li>
+      <li><a href="service.html">Services</a></li>
+      <li><a href="Aboutme.html">About me</a></li>
+      <li><a href="service.html" class="contact">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="hero-inner">
+      <div>
+        <h1>Flyers, logos and websites people notice.</h1>
+        <p>I'm Hubert, a graphic designer and web developer. I design event flyers, brand identities and websites for businesses and organizers who want to stand out.</p>
+        <div class="buttons">
+          <a class="btn btn-dark" href="Portfolio.html">See my work</a>
+          <a class="btn btn-line" href="service.html">Start a project</a>
         </div>
-        <div class="nav-links">
-            <a>Home</a>
-            <a href="Portfolio.html">Portfolio</a>
-            <a href="service.html">Services</a>
-            <a href="Aboutme.html">About me</a>
-        </div>
-    </nav>
-<div class="bottom-button">
-  <a href="Portfolio.html" class="go-portfolio">
-    next to Portfolio <span class="arrow">→</span>
-  </a>
-</div>
+      </div>
+      <div class="collage">
+        <img class="c1" src="IMAGES/img1.png" alt="Level Party event flyer with a yellow and orange design">
+        <img class="c2" src="IMAGES/img2.png" alt="Well Day event flyer for a community day on 30 July">
+        <img class="c3" src="IMAGES/img3.png" alt="Ole Readyaa event flyer with bold yellow lettering">
+      </div>
+    </div>
+  </section>
+
+  <section class="services">
+    <h2>What I make</h2>
+    <div class="service-list">
+      <div>
+        <h3>Flyers and posters</h3>
+        <p>Event flyers, social media posts and posters that get attention and fill the room.</p>
+      </div>
+      <div>
+        <h3>Logos and branding</h3>
+        <p>Logos, colors and lettering that make your brand easy to recognize.</p>
+      </div>
+      <div>
+        <h3>Websites</h3>
+        <p>Responsive sites designed in Figma and built with HTML, CSS and JavaScript.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta">
+    <div class="cta-inner">
+      <div>
+        <h2>Have a project in mind?</h2>
+        <p>Fill in the short form and I'll get back to you.</p>
+      </div>
+      <a class="btn" href="service.html">Tell me about your project</a>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <span>&copy; 2026 Hubert. All rights reserved.</span>
+  <a href="https://www.facebook.com/profile.php?id=100072044043817">Facebook</a>
+</footer>
 
 </body>
 </html>
