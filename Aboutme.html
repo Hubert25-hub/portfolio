@@ -1,80 +1,95 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="css/blog.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
-    <title>About me</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About me | Hubert, Graphic Designer &amp; Web Developer</title>
+<meta name="description" content="Hubert is a bilingual graphic designer and web developer with a Bachelor of Commerce. Learn about his education and skills.">
+<link rel="icon" href="image/creative2.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+<link href="css/blog.css" rel="stylesheet">
 </head>
 <body>
-    <nav class="navbar">
-        <div class="logo">
-            <img src="image/creative.png.png" alt="Logo">
-        </div>
-        <div class="nav-links">
-            <a href="index.html">Home</a>
-            <a href="Portfolio.html">Portfolio</a>
-            <a href="service.html">Services</a>
-            <a>About me</a>
-        </div>
+
+<header class="nav">
+  <a href="index.html"><img src="image/creative2.png" alt="Creative logo"></a>
+  <nav>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="Portfolio.html">Portfolio</a></li>
+      <li><a href="service.html">Services</a></li>
+      <li><a href="Aboutme.html" aria-current="page">About me</a></li>
+      <li><a href="service.html#contact" class="contact">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+  <section class="banner">
+    <h1>About me</h1>
+    <p>Graphic designer and web developer with a business education.</p>
+  </section>
+
+  <section class="intro">
+    <img src="IMAGES/profile-picture.png" alt="Portrait of Hubert">
+    <div>
+      <h2>Hi, I'm Hubert</h2>
+      <p>I design flyers, logos and websites for businesses and event organizers. I'm bilingual, so I can work with clients in English or French.</p>
+      <p>I recently earned a Bachelor of Commerce, which means I think about your goals and your customers as well as how the design looks.</p>
+      <a class="btn" href="service.html#contact">Work with me</a>
     </div>
-    </nav>
-    <div class="profile-picture">
-            <img src="IMAGES/profile-picture.png" alt="Photo de profil">
-        </div>
-    <div class="container">
-        <section id="education" class="section">
-            <h2>Education</h2>
-            <p>I am a hardworking and determined student who recently earned my Bachelor's degree...</p>
-            <ul>
-                <li><strong>Information Communication and Technology</strong> – Pacific Link College</li>
-                <li><strong>Bachelor's, Human Resource (GESTION DES RESSOURCES HUMAINES)</strong> – Université of Togo</li>
-            </ul>
-        </section>
-        <section id="interests" class="section">
-            <h2>Interests</h2>
-            <p>I have a deep passion for creativity and technology...</p>
-            <ul>
-                <li>UI/UX Design</li>
-                <li>Web Development</li>
-                <li>Graphic Design</li>
-            </ul>
-        </section>
-        <section id="skills" class="section">
-            <h2>Skills</h2>
-            <p>I am proficient in various design and web development tools. Here are some of the main tools:</p>
-            <div class="skills-list">
-                <div class="skill-item">
-                    <img src="image/Adobe-Photoshop-Emblem.png" alt="Photoshop Logo" class="skill-logo">
-                    <h3>Adobe Photoshop</h3>
-                    <p>Advanced photo editing and graphic design skills using Photoshop.</p>
-                </div>
-                <div class="skill-item">
-                    <img src="image/Adobe_Illustrator-Logo.wine.png" alt="Illustrator Logo" class="skill-logo">
-                    <h3>Adobe Illustrator (AI)</h3>
-                    <p>Expertise in vector graphics and illustrations using AI.</p>
-                </div>
-                <div class="skill-item">
-                    <img src="image/figma logo.png" alt="Figma Logo" class="skill-logo">
-                    <h3>Figma</h3>
-                    <p>Proficient in UI/UX design and prototyping with Figma.</p>
-                </div>
-                <div class="skill-item">
-                    <img src="image/HTML5_logo_and_wordmark.svg.png" alt="HTML/CSS Logo" class="skill-logo">
-                    <h3>HTML/CSS</h3>
-                    <p>Strong knowledge of front-end development using HTML and CSS.</p>
-                </div>
-                <div class="skill-item">
-                    <img src="image/java logo.png" alt="JavaScript Logo" class="skill-logo">
-                    <h3>JavaScript</h3>
-                    <p>Experienced in adding interactivity to websites using JavaScript.</p>
-                </div>
-            </div>
-        </section>
+  </section>
+
+  <section class="details">
+    <div class="block">
+      <h2>Education</h2>
+      <ul>
+        <li><strong>Bachelor of Commerce</strong> UCW</li>
+        <li><strong>Information and Communication Technology</strong> Pacific Link College</li>
+        <li><strong>Bachelor's degree in Human Resource Management</strong> University of Togo</li>
+      </ul>
     </div>
-    <footer class="footer">
-        <p>© 2024 About me. All Rights Reserved.</p>
-    </footer>
+    <div class="block">
+      <h2>Languages</h2>
+      <ul>
+        <li><strong>English</strong></li>
+        <li><strong>French</strong></li>
+      </ul>
+    </div>
+    <div class="block">
+      <h2>Design skills</h2>
+      <ul>
+        <li><strong>Adobe Photoshop</strong> Photo editing and graphic design</li>
+        <li><strong>Adobe Illustrator</strong> Vector graphics and illustration</li>
+        <li><strong>Figma</strong> UI/UX design and prototyping</li>
+      </ul>
+    </div>
+    <div class="block">
+      <h2>Web skills</h2>
+      <ul>
+        <li><strong>HTML and CSS</strong> Front-end development</li>
+        <li><strong>JavaScript</strong> Adding interactivity to websites</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="cta">
+    <div class="cta-inner">
+      <div>
+        <h2>Have a project in mind?</h2>
+        <p>Fill in the short form and I'll get back to you.</p>
+      </div>
+      <a class="btn btn-yellow" href="service.html#contact">Tell me about your project</a>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <span>&copy; 2026 Hubert. All rights reserved.</span>
+  <a href="https://www.facebook.com/profile.php?id=100072044043817">Facebook</a>
+</footer>
+
 </body>
 </html>
