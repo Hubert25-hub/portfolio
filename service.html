@@ -1,58 +1,85 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link href="css/service.css" rel="stylesheet">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <title>CREATIVE</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Services | Hubert, Graphic Designer &amp; Web Developer</title>
+<meta name="description" content="Flyers and posters, logos and branding, UI/UX design and websites. Tell Hubert about your project.">
+<link rel="icon" href="image/creative2.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+<link href="css/service.css" rel="stylesheet">
 </head>
 <body>
-    <nav class="navbar">
-        <div class="logo">
-            <img src="image/image-removebg-preview.png" alt="Logo">
-        </div>
-        <div class="nav-links">
-            <a href="index.html">Home</a>
-            <a href="Portfolio.html">Portfolio</a>
-            <a>Services</a>
-            <a href="Aboutme.html">About me</a>
-        </div>
-    </nav>
-    <div class="about-us">
-        <h1>About us</h1>
-        <p>
-            We specialize in delivering innovative graphic design and web development solutions that empower businesses to stand out in the digital landscape. With over 7 years of experience, our team of creative professionals is dedicated to crafting visually striking designs and user-friendly websites that reflect your brand’s unique identity.
 
-            From logo creation and branding to full-stack web development, we are committed to providing high-quality, customized services that drive engagement and growth. We blend creativity with technical expertise to transform ideas into impactful digital experiences.
-        </p>
-    </div>
-    
-    
-    <div class="questionnaire">
-        <h2>Tell Us About You</h2>
-        
-        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSeNylN7hXS9kgj3HfR5c4krbwQLY9eJDcu5JG6xoq3_Q4I10A/viewform?embedded=true" width="640" height="1291" frameborder="0" marginheight="0" marginwidth="0">Chargement…</iframe>
-    </div>
+<header class="nav">
+  <a href="index.html"><img src="image/creative2.png" alt="Creative logo"></a>
+  <nav>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="Portfolio.html">Portfolio</a></li>
+      <li><a href="service.html" aria-current="page">Services</a></li>
+      <li><a href="Aboutme.html">About me</a></li>
+      <li><a href="#contact" class="contact">Contact</a></li>
+    </ul>
+  </nav>
+</header>
 
-    <hr>
-    <div>
-        <div class="contact-us">
-            <h2>Contact Us</h2>
-            <div class="contact-info">
-                <div class="contact-item">
-                    <i class="fas fa-envelope"></i>
-                    <span>Email: hubertdjobokou3@gmail.com</span>
-                </div>
-                <div class="contact-item">
-                    <i class="fas fa-phone"></i>
-                    <span>Phone: 778 952 1823</span>
-                </div>
-            </div>
-            <a href="https://www.facebook.com/profile.php?id=100072044043817" target="_blank" class="facebook-icon">
-                <i class="fab fa-facebook"></i>
-            </a>
-        </div>
+<main>
+  <section class="banner">
+    <h1>Services</h1>
+    <p>Design and web development for businesses and event organizers.</p>
+  </section>
+
+  <section class="services">
+    <div class="service-list">
+      <div>
+        <h2>Flyers and posters</h2>
+        <p>Event flyers, posters and social media visuals designed in Photoshop and Illustrator.</p>
+      </div>
+      <div>
+        <h2>Logos and branding</h2>
+        <p>Logos, color palettes and lettering that make your brand easy to recognize.</p>
+      </div>
+      <div>
+        <h2>UI/UX design</h2>
+        <p>Screens and clickable prototypes designed in Figma before anything is built.</p>
+      </div>
+      <div>
+        <h2>Websites</h2>
+        <p>Responsive websites built with HTML, CSS and JavaScript that work on phones and computers.</p>
+      </div>
     </div>
+  </section>
+
+  <section class="contact-section" id="contact">
+    <div class="contact-inner">
+      <div class="form-side">
+        <h2>Tell me about your project</h2>
+        <p>Fill in the short form and I'll get back to you.</p>
+        <iframe title="Project request form" src="https://docs.google.com/forms/d/e/1FAIpQLSeNylN7hXS9kgj3HfR5c4krbwQLY9eJDcu5JG6xoq3_Q4I10A/viewform?embedded=true" loading="lazy">Loading form...</iframe>
+        <p class="small"><a href="https://docs.google.com/forms/d/e/1FAIpQLSeNylN7hXS9kgj3HfR5c4krbwQLY9eJDcu5JG6xoq3_Q4I10A/viewform" target="_blank" rel="noopener">Form not showing? Open it in a new tab.</a></p>
+      </div>
+      <aside class="direct">
+        <h2>Reach me directly</h2>
+        <dl>
+          <dt>Email</dt>
+          <dd><a href="mailto:hubertdjobokou3@gmail.com">hubertdjobokou3@gmail.com</a></dd>
+          <dt>Phone</dt>
+          <dd><a href="tel:7789521823">778 952 1823</a></dd>
+          <dt>Facebook</dt>
+          <dd><a href="https://www.facebook.com/profile.php?id=100072044043817" target="_blank" rel="noopener">Message me on Facebook</a></dd>
+        </dl>
+      </aside>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <span>&copy; 2026 Hubert. All rights reserved.</span>
+  <a href="https://www.facebook.com/profile.php?id=100072044043817">Facebook</a>
+</footer>
+
 </body>
 </html>
