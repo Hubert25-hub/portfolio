@@ -10,6 +10,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link href="css/portfolio.css" rel="stylesheet">
+<script src="js/lang.js" defer></script>
 </head>
 <body>
 
@@ -17,50 +18,80 @@
   <a href="index.html" class="logo-link"><img src="image/hubcreate_horizontal_yellow.svg" alt="Hubcreate logo"></a>
   <nav>
     <ul>
-      <li><a href="index.html">Home</a></li>
-      <li><a href="Portfolio.html" aria-current="page">Portfolio</a></li>
-      <li><a href="service.html">Services</a></li>
-      <li><a href="Aboutme.html">About me</a></li>
-      <li><a href="service.html#contact" class="contact">Contact</a></li>
+      <li><a href="index.html" data-i18n="nav.home">Home</a></li>
+      <li><a href="Portfolio.html" aria-current="page" data-i18n="nav.portfolio">Portfolio</a></li>
+      <li><a href="service.html" data-i18n="nav.services">Services</a></li>
+      <li><a href="Aboutme.html" data-i18n="nav.about">About me</a></li>
+      <li><a href="service.html#contact" class="contact" data-i18n="nav.contact">Contact</a></li>
+      <li>
+        <div class="lang-switcher" role="radiogroup" aria-label="Language selector">
+          <button type="button" class="lang-btn active" data-lang="en" aria-checked="true">EN</button>
+          <button type="button" class="lang-btn" data-lang="fr" aria-checked="false">FR</button>
+        </div>
+      </li>
     </ul>
   </nav>
 </header>
 
 <main>
   <section class="banner">
-    <span class="banner-tag">PORTFOLIO</span>
-    <h1>Selected work</h1>
-    <p>Event flyers, brand identities and posters I've designed. Tap any piece to see it larger.</p>
+    <span class="banner-tag" data-i18n="portfolio.tag">PORTFOLIO</span>
+    <h1 data-i18n="portfolio.title">Selected work</h1>
+    <p data-i18n="portfolio.subtitle">Event flyers, brand identities and posters I've designed. Tap any piece to see it larger.</p>
   </section>
 
   <ul class="gallery">
-    <li class="card"><button type="button" data-title="Level Party" data-description="A vibrant, colorful flyer for a festive night for the LGBTQ+ community, with a monochrome dress code and an Amapiano theme.">
-      <img src="IMAGES/img1.png" alt="Level Party event flyer" loading="lazy">
-      <span class="title">Level Party</span><span class="meta">Event flyer</span></button></li>
-    <li class="card"><button type="button" data-title="Well Day" data-description="A lively party atmosphere with an electrifying DJ mix, and a celebration of soccer with friends.">
-      <img src="IMAGES/img2.png" alt="Well Day event flyer" loading="lazy">
-      <span class="title">Well Day</span><span class="meta">Event flyer</span></button></li>
-    <li class="card"><button type="button" data-title="Ole Readyaa" data-description="An Afro-centric event celebrating African culture and fashion, with vibrant performances and exquisite traditional clothing.">
-      <img src="IMAGES/img3.png" alt="Ole Readyaa event flyer" loading="lazy">
-      <span class="title">Ole Readyaa</span><span class="meta">Event flyer</span></button></li>
-    <li class="card"><button type="button" data-title="Savage Mood" data-description="The energy of nightlife, with dynamic colors and captivating silhouettes that invite you to dance the night away.">
-      <img src="IMAGES/img4.png" alt="Savage Mood event flyer" loading="lazy">
-      <span class="title">Savage Mood</span><span class="meta">Event flyer</span></button></li>
-    <li class="card"><button type="button" data-title="Ole Ready" data-description="Honoring our roots and showcasing the art, music and style that define us.">
-      <img src="IMAGES/img5.png" alt="Ole Ready event flyer" loading="lazy">
-      <span class="title">Ole Ready</span><span class="meta">Event flyer</span></button></li>
-    <li class="card"><button type="button" data-title="Nightlife flyer" data-description="The electrifying energy of nightlife in dynamic colors and captivating silhouettes.">
-      <img src="IMAGES/img6.png" alt="Nightlife event flyer" loading="lazy">
-      <span class="title">Nightlife flyer</span><span class="meta">Event flyer</span></button></li>
+    <li class="card">
+      <button type="button" data-title="Level Party" data-i18n-desc="portfolio.item1Desc" data-description="A vibrant, colorful flyer for a festive night for the LGBTQ+ community, with a monochrome dress code and an Amapiano theme.">
+        <img src="IMAGES/img1.png" alt="Level Party event flyer" loading="lazy" data-i18n-alt="alt.img1">
+        <span class="title" data-i18n="portfolio.item1Title">Level Party</span>
+        <span class="meta" data-i18n="portfolio.metaFlyer">Event flyer</span>
+      </button>
+    </li>
+    <li class="card">
+      <button type="button" data-title="Well Day" data-i18n-desc="portfolio.item2Desc" data-description="A lively party atmosphere with an electrifying DJ mix, and a celebration of soccer with friends.">
+        <img src="IMAGES/img2.png" alt="Well Day event flyer" loading="lazy" data-i18n-alt="alt.img2">
+        <span class="title" data-i18n="portfolio.item2Title">Well Day</span>
+        <span class="meta" data-i18n="portfolio.metaFlyer">Event flyer</span>
+      </button>
+    </li>
+    <li class="card">
+      <button type="button" data-title="Ole Readyaa" data-i18n-desc="portfolio.item3Desc" data-description="An Afro-centric event celebrating African culture and fashion, with vibrant performances and exquisite traditional clothing.">
+        <img src="IMAGES/img3.png" alt="Ole Readyaa event flyer" loading="lazy" data-i18n-alt="alt.img3">
+        <span class="title" data-i18n="portfolio.item3Title">Ole Readyaa</span>
+        <span class="meta" data-i18n="portfolio.metaFlyer">Event flyer</span>
+      </button>
+    </li>
+    <li class="card">
+      <button type="button" data-title="Savage Mood" data-i18n-desc="portfolio.item4Desc" data-description="The energy of nightlife, with dynamic colors and captivating silhouettes that invite you to dance the night away.">
+        <img src="IMAGES/img4.png" alt="Savage Mood event flyer" loading="lazy">
+        <span class="title" data-i18n="portfolio.item4Title">Savage Mood</span>
+        <span class="meta" data-i18n="portfolio.metaFlyer">Event flyer</span>
+      </button>
+    </li>
+    <li class="card">
+      <button type="button" data-title="Ole Ready" data-i18n-desc="portfolio.item5Desc" data-description="Honoring our roots and showcasing the art, music and style that define us.">
+        <img src="IMAGES/img5.png" alt="Ole Ready event flyer" loading="lazy">
+        <span class="title" data-i18n="portfolio.item5Title">Ole Ready</span>
+        <span class="meta" data-i18n="portfolio.metaFlyer">Event flyer</span>
+      </button>
+    </li>
+    <li class="card">
+      <button type="button" data-title="Nightlife flyer" data-i18n-title="portfolio.item6Title" data-i18n-desc="portfolio.item6Desc" data-description="The electrifying energy of nightlife in dynamic colors and captivating silhouettes.">
+        <img src="IMAGES/img6.png" alt="Nightlife event flyer" loading="lazy">
+        <span class="title" data-i18n="portfolio.item6Title">Nightlife flyer</span>
+        <span class="meta" data-i18n="portfolio.metaFlyer">Event flyer</span>
+      </button>
+    </li>
   </ul>
 
   <section class="cta">
     <div class="cta-inner">
       <div>
-        <h2>Want a design like these?</h2>
-        <p>Fill in the short form and I'll get back to you.</p>
+        <h2 data-i18n="portfolio.ctaTitle">Want a design like these?</h2>
+        <p data-i18n="cta.text">Fill in the short form and I'll get back to you.</p>
       </div>
-      <a class="btn btn-gradient" href="service.html#contact">Tell me about your project</a>
+      <a class="btn btn-gradient" href="service.html#contact" data-i18n="cta.btn">Tell me about your project</a>
     </div>
   </section>
 </main>
@@ -68,7 +99,7 @@
 <footer>
   <div class="footer-inner">
     <img class="footer-logo" src="image/hubcreate_whitehorizontale.svg" alt="Hubcreate logo">
-    <span>&copy; 2026 Hubcreate. All rights reserved.</span>
+    <span data-i18n="footer.rights">&copy; 2026 Hubcreate. All rights reserved.</span>
     <a href="https://www.facebook.com/profile.php?id=100072044043817" target="_blank" rel="noopener">Facebook</a>
   </div>
 </footer>
@@ -81,9 +112,9 @@
       <h2 id="viewerTitle"></h2>
       <p id="viewerDesc"></p>
       <div class="lb-nav">
-        <button type="button" id="viewerPrev">Previous</button>
+        <button type="button" id="viewerPrev" data-i18n="viewer.prev">Previous</button>
         <span id="viewerCount"></span>
-        <button type="button" id="viewerNext">Next</button>
+        <button type="button" id="viewerNext" data-i18n="viewer.next">Next</button>
       </div>
     </div>
   </div>
