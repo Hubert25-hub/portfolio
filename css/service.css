@@ -1,10 +1,9 @@
 /* ========================================================
    Hubcreate Services & Contact Page Stylesheet
-   Based on official Hubcreate Brand Guidelines v1.0
+   Class names match service.html
    ======================================================== */
 
 :root {
-  /* Brand Colors */
   --ink: #101828;
   --orange: #FF7A00;
   --yellow: #FFB300;
@@ -15,21 +14,20 @@
   --gray-200: #E4E7EC;
   --gray-500: #667085;
   --gray-600: #475467;
-  
-  /* Brand Gradient (135deg Yellow to Orange) */
-  --brand-gradient: linear-gradient(135deg, #FFB300 0%, #FF7A00 100%);
-  --brand-gradient-hover: linear-gradient(135deg, #FFA000 0%, #E66A00 100%);
 
-  /* Typography */
+  --brand-gradient: linear-gradient(135deg, #FFB300 0%, #FF7A00 100%);
+
   --font-main: 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  
-  /* Radii & Shadows */
+
   --radius-sm: 8px;
   --radius-md: 12px;
   --radius-pill: 999px;
   --shadow-sm: 0 2px 6px rgba(16, 24, 40, 0.06);
   --shadow-md: 0 8px 24px rgba(16, 24, 40, 0.08);
   --shadow-glow: 0 6px 20px rgba(255, 122, 0, 0.28);
+
+  --page-pad: 5vw;
+  --max-w: 1160px;
 }
 
 * {
@@ -53,10 +51,10 @@ body {
 
 a {
   color: inherit;
-  transition: all 0.2s ease;
 }
 
-a:focus-visible {
+a:focus-visible,
+button:focus-visible {
   outline: 3px solid var(--orange);
   outline-offset: 3px;
 }
@@ -75,13 +73,12 @@ img {
   justify-content: space-between;
   gap: 24px;
   flex-wrap: wrap;
-  padding: 18px 5vw;
+  padding: 18px var(--page-pad);
   background: var(--white);
   border-bottom: 1px solid var(--gray-200);
   position: sticky;
   top: 0;
   z-index: 100;
-  backdrop-filter: blur(8px);
 }
 
 .nav .logo-link {
@@ -112,6 +109,7 @@ img {
   padding-bottom: 4px;
   border-bottom: 2px solid transparent;
   color: var(--gray-600);
+  transition: color 0.2s ease, border-color 0.2s ease;
 }
 
 .nav a:hover {
@@ -125,35 +123,72 @@ img {
   border-color: var(--orange);
 }
 
-.nav .contact {
+.nav a.contact {
   background: var(--ink);
   color: var(--white);
   padding: 10px 22px;
   border-radius: var(--radius-pill);
   border: 0;
-  font-weight: 600;
-  transition: all 0.2s ease;
+  transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.nav .contact:hover {
+.nav a.contact:hover {
   background: var(--orange);
   color: var(--white);
-  border-color: transparent;
   transform: translateY(-1px);
   box-shadow: var(--shadow-glow);
 }
 
 /* ========================================================
-   Banner Section
+   EN / FR language switcher (pill style, same as home page)
+   ======================================================== */
+.lang-switcher {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  padding: 4px;
+  background: var(--gray-100);
+  border: 1px solid var(--gray-200);
+  border-radius: var(--radius-pill);
+}
+
+.lang-btn {
+  appearance: none;
+  border: 0;
+  background: transparent;
+  font-family: inherit;
+  font-size: 0.85rem;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: 0.02em;
+  color: var(--gray-500);
+  padding: 8px 14px;
+  border-radius: var(--radius-pill);
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.lang-btn:hover {
+  color: var(--ink);
+}
+
+.lang-btn.active {
+  background: var(--ink);
+  color: var(--white);
+}
+
+/* ========================================================
+   Banner
    ======================================================== */
 .banner {
   background: linear-gradient(180deg, #FFFFFF 0%, var(--paper) 100%);
-  padding: 64px 5vw 48px;
+  padding: 64px var(--page-pad) 48px;
   border-bottom: 1px solid var(--gray-200);
   text-align: center;
 }
 
-.banner-tag, .section-tag {
+.banner-tag,
+.section-tag {
   display: inline-block;
   font-size: 0.8rem;
   font-weight: 700;
@@ -168,8 +203,7 @@ img {
   font-size: clamp(2.4rem, 5vw, 3.8rem);
   line-height: 1.1;
   letter-spacing: -0.02em;
-  color: var(--ink);
-  max-width: 1160px;
+  max-width: var(--max-w);
   margin: 0 auto;
 }
 
@@ -178,35 +212,31 @@ img {
   margin: 14px auto 0;
   font-size: 1.1rem;
   color: var(--gray-600);
-  line-height: 1.6;
 }
 
 /* ========================================================
-   Services Grid
+   Services grid  (.services-grid > .card)
    ======================================================== */
-.services {
-  max-width: 1160px;
+.services-grid {
+  max-width: var(--max-w);
   margin: 0 auto;
-  padding: 72px 5vw;
-}
-
-.service-list {
+  padding: 72px var(--page-pad);
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 32px;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 28px;
 }
 
-.service-card {
+.card {
+  position: relative;
   background: var(--white);
   border: 1px solid var(--gray-200);
   border-radius: var(--radius-md);
-  padding: 32px 28px;
-  position: relative;
-  transition: all 0.25s ease;
+  padding: 36px 28px 32px;
   box-shadow: var(--shadow-sm);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
 }
 
-.service-card::before {
+.card::before {
   content: "";
   position: absolute;
   top: 0;
@@ -217,92 +247,107 @@ img {
   border-radius: var(--radius-md) var(--radius-md) 0 0;
 }
 
-.service-card:hover {
+.card:hover {
   transform: translateY(-4px);
   box-shadow: var(--shadow-md);
   border-color: rgba(255, 122, 0, 0.4);
 }
 
-.service-card h2 {
-  font-size: 1.3rem;
-  font-weight: 700;
-  margin-bottom: 12px;
-  color: var(--ink);
-  letter-spacing: -0.01em;
+.card-num {
+  font-size: 0.9rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  color: var(--orange);
+  margin-bottom: 14px;
 }
 
-.service-card p {
+.card h2 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  margin-bottom: 10px;
+}
+
+.card p {
   color: var(--gray-600);
   font-size: 0.98rem;
-  line-height: 1.6;
 }
 
 /* ========================================================
-   Contact Section
+   Contact section
    ======================================================== */
 .contact-section {
   background: var(--white);
   border-top: 1px solid var(--gray-200);
-  padding: 80px 5vw 96px;
-  scroll-margin-top: 60px;
+  padding: 80px var(--page-pad) 96px;
+  scroll-margin-top: 80px;
 }
 
-.contact-inner {
-  max-width: 1160px;
-  margin: 0 auto;
+.contact-header,
+.contact-grid {
+  max-width: var(--max-w);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.contact-header {
+  margin-bottom: 36px;
+}
+
+.contact-header h2 {
+  font-weight: 700;
+  font-size: clamp(2rem, 3.5vw, 2.75rem);
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+
+.contact-header p {
+  margin-top: 10px;
+  color: var(--gray-600);
+  font-size: 1.05rem;
+}
+
+.contact-grid {
   display: grid;
   grid-template-columns: 1.55fr 0.95fr;
   gap: 56px;
   align-items: start;
 }
 
-.contact-section h2 {
-  font-weight: 700;
-  font-size: clamp(2rem, 3.5vw, 2.75rem);
-  letter-spacing: -0.02em;
-  color: var(--ink);
-  line-height: 1.2;
-}
-
-.form-side p {
-  margin-top: 10px;
-  color: var(--gray-600);
-  font-size: 1.05rem;
-}
-
-.form-side iframe {
+/* Form */
+.form-wrapper iframe {
+  display: block;
   width: 100%;
   height: 1180px;
-  margin-top: 28px;
   border: 1px solid var(--gray-200);
   border-radius: var(--radius-md);
   background: var(--white);
   box-shadow: var(--shadow-sm);
 }
 
-.form-side .small {
-  font-size: 0.9rem;
+.form-fallback {
   margin-top: 16px;
+  font-size: 0.9rem;
   color: var(--gray-500);
 }
 
-.form-side .small a {
+.form-fallback a {
   color: var(--orange);
   text-decoration: underline;
   text-underline-offset: 3px;
 }
 
-/* Direct Contact Card */
-.direct {
+/* Direct contact card */
+.direct-info {
+  position: relative;
   background: var(--paper);
   border: 1px solid var(--gray-200);
   border-radius: var(--radius-md);
   padding: 36px 32px;
   box-shadow: var(--shadow-sm);
-  position: relative;
 }
 
-.direct::before {
+.direct-info::before {
   content: "";
   position: absolute;
   top: 0;
@@ -313,44 +358,39 @@ img {
   border-radius: var(--radius-md) var(--radius-md) 0 0;
 }
 
-.direct h2 {
+.direct-info h3 {
   font-size: 1.5rem;
   font-weight: 700;
+  letter-spacing: -0.01em;
   margin-bottom: 20px;
 }
 
-.direct dl {
-  margin-top: 8px;
+.info-list {
+  list-style: none;
+  display: grid;
+  gap: 22px;
 }
 
-.direct dt {
+.info-list .label {
+  display: block;
+  font-size: 0.8rem;
   font-weight: 700;
-  font-size: 0.85rem;
-  text-transform: uppercase;
   letter-spacing: 0.08em;
+  text-transform: uppercase;
   color: var(--gray-500);
-  margin-top: 20px;
+  margin-bottom: 4px;
 }
 
-.direct dt:first-child {
-  margin-top: 0;
-}
-
-.direct dd {
+.info-list a {
   font-size: 1.05rem;
   font-weight: 600;
   color: var(--ink);
-  margin-top: 4px;
+  text-decoration-thickness: 1.5px;
+  text-underline-offset: 3px;
   overflow-wrap: anywhere;
 }
 
-.direct a {
-  color: var(--ink);
-  text-decoration-thickness: 1.5px;
-  text-underline-offset: 3px;
-}
-
-.direct a:hover {
+.info-list a:hover {
   color: var(--orange);
 }
 
@@ -360,12 +400,12 @@ img {
 footer {
   background: #0B111D;
   color: #98A2B3;
-  padding: 36px 5vw;
+  padding: 36px var(--page-pad);
   border-top: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .footer-inner {
-  max-width: 1160px;
+  max-width: var(--max-w);
   margin: 0 auto;
   display: flex;
   align-items: center;
@@ -396,11 +436,29 @@ footer a:hover {
    Responsive
    ======================================================== */
 @media (max-width: 860px) {
-  .contact-inner {
+  .contact-grid {
     grid-template-columns: 1fr;
     gap: 40px;
   }
-  .form-side iframe {
+  .form-wrapper iframe {
     height: 1350px;
+  }
+  .nav ul {
+    gap: 18px;
+  }
+}
+
+@media (max-width: 560px) {
+  .nav {
+    justify-content: center;
+  }
+  .nav ul {
+    justify-content: center;
+  }
+  .services-grid {
+    padding: 48px var(--page-pad);
+  }
+  .contact-section {
+    padding: 56px var(--page-pad) 72px;
   }
 }
