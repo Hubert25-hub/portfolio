@@ -1,21 +1,19 @@
-// Translation Dictionary for English and French
-const translations = {
+// Universal Translation Dictionary for All Pages
+const i18nData = {
   en: {
-    // Navigation
+    // Shared Header & Navigation
     "nav.home": "Home",
     "nav.portfolio": "Portfolio",
     "nav.services": "Services",
     "nav.about": "About me",
     "nav.contact": "Contact",
 
-    // Hero Section
+    // Home Page (index.html)
     "hero.tag": "GRAPHIC DESIGN · BRANDING · WEB",
     "hero.title": "Flyers, logos and websites people notice.",
     "hero.text": "I'm Hubert, founder of Hubcreate. I design event flyers, brand identities and websites for businesses and organizers who want to stand out.",
     "hero.btn1": "See my work",
     "hero.btn2": "Start a project",
-
-    // Services Section
     "services.tag": "SERVICES",
     "services.title": "What I make",
     "services.s1.title": "Flyers and posters",
@@ -25,35 +23,48 @@ const translations = {
     "services.s3.title": "Websites",
     "services.s3.text": "Responsive sites designed in Figma and built with HTML, CSS and JavaScript.",
 
-    // CTA Section
+    // Portfolio Page (Portfolio.html)
+    "portfolio.tag": "PORTFOLIO",
+    "portfolio.title": "Selected Work",
+    "portfolio.text": "A showcase of event flyers, brand identities, and web design projects.",
+
+    // Services Page (service.html)
+    "servicePage.tag": "SERVICES & PRICING",
+    "servicePage.title": "Let's build something great",
+    "servicePage.text": "Explore my design and development services tailored to your brand.",
+
+    // About Me Page (Aboutme.html)
+    "about.tag": "ABOUT ME",
+    "about.title": "Hi, I'm Hubert",
+    "about.text": "Founder of Hubcreate. I help brands and event organizers stand out with powerful designs.",
+
+    // Shared Call To Action (CTA)
     "cta.title": "Have a project in mind?",
     "cta.text": "Fill in the short form and I'll get back to you.",
     "cta.btn": "Tell me about your project",
 
-    // Footer
+    // Shared Footer
     "footer.rights": "© 2026 Hubcreate. All rights reserved.",
 
-    // Image Alt texts
+    // Image Alts
     "alt.img1": "Level Party event flyer with a yellow and orange design",
     "alt.img2": "Well Day event flyer for a community day on 30 July",
     "alt.img3": "Ole Readyaa event flyer with bold yellow lettering"
   },
   fr: {
-    // Navigation
+    // Shared Header & Navigation
     "nav.home": "Accueil",
     "nav.portfolio": "Portfolio",
     "nav.services": "Services",
     "nav.about": "À propos",
     "nav.contact": "Contact",
 
-    // Hero Section
+    // Home Page (index.html)
     "hero.tag": "GRAPHISME · BRANDING · WEB",
     "hero.title": "Des flyers, logos et sites web qui se font remarquer.",
     "hero.text": "Je suis Hubert, fondateur de Hubcreate. Je conçois des flyers d'événements, des identités de marque et des sites web pour les entreprises et organisateurs qui souhaitent se démarquer.",
     "hero.btn1": "Voir mes réalisations",
     "hero.btn2": "Lancer un projet",
-
-    // Services Section
     "services.tag": "SERVICES",
     "services.title": "Ce que je crée",
     "services.s1.title": "Flyers et affiches",
@@ -63,73 +74,95 @@ const translations = {
     "services.s3.title": "Sites web",
     "services.s3.text": "Sites web adaptatifs conçus sur Figma et développés en HTML, CSS et JavaScript.",
 
-    // CTA Section
+    // Portfolio Page (Portfolio.html)
+    "portfolio.tag": "PORTFOLIO",
+    "portfolio.title": "Mes Réalisations",
+    "portfolio.text": "Une sélection de mes récents projets de flyers, logos et création web.",
+
+    // Services Page (service.html)
+    "servicePage.tag": "SERVICES & TARIFS",
+    "servicePage.title": "Donnons vie à vos projets",
+    "servicePage.text": "Découvrez mes prestations de design et développement sur-mesure.",
+
+    // About Me Page (Aboutme.html)
+    "about.tag": "À PROPOS",
+    "about.title": "Bonjour, je suis Hubert",
+    "about.text": "Fondateur de Hubcreate. J'aide les marques et les organisateurs à se démarquer grâce à un design impactant.",
+
+    // Shared Call To Action (CTA)
     "cta.title": "Un projet en tête ?",
     "cta.text": "Remplissez ce court formulaire et je vous recontacterai rapidement.",
     "cta.btn": "Parlez-moi de votre projet",
 
-    // Footer
+    // Shared Footer
     "footer.rights": "© 2026 Hubcreate. Tous droits réservés.",
 
-    // Image Alt texts
+    // Image Alts
     "alt.img1": "Flyer d'événement Level Party avec un design jaune et orange",
     "alt.img2": "Flyer d'événement Well Day pour une journée communautaire",
-    "alt.img3": "Flyer d'événement Ole Readyaa avec un typographie jaune audacieuse"
+    "alt.img3": "Flyer d'événement Ole Readyaa avec une typographie jaune audacieuse"
   }
 };
 
-// Main function to update all elements on the page
-function updatePageTranslations(lang) {
-  const currentLangDict = translations[lang];
-  if (!currentLangDict) return;
+// Applies translation to elements present on the current page
+function applyTranslations(lang) {
+  const dictionary = i18nData[lang];
+  if (!dictionary) return;
 
-  // 1. Translate elements with data-i18n
+  // Translate text elements with data-i18n
   document.querySelectorAll('[data-i18n]').forEach(element => {
     const key = element.getAttribute('data-i18n');
-    if (currentLangDict[key]) {
-      element.textContent = currentLangDict[key];
+    if (dictionary[key]) {
+      element.textContent = dictionary[key];
     }
   });
 
-  // 2. Translate image alt attributes with data-i18n-alt
+  // Translate image alt attributes with data-i18n-alt
   document.querySelectorAll('[data-i18n-alt]').forEach(element => {
     const key = element.getAttribute('data-i18n-alt');
-    if (currentLangDict[key]) {
-      element.setAttribute('alt', currentLangDict[key]);
+    if (dictionary[key]) {
+      element.setAttribute('alt', dictionary[key]);
     }
   });
 
-  // 3. Update the html lang attribute
-  document.documentElement.setAttribute('lang', lang);
+  document.documentElement.lang = lang;
 }
 
-document.addEventListener('DOMContentLoaded', () => {
+// Language Switcher Logic
+function initLangSwitcher() {
   const langBtns = document.querySelectorAll('.lang-btn');
 
   function setLanguage(lang) {
-    // Toggle active styles on EN/FR buttons
+    // Highlight active state on buttons if switcher exists on the page
     langBtns.forEach(btn => {
-      const isActive = btn.getAttribute('data-lang') === lang;
-      btn.classList.toggle('active', isActive);
-      btn.setAttribute('aria-checked', isActive ? 'true' : 'false');
+      const isSelected = btn.getAttribute('data-lang') === lang;
+      btn.classList.toggle('active', isSelected);
+      btn.setAttribute('aria-checked', isSelected ? 'true' : 'false');
     });
 
-    // Save language choice in browser cache
+    // Save choice to browser local storage across pages
     localStorage.setItem('preferred_lang', lang);
 
-    // Apply translations to content
-    updatePageTranslations(lang);
+    // Apply translation to current page elements
+    applyTranslations(lang);
   }
 
-  // Handle language switch clicks
+  // Handle button click event
   langBtns.forEach(btn => {
     btn.addEventListener('click', () => {
-      const selectedLang = btn.getAttribute('data-lang');
-      setLanguage(selectedLang);
+      const targetLang = btn.getAttribute('data-lang');
+      setLanguage(targetLang);
     });
   });
 
-  // Default to saved language or English
-  const initialLang = localStorage.getItem('preferred_lang') || 'en';
-  setLanguage(initialLang);
-});
+  // Automatically read saved preference or default to 'en'
+  const savedLanguage = localStorage.getItem('preferred_lang') || 'en';
+  setLanguage(savedLanguage);
+}
+
+// Safely execute when page DOM is ready
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initLangSwitcher);
+} else {
+  initLangSwitcher();
+}
