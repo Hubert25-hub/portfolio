@@ -1,41 +1,85 @@
-const cards = Array.from(document.querySelectorAll('.card button'));
-const viewer = document.getElementById('viewer');
-const img = document.getElementById('viewerImg');
-const title = document.getElementById('viewerTitle');
-const desc = document.getElementById('viewerDesc');
-const count = document.getElementById('viewerCount');
-let current = 0;
+document.addEventListener('DOMContentLoaded', () => {
+  const dialog = document.getElementById('viewer');
+  if (!dialog) return;
 
-function show(i) {
-  current = (i + cards.length) % cards.length;
-  const button = cards[current];
-  const thumb = button.querySelector('img');
-  img.src = thumb.src;
-  img.alt = thumb.alt;
-  title.textContent = button.dataset.title;
-  desc.textContent = button.dataset.description;
-  count.textContent = (current + 1) + ' of ' + cards.length;
-}
+  const img = document.getElementById('viewerImg');
+  const title = document.getElementById('viewerTitle');
+  const desc = document.getElementById('viewerDesc');
+  const count = document.getElementById('viewerCount');
+  const closeBtn = document.getElementById('viewerClose');
+  const prevBtn = document.getElementById('viewerPrev');
+  const nextBtn = document.getElementById('viewerNext');
+  const buttons = Array.from(document.querySelectorAll('.gallery .card button'));
 
-cards.forEach((button, i) => {
-  button.addEventListener('click', () => {
-    show(i);
-    viewer.showModal();
+  let currentIndex = 0;
+
+  function updateLightbox(index) {
+    currentIndex = index;
+    const btn = buttons[currentIndex];
+    const cardImg = btn.querySelector('img');
+    const titleEl = btn.querySelector('.title');
+
+    img.src = cardImg.src;
+    img.alt = cardImg.alt;
+    
+    // Get title string
+    title.textContent = titleEl ? titleEl.textContent : btn.dataset.title;
+    
+    // Get translated description dynamically
+    const currentLang = localStorage.getItem('preferred_lang') || 'en';
+    const descKey = btn.getAttribute('data-i18n-desc');
+    
+    if (descKey && typeof i18nData !== 'undefined' && i18nData[currentLang] && i18nData[currentLang][descKey]) {
+      desc.textContent = i18nData[currentLang][descKey];
+    } else {
+      desc.textContent = btn.dataset.description || '';
+    }
+
+    count.textContent = `${currentIndex + 1} / ${buttons.length}`;
+  }
+
+  buttons.forEach((btn, index) => {
+    btn.addEventListener('click', () => {
+      updateLightbox(index);
+      if (typeof dialog.showModal === 'function') {
+        dialog.showModal();
+      } else {
+        dialog.setAttribute('open', 'true');
+      }
+    });
   });
-});
 
-document.getElementById('viewerPrev').addEventListener('click', () => show(current - 1));
-document.getElementById('viewerNext').addEventListener('click', () => show(current + 1));
-document.getElementById('viewerClose').addEventListener('click', () => viewer.close());
+  if (closeBtn) {
+    closeBtn.addEventListener('click', () => {
+      if (typeof dialog.close === 'function') {
+        dialog.close();
+      } else {
+        dialog.removeAttribute('open');
+      }
+    });
+  }
 
-// Click outside the box to close
-viewer.addEventListener('click', (e) => {
-  if (e.target === viewer) viewer.close();
-});
+  if (prevBtn) {
+    prevBtn.addEventListener('click', () => {
+      const newIndex = (currentIndex - 1 + buttons.length) % buttons.length;
+      updateLightbox(newIndex);
+    });
+  }
 
-// Arrow keys move between designs (Esc closes by default)
-document.addEventListener('keydown', (e) => {
-  if (!viewer.open) return;
-  if (e.key === 'ArrowLeft') show(current - 1);
-  if (e.key === 'ArrowRight') show(current + 1);
+  if (nextBtn) {
+    nextBtn.addEventListener('click', () => {
+      const newIndex = (currentIndex + 1) % buttons.length;
+      updateLightbox(newIndex);
+    });
+  }
+
+  dialog.addEventListener('click', (e) => {
+    if (e.target === dialog) {
+      if (typeof dialog.close === 'function') {
+        dialog.close();
+      } else {
+        dialog.removeAttribute('open');
+      }
+    }
+  });
 });
