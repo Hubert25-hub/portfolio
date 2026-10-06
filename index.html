@@ -23,7 +23,12 @@
       <li><a href="service.html" data-i18n="nav.services">Services</a></li>
       <li><a href="Aboutme.html" data-i18n="nav.about">About me</a></li>
       <li><a href="service.html#contact" class="contact" data-i18n="nav.contact">Contact</a></li>
-      <li><button type="button" class="lang-toggle" id="langToggle" aria-label="Switch language / Changer de langue">FR</button></li>
+      <li>
+        <div class="lang-switcher" role="radiogroup" aria-label="Language selector">
+          <button type="button" class="lang-btn active" data-lang="en" aria-checked="true">EN</button>
+          <button type="button" class="lang-btn" data-lang="fr" aria-checked="false">FR</button>
+        </div>
+      </li>
     </ul>
   </nav>
 </header>
