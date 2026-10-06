@@ -57,7 +57,8 @@ a {
   transition: all 0.2s ease;
 }
 
-a:focus-visible {
+a:focus-visible,
+button:focus-visible {
   outline: 3px solid var(--orange);
   outline-offset: 3px;
 }
@@ -142,6 +143,44 @@ img {
   border-color: transparent;
   transform: translateY(-1px);
   box-shadow: var(--shadow-glow);
+}
+
+/* ========================================================
+   EN / FR language switcher (pill style, same as home page)
+   ======================================================== */
+.lang-switcher {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  padding: 4px;
+  background: var(--gray-100);
+  border: 1px solid var(--gray-200);
+  border-radius: var(--radius-pill);
+}
+
+.lang-btn {
+  appearance: none;
+  border: 0;
+  background: transparent;
+  font-family: inherit;
+  font-size: 0.85rem;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: 0.02em;
+  color: var(--gray-500);
+  padding: 8px 14px;
+  border-radius: var(--radius-pill);
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.lang-btn:hover {
+  color: var(--ink);
+}
+
+.lang-btn.active {
+  background: var(--ink);
+  color: var(--white);
 }
 
 /* ========================================================
@@ -328,6 +367,7 @@ img {
   width: 36px;
   height: 36px;
   flex: none;
+  object-fit: contain;
 }
 
 /* ========================================================
