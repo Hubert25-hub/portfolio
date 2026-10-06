@@ -1,0 +1,43 @@
+/* ========================================================
+   EN / FR language switcher (pill style)
+   Shared file: link it on every page that has the toggle
+   ======================================================== */
+.lang-switcher {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  padding: 4px;
+  background: #F2F4F7;
+  border: 1px solid #E4E7EC;
+  border-radius: 999px;
+}
+
+.lang-btn {
+  appearance: none;
+  border: 0;
+  background: transparent;
+  font-family: inherit;
+  font-size: 0.85rem;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: 0.02em;
+  color: #667085;
+  padding: 8px 14px;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.lang-btn:hover {
+  color: #101828;
+}
+
+.lang-btn.active {
+  background: #101828;
+  color: #FFFFFF;
+}
+
+.lang-btn:focus-visible {
+  outline: 3px solid #FF7A00;
+  outline-offset: 2px;
+}
