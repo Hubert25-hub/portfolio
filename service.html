@@ -3,13 +3,14 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Services | Hubcreate – Hubert, Graphic Designer &amp; Web Developer</title>
-<meta name="description" content="Flyers and posters, logos and branding, UI/UX design and websites by Hubert at Hubcreate. Tell me about your project.">
+<title>Services &amp; Contact | Hubcreate – Hubert, Graphic Designer &amp; Web Developer</title>
+<meta name="description" content="Flyers, logos, branding, UI/UX design and websites. Get in touch with Hubert at Hubcreate to start your project.">
 <link rel="icon" href="image/hubcreate_bluenavy.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link href="css/service.css" rel="stylesheet">
+<script src="js/lang.js" defer></script>
 </head>
 <body>
 
@@ -17,63 +18,81 @@
   <a href="index.html" class="logo-link"><img src="image/hubcreate_horizontal_yellow.svg" alt="Hubcreate logo"></a>
   <nav>
     <ul>
-      <li><a href="index.html">Home</a></li>
-      <li><a href="Portfolio.html">Portfolio</a></li>
-      <li><a href="service.html" aria-current="page">Services</a></li>
-      <li><a href="Aboutme.html">About me</a></li>
-      <li><a href="#contact" class="contact">Contact</a></li>
+      <li><a href="index.html" data-i18n="nav.home">Home</a></li>
+      <li><a href="Portfolio.html" data-i18n="nav.portfolio">Portfolio</a></li>
+      <li><a href="service.html" aria-current="page" data-i18n="nav.services">Services</a></li>
+      <li><a href="Aboutme.html" data-i18n="nav.about">About me</a></li>
+      <li><a href="service.html#contact" class="contact" data-i18n="nav.contact">Contact</a></li>
+      <li>
+        <div class="lang-switcher" role="radiogroup" aria-label="Language selector">
+          <button type="button" class="lang-btn active" data-lang="en" aria-checked="true">EN</button>
+          <button type="button" class="lang-btn" data-lang="fr" aria-checked="false">FR</button>
+        </div>
+      </li>
     </ul>
   </nav>
 </header>
 
 <main>
   <section class="banner">
-    <span class="banner-tag">SERVICES</span>
-    <h1>Creative &amp; Web Services</h1>
-    <p>Design and modern web development for businesses, brands, and event organizers.</p>
+    <span class="banner-tag" data-i18n="servicesPage.tag">SERVICES</span>
+    <h1 data-i18n="servicesPage.title">Creative &amp; Web Services</h1>
+    <p data-i18n="servicesPage.subtitle">Design and modern web development for businesses, brands, and event organizers.</p>
   </section>
 
-  <section class="services">
-    <div class="service-list">
-      <div class="service-card">
-        <h2>Flyers and posters</h2>
-        <p>Event flyers, posters and social media visuals designed in Photoshop and Illustrator.</p>
-      </div>
-      <div class="service-card">
-        <h2>Logos and branding</h2>
-        <p>Logos, color palettes and typography systems that make your brand unmistakable.</p>
-      </div>
-      <div class="service-card">
-        <h2>UI/UX design</h2>
-        <p>Intuitive screens and interactive prototypes designed in Figma before development begins.</p>
-      </div>
-      <div class="service-card">
-        <h2>Websites</h2>
-        <p>Responsive, lightning-fast websites built with clean HTML, CSS and JavaScript.</p>
-      </div>
+  <section class="services-grid">
+    <div class="card">
+      <div class="card-num">01</div>
+      <h2 data-i18n="services.s1.title">Flyers and posters</h2>
+      <p data-i18n="servicesPage.s1.text">Event flyers, posters and social media visuals designed in Photoshop and Illustrator.</p>
+    </div>
+    <div class="card">
+      <div class="card-num">02</div>
+      <h2 data-i18n="services.s2.title">Logos and branding</h2>
+      <p data-i18n="servicesPage.s2.text">Logos, color palettes and typography systems that make your brand unmistakable.</p>
+    </div>
+    <div class="card">
+      <div class="card-num">03</div>
+      <h2 data-i18n="servicesPage.s3.title">UI/UX design</h2>
+      <p data-i18n="servicesPage.s3.text">Intuitive screens and interactive prototypes designed in Figma before development begins.</p>
+    </div>
+    <div class="card">
+      <div class="card-num">04</div>
+      <h2 data-i18n="services.s3.title">Websites</h2>
+      <p data-i18n="servicesPage.s4.text">Responsive, lightning-fast websites built with clean HTML, CSS and JavaScript.</p>
     </div>
   </section>
 
   <section class="contact-section" id="contact">
-    <div class="contact-inner">
-      <div class="form-side">
-        <span class="section-tag">GET IN TOUCH</span>
-        <h2>Tell me about your project</h2>
-        <p>Fill in the short form below and I'll get back to you promptly.</p>
-        <iframe title="Project request form" src="https://docs.google.com/forms/d/e/1FAIpQLSeNylN7hXS9kgj3HfR5c4krbwQLY9eJDcu5JG6xoq3_Q4I10A/viewform?embedded=true" loading="lazy">Loading form...</iframe>
-        <p class="small"><a href="https://docs.google.com/forms/d/e/1FAIpQLSeNylN7hXS9kgj3HfR5c4krbwQLY9eJDcu5JG6xoq3_Q4I10A/viewform" target="_blank" rel="noopener">Form not showing? Open it in a new tab.</a></p>
+    <div class="contact-header">
+      <span class="section-tag" data-i18n="contact.tag">GET IN TOUCH</span>
+      <h2 data-i18n="contact.title">Tell me about your project</h2>
+      <p data-i18n="contact.subtitle">Fill in the short form below and I'll get back to you promptly.</p>
+    </div>
+
+    <div class="contact-grid">
+      <div class="form-wrapper">
+        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfD_YOUR_FORM_ID_HERE/viewform?embedded=true" width="100%" height="700" frameborder="0" marginheight="0" marginwidth="0" title="Contact form">Loading…</iframe>
+        <p class="form-fallback"><a href="https://docs.google.com/forms/d/e/1FAIpQLSfD_YOUR_FORM_ID_HERE/viewform" target="_blank" rel="noopener" data-i18n="contact.formFallback">Form not showing? Open it in a new tab.</a></p>
       </div>
-      <aside class="direct">
-        <h2>Reach me directly</h2>
-        <dl>
-          <dt>Email</dt>
-          <dd><a href="mailto:hubertdjobokou3@gmail.com">hubertdjobokou3@gmail.com</a></dd>
-          <dt>Phone</dt>
-          <dd><a href="tel:7789521823">778 952 1823</a></dd>
-          <dt>Facebook</dt>
-          <dd><a href="https://www.facebook.com/profile.php?id=100072044043817" target="_blank" rel="noopener">Message me on Facebook</a></dd>
-        </dl>
-      </aside>
+
+      <div class="direct-info">
+        <h3 data-i18n="contact.directTitle">Reach me directly</h3>
+        <ul class="info-list">
+          <li>
+            <span class="label" data-i18n="contact.email">Email</span>
+            <a href="mailto:contact@hubcreate.com">contact@hubcreate.com</a>
+          </li>
+          <li>
+            <span class="label" data-i18n="contact.phone">Phone</span>
+            <a href="tel:+1234567890">+1 (234) 567-890</a>
+          </li>
+          <li>
+            <span class="label" data-i18n="contact.facebook">Facebook</span>
+            <a href="https://www.facebook.com/profile.php?id=100072044043817" target="_blank" rel="noopener" data-i18n="contact.facebookBtn">Message me on Facebook</a>
+          </li>
+        </ul>
+      </div>
     </div>
   </section>
 </main>
@@ -81,7 +100,7 @@
 <footer>
   <div class="footer-inner">
     <img class="footer-logo" src="image/hubcreate_whitehorizontale.svg" alt="Hubcreate logo">
-    <span>&copy; 2026 Hubcreate. All rights reserved.</span>
+    <span data-i18n="footer.rights">&copy; 2026 Hubcreate. All rights reserved.</span>
     <a href="https://www.facebook.com/profile.php?id=100072044043817" target="_blank" rel="noopener">Facebook</a>
   </div>
 </footer>
