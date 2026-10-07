@@ -21,6 +21,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
     img.src = cardImg.src;
     img.alt = cardImg.alt;
+
+    // Light background for dark logos and mockups, dark for the rest
+    const card = btn.closest('.card');
+    img.classList.toggle(
+      'lb-light',
+      card.classList.contains('card--logo-light') || card.classList.contains('card--mockup')
+    );
     
     // Get title string
     title.textContent = titleEl ? titleEl.textContent : btn.dataset.title;
