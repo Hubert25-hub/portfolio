@@ -203,6 +203,11 @@
     }
 
     function setOpen(open) {
+      if (open) {
+        panel.removeAttribute('hidden');
+      } else {
+        panel.setAttribute('hidden', '');
+      }
       panel.hidden = !open;
       launcher.classList.toggle('is-open', open);
       launcher.setAttribute('aria-expanded', open ? 'true' : 'false');
@@ -293,11 +298,14 @@
     }
 
     // ----- Events -----
-    launcher.addEventListener('click', function () {
+    launcher.addEventListener('click', function (e) {
+      e.preventDefault();
       setOpen(panel.hidden);
     });
 
-    closeBtn.addEventListener('click', function () {
+    closeBtn.addEventListener('click', function (e) {
+      e.preventDefault();
+      e.stopPropagation();
       setOpen(false);
       launcher.focus();
     });
