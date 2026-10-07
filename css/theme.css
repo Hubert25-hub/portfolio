@@ -1,0 +1,130 @@
+/* ========================================================
+   Hubcreate light / dark theme
+   Load AFTER the page's own CSS file.
+   ======================================================== */
+
+:root {
+  color-scheme: light;
+}
+
+/* ---------- Dark palette: same variable names, new values ---------- */
+:root[data-theme="dark"] {
+  color-scheme: dark;
+
+  --ink: #F2F4F7;        /* main text becomes light */
+  --paper: #0B111D;      /* page background */
+  --white: #101828;      /* surfaces: nav, cards, viewer */
+  --gray-50: #0F1623;
+  --gray-100: #1D2939;
+  --gray-200: #344054;
+  --gray-500: #98A2B3;
+  --gray-600: #D0D5DD;
+
+  --shadow-sm: 0 2px 6px rgba(0, 0, 0, 0.35);
+  --shadow-card: 0 10px 25px rgba(0, 0, 0, 0.35);
+  --shadow-hover: 0 16px 36px rgba(0, 0, 0, 0.55);
+}
+
+body,
+.nav {
+  transition: background-color 0.25s ease, color 0.25s ease, border-color 0.25s ease;
+}
+
+/* ---------- Toggle button ---------- */
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  border-radius: 999px;
+  border: 1px solid var(--gray-200);
+  background: var(--white);
+  color: var(--ink);
+  cursor: pointer;
+  transition: border-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+
+.theme-toggle:hover {
+  border-color: var(--orange);
+  color: var(--orange);
+  transform: translateY(-1px);
+}
+
+.theme-toggle svg {
+  width: 20px;
+  height: 20px;
+}
+
+.theme-toggle .icon-sun {
+  display: none;
+}
+
+:root[data-theme="dark"] .theme-toggle .icon-sun {
+  display: block;
+}
+
+:root[data-theme="dark"] .theme-toggle .icon-moon {
+  display: none;
+}
+
+.theme-toggle--floating {
+  position: fixed;
+  right: 16px;
+  bottom: 16px;
+  z-index: 200;
+  box-shadow: var(--shadow-card);
+}
+
+/* ---------- Dark-mode fixes for spots that used fixed colors ---------- */
+
+/* Banner gradient */
+:root[data-theme="dark"] .banner {
+  background: linear-gradient(180deg, #101828 0%, var(--paper) 100%);
+}
+
+/* Navigation "Contact" pill */
+:root[data-theme="dark"] .nav .contact {
+  background: var(--yellow);
+  color: #101828;
+}
+
+:root[data-theme="dark"] .nav .contact:hover {
+  background: var(--orange);
+  color: #FFFFFF;
+}
+
+/* Portfolio: logo tile and viewer backgrounds */
+:root[data-theme="dark"] .card--logo-dark img {
+  background: #101828;
+}
+
+:root[data-theme="dark"] .lb img {
+  background: #0B111D;
+}
+
+:root[data-theme="dark"] .lb img.lb-light {
+  background: var(--gray-100);
+}
+
+/* Call to action block stays dark, with light text */
+:root[data-theme="dark"] .cta {
+  background: #101828;
+  color: #FFFFFF;
+  border-top: 1px solid var(--gray-200);
+}
+
+:root[data-theme="dark"] .cta h2 {
+  color: #FFFFFF;
+}
+
+:root[data-theme="dark"] .cta p {
+  color: #D0D5DD;
+}
+
+/* Gradient button keeps white text */
+:root[data-theme="dark"] .btn-gradient,
+:root[data-theme="dark"] .btn-gradient:hover {
+  color: #FFFFFF;
+}
