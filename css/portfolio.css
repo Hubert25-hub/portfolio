@@ -244,6 +244,25 @@ img {
   margin-top: 2px;
 }
 
+/* Logos and mockups: show the whole image, no cropping */
+.card--logo img {
+  object-fit: contain;
+  padding: 14%;
+}
+
+.card--logo-light img {
+  background: var(--gray-100);
+}
+
+.card--logo-dark img {
+  background: var(--ink);
+}
+
+.card--mockup img {
+  object-fit: contain;
+  background: var(--gray-100);
+}
+
 /* ========================================================
    Modal Lightbox Viewer
    ======================================================== */
@@ -277,6 +296,11 @@ dialog::backdrop {
   max-height: 90vh;
   object-fit: contain;
   background: var(--ink);
+}
+
+/* Light background in the viewer for dark logos and mockups */
+.lb img.lb-light {
+  background: var(--gray-100);
 }
 
 .lb-text {
