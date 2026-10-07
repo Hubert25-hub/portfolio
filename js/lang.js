@@ -49,6 +49,16 @@ const i18nData = {
     "portfolio.item5Desc": "Honoring our roots and showcasing the art, music and style that define us.",
     "portfolio.item6Title": "Nightlife flyer",
     "portfolio.item6Desc": "The electrifying energy of nightlife in dynamic colors and captivating silhouettes.",
+    "portfolio.metaLogo": "Logo",
+    "portfolio.metaMockup": "Mockup",
+    "portfolio.item7Title": "Hubcreate primary logo",
+    "portfolio.item7Desc": "The primary Hubcreate logo: a C ring around the H emblem, with the hubcreate wordmark in Manrope ExtraBold.",
+    "portfolio.item8Title": "Hubcreate logo, yellow",
+    "portfolio.item8Desc": "The yellow version of the Hubcreate logo, made for dark backgrounds.",
+    "portfolio.item9Title": "AYEGROUPE mockup",
+    "portfolio.item9Desc": "The AYEGROUPE logo applied in a brand mockup.",
+    "portfolio.item10Title": "Hubcreate mockup",
+    "portfolio.item10Desc": "The Hubcreate logo applied in a brand mockup.",
     "portfolio.ctaTitle": "Want a design like these?",
     "viewer.prev": "Previous",
     "viewer.next": "Next",
@@ -101,7 +111,11 @@ const i18nData = {
     // Image Alt Texts
     "alt.img1": "Level Party event flyer with a yellow and orange design",
     "alt.img2": "Well Day event flyer for a community day on 30 July",
-    "alt.img3": "Ole Readyaa event flyer with bold yellow lettering"
+    "alt.img3": "Ole Readyaa event flyer with bold yellow lettering",
+    "alt.img7": "Hubcreate primary logo",
+    "alt.img8": "Hubcreate logo, yellow version",
+    "alt.img9": "AYEGROUPE brand mockup",
+    "alt.img10": "Hubcreate brand mockup"
   },
   fr: {
     // Navigation (Utilisé sur toutes les pages)
@@ -153,6 +167,16 @@ const i18nData = {
     "portfolio.item5Desc": "Honorer nos racines en mettant en valeur l'art, la musique et le style qui nous définissent.",
     "portfolio.item6Title": "Flyer Nightlife",
     "portfolio.item6Desc": "L'énergie électrisante de la vie nocturne mise en valeur par des couleurs dynamiques et des silhouettes captivantes.",
+    "portfolio.metaLogo": "Logo",
+    "portfolio.metaMockup": "Maquette",
+    "portfolio.item7Title": "Logo principal Hubcreate",
+    "portfolio.item7Desc": "Le logo principal de Hubcreate : un anneau en C autour du H, avec le mot-symbole hubcreate en Manrope ExtraBold.",
+    "portfolio.item8Title": "Logo Hubcreate, version jaune",
+    "portfolio.item8Desc": "La version jaune du logo Hubcreate, conçue pour les fonds sombres.",
+    "portfolio.item9Title": "Maquette AYEGROUPE",
+    "portfolio.item9Desc": "Le logo AYEGROUPE appliqué dans une maquette de marque.",
+    "portfolio.item10Title": "Maquette Hubcreate",
+    "portfolio.item10Desc": "Le logo Hubcreate appliqué dans une maquette de marque.",
     "portfolio.ctaTitle": "Vous souhaitez un design similaire ?",
     "viewer.prev": "Précédent",
     "viewer.next": "Suivant",
@@ -205,7 +229,11 @@ const i18nData = {
     // Textes alternatifs d'images
     "alt.img1": "Flyer d'événement Level Party avec un design jaune et orange",
     "alt.img2": "Flyer d'événement Well Day pour une journée communautaire",
-    "alt.img3": "Flyer d'événement Ole Readyaa avec une typographie jaune audacieuse"
+    "alt.img3": "Flyer d'événement Ole Readyaa avec une typographie jaune audacieuse",
+    "alt.img7": "Logo principal Hubcreate",
+    "alt.img8": "Logo Hubcreate, version jaune",
+    "alt.img9": "Maquette de marque AYEGROUPE",
+    "alt.img10": "Maquette de marque Hubcreate"
   }
 };
 
