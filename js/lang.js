@@ -196,7 +196,7 @@ const i18nData = {
     "process.s4.text": "Livraison, mise en ligne et suivi après le lancement.",
     "pricing.tag": "TARIFS",
     "pricing.title": "Des forfaits simples et clairs",
-    "pricing.note": "Prix de lancement — nouveau client ? Profite de 10% de remise en plus.",
+    "pricing.note": "Prix de lancement : nouveau client ? Profite de 10% de remise en plus.",
     "pricing.badge": "Populaire",
     "pricing.cta": "Choisir",
     "pricing.s1.name": "Starter",
