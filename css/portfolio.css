@@ -500,3 +500,10 @@ footer a:hover {
     max-height: 55vh;
   }
 }
+
+/* Website project cards (added 2026-10-10) */
+.card .website-link { display: block; width: 100%; text-decoration: none; color: inherit; }
+.card .website-link img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; object-position: top; border-radius: var(--radius-md); border: 1px solid var(--gray-200); box-shadow: var(--shadow-card); transition: transform 0.25s ease, box-shadow 0.25s ease; background: var(--gray-100); }
+.card .website-link:hover img { transform: translateY(-6px); box-shadow: var(--shadow-hover); border-color: rgba(255, 122, 0, 0.4); }
+.card .website-link:hover .title { color: var(--orange); }
+.visit-link { display: inline-block; margin-top: 8px; font-weight: 700; font-size: .92rem; color: var(--orange); }
