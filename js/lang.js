@@ -21,6 +21,8 @@ const i18nData = {
     "services.s2.text": "Logos, colors and lettering that make your brand easy to recognize.",
     "services.s3.title": "Websites",
     "services.s3.text": "Responsive sites designed in Figma and built with HTML, CSS and JavaScript.",
+    "promo.item1": "🔥 10% off all projects for new clients",
+    "promo.item2": "💥 20% off the full package: logo + branding + website + domain name",
 
     // Services Page (service.html)
     "servicesPage.tag": "SERVICES",
@@ -139,6 +141,8 @@ const i18nData = {
     "services.s2.text": "Logos, palettes de couleurs et typographies qui rendent votre marque rapidement reconnaissable.",
     "services.s3.title": "Sites web",
     "services.s3.text": "Sites web adaptatifs conçus sur Figma et développés en HTML, CSS et JavaScript.",
+    "promo.item1": "🔥 10% de remise sur tous les projets pour les nouveaux clients",
+    "promo.item2": "💥 20% de réduction sur l'offre complète : logo + branding + site web + nom de domaine",
 
     // Page Services (service.html)
     "servicesPage.tag": "SERVICES",
