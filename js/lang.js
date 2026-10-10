@@ -74,9 +74,9 @@ const i18nData = {
     "portfolio.subtitle": "Event flyers, brand identities, posters and websites I've designed. Tap any piece to see it larger.",
 
     "portfolio.web1Title": "Lux Picssage Massage",
-    "portfolio.web1Meta": "Website — design & build",
+    "portfolio.web1Meta": "Website: design & build",
     "portfolio.web2Title": "Hubcreate.dev",
-    "portfolio.web2Meta": "Website — design & build",
+    "portfolio.web2Meta": "Website: design & build",
     "portfolio.visit": "Visit site ↗",
     "alt.web1": "Lux Picssage Massage website",
     "alt.web2": "Hubcreate.dev website",
@@ -236,9 +236,9 @@ const i18nData = {
     "portfolio.subtitle": "Flyers, identités visuelles, affiches et sites web que j'ai réalisés. Touchez une pièce pour la voir en grand.",
 
     "portfolio.web1Title": "Lux Picssage Massage",
-    "portfolio.web1Meta": "Site web — design & réalisation",
+    "portfolio.web1Meta": "Site web : design & réalisation",
     "portfolio.web2Title": "Hubcreate.dev",
-    "portfolio.web2Meta": "Site web — design & réalisation",
+    "portfolio.web2Meta": "Site web : design & réalisation",
     "portfolio.visit": "Voir le site ↗",
     "alt.web1": "Site web Lux Picssage Massage",
     "alt.web2": "Site web Hubcreate.dev",
