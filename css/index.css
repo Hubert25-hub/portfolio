@@ -535,3 +535,33 @@ footer a:hover {
   .hero-tag, .hero h1, .hero p, .hero .buttons,
   .hero::before, .collage .c1, .collage .c2, .collage .c3 { animation: none; }
 }
+
+/* ========================================================
+   Promo marquee (added 2026-10-10)
+   ======================================================== */
+.promo-marquee {
+  overflow: hidden;
+  background: linear-gradient(135deg, #FFB300 0%, #FF7A00 100%);
+  color: #101828;
+  padding: 14px 0;
+  white-space: nowrap;
+  border-block: 3px solid #101828;
+}
+.promo-track {
+  display: inline-flex;
+  width: max-content;
+  animation: promoScroll 28s linear infinite;
+  font-family: Manrope, sans-serif;
+  font-weight: 800;
+  font-size: 1.05rem;
+  letter-spacing: .01em;
+}
+.promo-track span { padding: 0 22px; }
+.promo-marquee:hover .promo-track { animation-play-state: paused; }
+@keyframes promoScroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .promo-track { animation: none; }
+}
