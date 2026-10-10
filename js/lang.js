@@ -71,7 +71,15 @@ const i18nData = {
     // Portfolio Page (Portfolio.html)
     "portfolio.tag": "PORTFOLIO",
     "portfolio.title": "Selected work",
-    "portfolio.subtitle": "Event flyers, brand identities and posters I've designed. Tap any piece to see it larger.",
+    "portfolio.subtitle": "Event flyers, brand identities, posters and websites I've designed. Tap any piece to see it larger.",
+
+    "portfolio.web1Title": "Lux Picssage Massage",
+    "portfolio.web1Meta": "Website — design & build",
+    "portfolio.web2Title": "Hubcreate.dev",
+    "portfolio.web2Meta": "Website — design & build",
+    "portfolio.visit": "Visit site ↗",
+    "alt.web1": "Lux Picssage Massage website",
+    "alt.web2": "Hubcreate.dev website",
     "portfolio.metaFlyer": "Event flyer",
     "portfolio.item1Title": "Level Party",
     "portfolio.item1Desc": "A vibrant, colorful flyer for a festive night for the LGBTQ+ community, with a monochrome dress code and an Amapiano theme.",
@@ -225,7 +233,15 @@ const i18nData = {
     // Page Portfolio (Portfolio.html)
     "portfolio.tag": "PORTFOLIO",
     "portfolio.title": "Sélection de travaux",
-    "portfolio.subtitle": "Flyers événementiels, identités de marque et affiches. Cliquez sur une création pour l'agrandir.",
+    "portfolio.subtitle": "Flyers, identités visuelles, affiches et sites web que j'ai réalisés. Touchez une pièce pour la voir en grand.",
+
+    "portfolio.web1Title": "Lux Picssage Massage",
+    "portfolio.web1Meta": "Site web — design & réalisation",
+    "portfolio.web2Title": "Hubcreate.dev",
+    "portfolio.web2Meta": "Site web — design & réalisation",
+    "portfolio.visit": "Voir le site ↗",
+    "alt.web1": "Site web Lux Picssage Massage",
+    "alt.web2": "Site web Hubcreate.dev",
     "portfolio.metaFlyer": "Flyer événementiel",
     "portfolio.item1Title": "Level Party",
     "portfolio.item1Desc": "Un flyer dynamique et coloré pour une soirée festive de la communauté LGBTQ+, avec un code vestimentaire monochrome et un thème Amapiano.",
