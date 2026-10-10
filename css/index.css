@@ -319,20 +319,34 @@ img {
 
 .collage .c1 {
   left: 0;
-  top: 6%;
-  transform: rotate(-5deg);
+  top: 12%;
+  transform: rotate(-6deg);
+  z-index: 1;
 }
 
 .collage .c2 {
   right: 0;
   top: 0;
-  transform: rotate(4deg);
+  transform: rotate(5deg);
+  z-index: 2;
 }
 
 .collage .c3 {
-  left: 23%;
+  left: 0;
   bottom: 0;
-  transform: rotate(-1deg);
+  transform: rotate(-2deg);
+  z-index: 3;
+}
+
+.collage .c-web {
+  width: 68%;
+  aspect-ratio: 16 / 10;
+}
+
+.collage .c4 {
+  right: 0;
+  bottom: 8%;
+  transform: rotate(3deg);
   z-index: 2;
 }
 
