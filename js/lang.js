@@ -115,9 +115,7 @@ const i18nData = {
     "alt.img7": "AYEGROUPE logo",
     "alt.img8": "Hubcreate emblem on an orange gradient icon",
     "alt.img9": "AYEGROUPE brand mockup",
-    "alt.img10": "Hubcreate brand mockup",
-    "alt.emblem": "Hubcreate emblem on an orange gradient icon",
-    "alt.luxweb": "Lux Picssage Massage website home page"
+    "alt.img10": "Hubcreate brand mockup"
   },
   fr: {
     // Navigation (Utilisé sur toutes les pages)
@@ -235,9 +233,7 @@ const i18nData = {
     "alt.img7": "Logo AYEGROUPE",
     "alt.img8": "Emblème Hubcreate sur une icône dégradée orange",
     "alt.img9": "Maquette de marque AYEGROUPE",
-    "alt.img10": "Maquette de marque Hubcreate",
-    "alt.emblem": "Emblème Hubcreate sur une icône dégradée orange",
-    "alt.luxweb": "Page d'accueil du site web Lux Picssage Massage"
+    "alt.img10": "Maquette de marque Hubcreate"
   }
 };
 
