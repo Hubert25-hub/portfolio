@@ -34,7 +34,7 @@ const i18nData = {
     "process.s4.text": "Delivery, launch and follow-up after go-live.",
     "pricing.tag": "PRICING",
     "pricing.title": "Simple, clear packages",
-    "pricing.note": "Launch pricing — new client? Get an extra 10% off.",
+    "pricing.note": "Launch pricing: new client? Get an extra 10% off.",
     "pricing.badge": "Popular",
     "pricing.cta": "Choose",
     "pricing.s1.name": "Starter",
