@@ -499,3 +499,39 @@ footer a:hover {
     max-width: 380px;
   }
 }
+
+/* ========================================================
+   Hero entrance + ambient motion (added 2026-10-10)
+   ======================================================== */
+@keyframes heroFadeUp {
+  from { opacity: 0; translate: 0 22px; }
+  to   { opacity: 1; translate: 0 0; }
+}
+@keyframes collagePop {
+  from { opacity: 0; scale: .72; }
+  to   { opacity: 1; scale: 1; }
+}
+@keyframes collageDrift {
+  0%, 100% { translate: 0 0; }
+  50%      { translate: 0 -10px; }
+}
+@keyframes heroGlow {
+  0%, 100% { opacity: 1; }
+  50%      { opacity: .55; }
+}
+.hero-tag      { animation: heroFadeUp .7s ease both; }
+.hero h1       { animation: heroFadeUp .7s .12s ease both; }
+.hero p        { animation: heroFadeUp .7s .24s ease both; }
+.hero .buttons { animation: heroFadeUp .7s .36s ease both; }
+.hero::before  { animation: heroGlow 9s ease-in-out infinite; }
+.collage .c1 { animation: collagePop .8s .30s cubic-bezier(.2,.7,.3,1.25) both, collageDrift 7s ease-in-out 1.6s infinite; }
+.collage .c2 { animation: collagePop .8s .45s cubic-bezier(.2,.7,.3,1.25) both, collageDrift 8.5s ease-in-out 1.9s infinite reverse; }
+.collage .c3 { animation: collagePop .8s .60s cubic-bezier(.2,.7,.3,1.25) both, collageDrift 10s ease-in-out 2.2s infinite; }
+/* scroll-driven rotation: JS drives the `rotate` property */
+.collage .c1 { transform: none; rotate: -5deg; }
+.collage .c2 { transform: none; rotate: 4deg; }
+.collage .c3 { transform: none; rotate: -1deg; }
+@media (prefers-reduced-motion: reduce) {
+  .hero-tag, .hero h1, .hero p, .hero .buttons,
+  .hero::before, .collage .c1, .collage .c2, .collage .c3 { animation: none; }
+}
