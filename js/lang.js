@@ -165,7 +165,13 @@ const i18nData = {
     "portfolio.item12Title": "Xtravent",
     "portfolio.item12Desc": "Complete logo system for Xtravent: ticket-stub emblem, gradient wordmark and app icon.",
     "alt.img11": "Cyn'cy Store logo",
-    "alt.img12": "Xtravent logo system"
+    "alt.img12": "Xtravent logo system",
+    "portfolio.item13Title": "Restaurant flyer I",
+    "portfolio.item13Desc": "Promotional visual designed for a restaurant.",
+    "portfolio.item14Title": "Restaurant flyer II",
+    "portfolio.item14Desc": "Promotional visual designed for a restaurant.",
+    "alt.img13": "Restaurant promotional visual",
+    "alt.img14": "Restaurant promotional visual"
   },
   fr: {
     // Navigation (Utilisé sur toutes les pages)
@@ -333,7 +339,13 @@ const i18nData = {
     "portfolio.item12Title": "Xtravent",
     "portfolio.item12Desc": "Système de logo complet pour Xtravent : emblème façon billet, logotype en dégradé et icône d'application.",
     "alt.img11": "Logo Cyn'cy Store",
-    "alt.img12": "Système de logo Xtravent"
+    "alt.img12": "Système de logo Xtravent",
+    "portfolio.item13Title": "Flyer restaurant I",
+    "portfolio.item13Desc": "Visuel promotionnel conçu pour un restaurant.",
+    "portfolio.item14Title": "Flyer restaurant II",
+    "portfolio.item14Desc": "Visuel promotionnel conçu pour un restaurant.",
+    "alt.img13": "Visuel promotionnel restaurant",
+    "alt.img14": "Visuel promotionnel restaurant"
   }
 };
 
