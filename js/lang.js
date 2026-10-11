@@ -159,7 +159,13 @@ const i18nData = {
     "alt.img7": "AYEGROUPE logo",
     "alt.img8": "Hubcreate emblem on an orange gradient icon",
     "alt.img9": "AYEGROUPE brand mockup",
-    "alt.img10": "Hubcreate brand mockup"
+    "alt.img10": "Hubcreate brand mockup",
+    "portfolio.item11Title": "Cyn'cy Store",
+    "portfolio.item11Desc": "Logo and brand identity for Cyn'cy Store: a bold yellow square mark with custom black lettering.",
+    "portfolio.item12Title": "Xtravent",
+    "portfolio.item12Desc": "Complete logo system for Xtravent: ticket-stub emblem, gradient wordmark and app icon.",
+    "alt.img11": "Cyn'cy Store logo",
+    "alt.img12": "Xtravent logo system"
   },
   fr: {
     // Navigation (Utilisé sur toutes les pages)
@@ -321,7 +327,13 @@ const i18nData = {
     "alt.img7": "Logo AYEGROUPE",
     "alt.img8": "Emblème Hubcreate sur une icône dégradée orange",
     "alt.img9": "Maquette de marque AYEGROUPE",
-    "alt.img10": "Maquette de marque Hubcreate"
+    "alt.img10": "Maquette de marque Hubcreate",
+    "portfolio.item11Title": "Cyn'cy Store",
+    "portfolio.item11Desc": "Logo et identité visuelle pour Cyn'cy Store : un carré jaune audacieux avec un lettrage noir personnalisé.",
+    "portfolio.item12Title": "Xtravent",
+    "portfolio.item12Desc": "Système de logo complet pour Xtravent : emblème façon billet, logotype en dégradé et icône d'application.",
+    "alt.img11": "Logo Cyn'cy Store",
+    "alt.img12": "Système de logo Xtravent"
   }
 };
 
