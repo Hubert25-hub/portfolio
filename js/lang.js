@@ -146,6 +146,21 @@ const i18nData = {
     "contact.facebook": "Facebook",
     "contact.facebookBtn": "Message me on Facebook",
 
+    // Featured work (home)
+    "work.tag": "SELECTED WORK",
+    "work.title": "Featured work",
+    "work.w1.title": "Lux Picssage Massage",
+    "work.w1.meta": "Website: design & build",
+    "work.w1.alt": "Lux Picssage Massage website",
+    "work.w2.title": "ayePREP",
+    "work.w2.meta": "Logo & branding",
+    "work.w2.alt": "ayePREP logo",
+    "work.w3.title": "ACTUEL",
+    "work.w3.meta": "News website",
+    "work.w3.badge": "In progress",
+    "work.w3.alt": "ACTUEL news website",
+    "work.all": "See all work",
+
     // Shared CTA & Footer
     "cta.title": "Have a project in mind?",
     "cta.text": "Fill in the short form and I'll get back to you.",
@@ -319,6 +334,21 @@ const i18nData = {
     "contact.phone": "Téléphone",
     "contact.facebook": "Facebook",
     "contact.facebookBtn": "Contactez-moi sur Facebook",
+
+    // Travaux en vedette (accueil)
+    "work.tag": "SÉLECTION",
+    "work.title": "Travaux en vedette",
+    "work.w1.title": "Lux Picssage Massage",
+    "work.w1.meta": "Site web : design & réalisation",
+    "work.w1.alt": "Site web Lux Picssage Massage",
+    "work.w2.title": "ayePREP",
+    "work.w2.meta": "Logo & image de marque",
+    "work.w2.alt": "Logo ayePREP",
+    "work.w3.title": "ACTUEL",
+    "work.w3.meta": "Site d'actualités",
+    "work.w3.badge": "En cours",
+    "work.w3.alt": "Site d'actualités ACTUEL",
+    "work.all": "Voir tous les travaux",
 
     // CTA partagé & Pied de page
     "cta.title": "Un projet en tête ?",
