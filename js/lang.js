@@ -9,7 +9,7 @@ const i18nData = {
 
     // Home Page (index.html)
     "hero.tag": "GRAPHIC DESIGN · BRANDING · WEB",
-    "hero.title": "Flyers, logos and websites people notice.",
+    "hero.title": "Look bigger than you are.",
     "hero.text": "I'm Hubert, founder of Hubcreate. I design event flyers, brand identities and websites for businesses and organizers who want to stand out.",
     "hero.btn1": "See my work",
     "hero.btn2": "Start a project",
@@ -161,6 +161,22 @@ const i18nData = {
     "work.w3.alt": "ACTUEL news website",
     "work.all": "See all work",
 
+    "services.s4.title": "Maintenance & hosting",
+    "services.s4.text": "Updates, backups and small changes handled for you, so your site stays fast and secure.",
+
+    // Case study: Lux Picssage
+    "case.tag": "CASE STUDY",
+    "case.lux.title": "Lux Picssage Massage",
+    "case.lux.subtitle": "Website for a massage therapy clinic in St. Albert, Canada.",
+    "case.brief.title": "The brief",
+    "case.brief.text": "Lux Picssage Massage LTD needed a complete online presence: a website to present the clinic, its services and prices, and to let clients book appointments easily.",
+    "case.done.title": "What was done",
+    "case.done.text": "Designed and built a responsive one-page website. Online booking integrated through Jane App, services and pricing sections, photo gallery, testimonials area and a 5-question FAQ.",
+    "case.result.title": "The result",
+    "case.result.text": "A fast, mobile-friendly website, live and used by the clinic to receive bookings.",
+    "case.visit": "Visit live site",
+    "case.back": "Back to portfolio",
+
     // Shared CTA & Footer
     "cta.title": "Have a project in mind?",
     "cta.text": "Fill in the short form and I'll get back to you.",
@@ -198,7 +214,7 @@ const i18nData = {
 
     // Page d'accueil (index.html)
     "hero.tag": "GRAPHISME · BRANDING · WEB",
-    "hero.title": "Des flyers, logos et sites web qui se font remarquer.",
+    "hero.title": "Ayez l'air plus grand que vous n'êtes.",
     "hero.text": "Je suis Hubert, fondateur de Hubcreate. Je conçois des flyers d'événements, des identités de marque et des sites web pour les entreprises et organisateurs qui souhaitent se démarquer.",
     "hero.btn1": "Voir mes réalisations",
     "hero.btn2": "Lancer un projet",
@@ -349,6 +365,22 @@ const i18nData = {
     "work.w3.badge": "En cours",
     "work.w3.alt": "Site d'actualités ACTUEL",
     "work.all": "Voir tous les travaux",
+
+    "services.s4.title": "Maintenance & hébergement",
+    "services.s4.text": "Mises à jour, sauvegardes et petites modifications prises en charge, pour un site rapide et sécurisé.",
+
+    // Étude de cas : Lux Picssage
+    "case.tag": "ÉTUDE DE CAS",
+    "case.lux.title": "Lux Picssage Massage",
+    "case.lux.subtitle": "Site web pour une clinique de massothérapie à St. Albert, Canada.",
+    "case.brief.title": "Le brief",
+    "case.brief.text": "Lux Picssage Massage LTD avait besoin d'une présence en ligne complète : un site pour présenter la clinique, ses services et ses tarifs, et permettre aux clients de réserver facilement.",
+    "case.done.title": "Ce qui a été réalisé",
+    "case.done.text": "Conception et réalisation d'un site one-page responsive. Réservation en ligne via Jane App, sections services et tarifs, galerie photo, espace témoignages et FAQ de 5 questions.",
+    "case.result.title": "Le résultat",
+    "case.result.text": "Un site rapide et adapté au mobile, en ligne et utilisé par la clinique pour recevoir des réservations.",
+    "case.visit": "Voir le site en ligne",
+    "case.back": "Retour au portfolio",
 
     // CTA partagé & Pied de page
     "cta.title": "Un projet en tête ?",
