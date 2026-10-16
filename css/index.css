@@ -608,3 +608,107 @@ footer a:hover {
 .whatsapp-float svg { width: 30px; height: 30px; fill: #fff; }
 @media (max-width: 900px) { .process-steps { grid-template-columns: 1fr 1fr; } .pricing-cards { grid-template-columns: 1fr; max-width: 440px; margin-inline: auto; } }
 @media (max-width: 560px) { .process-steps { grid-template-columns: 1fr; } }
+
+/* Featured work (home) */
+.featured-work {
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: 88px 5vw;
+  text-align: center;
+}
+.featured-work h2 {
+  font-weight: 700;
+  font-size: clamp(2rem, 4vw, 2.75rem);
+  letter-spacing: -0.02em;
+  color: var(--ink);
+}
+.work-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+  margin-top: 40px;
+  text-align: left;
+}
+.work-card {
+  background: var(--white);
+  border: 1px solid var(--gray-200);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  text-decoration: none;
+  display: block;
+  position: relative;
+  transition: all 0.25s ease;
+  box-shadow: var(--shadow-sm);
+}
+.work-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: var(--brand-gradient);
+  z-index: 1;
+}
+.work-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+  border-color: rgba(255, 122, 0, 0.4);
+}
+.work-img {
+  display: block;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background: var(--gray-100);
+}
+.work-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.work-title {
+  display: block;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--ink);
+  padding: 18px 20px 4px;
+}
+.work-meta {
+  display: block;
+  font-size: 0.9rem;
+  color: var(--gray-600);
+  padding: 0 20px 20px;
+}
+.work-badge {
+  display: inline-block;
+  font-style: normal;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--orange);
+  background: rgba(255, 122, 0, 0.12);
+  border-radius: 999px;
+  padding: 3px 10px;
+  margin-left: 8px;
+  vertical-align: middle;
+}
+.work-all {
+  display: inline-block;
+  margin-top: 32px;
+  font-weight: 700;
+  color: var(--orange);
+  text-decoration: none;
+}
+.work-all:hover {
+  text-decoration: underline;
+}
+@media (max-width: 860px) {
+  .work-list {
+    grid-template-columns: 1fr;
+    max-width: 480px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
