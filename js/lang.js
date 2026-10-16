@@ -174,6 +174,11 @@ const i18nData = {
     "case.done.text": "Designed and built a responsive one-page website. Online booking integrated through Jane App, services and pricing sections, photo gallery, testimonials area and a 5-question FAQ.",
     "case.result.title": "The result",
     "case.result.text": "A fast, mobile-friendly website, live and used by the clinic to receive bookings.",
+    "case.actuel.title": "ACTUEL",
+    "case.actuel.subtitle": "News website for a Togolese media outlet.",
+    "case.actuel.brief": "ACTUEL needed a complete rebuild of its news website: a fast, readable platform to publish articles across 10 categories, with search and newsletter signup.",
+    "case.actuel.done": "Rebuilt as a fast static site: homepage with a breaking-news ticker, category and article pages rendered from a data file, on-site search, related articles, reader location and weather display, editorial charter and legal pages, SEO metadata and sitemap.",
+    "case.actuel.result": "A live, mobile-friendly news site, currently in its final content phase before launch.",
     "case.visit": "Visit live site",
     "case.back": "Back to portfolio",
 
@@ -379,6 +384,11 @@ const i18nData = {
     "case.done.text": "Conception et réalisation d'un site one-page responsive. Réservation en ligne via Jane App, sections services et tarifs, galerie photo, espace témoignages et FAQ de 5 questions.",
     "case.result.title": "Le résultat",
     "case.result.text": "Un site rapide et adapté au mobile, en ligne et utilisé par la clinique pour recevoir des réservations.",
+    "case.actuel.title": "ACTUEL",
+    "case.actuel.subtitle": "Site d\u2019infos pour un m\u00e9dia togolais.",
+    "case.actuel.brief": "ACTUEL avait besoin d\u2019une refonte compl\u00e8te de son site d\u2019infos : une plateforme rapide et lisible pour publier des articles dans 10 rubriques, avec recherche et inscription newsletter.",
+    "case.actuel.done": "Reconstruit comme un site statique rapide : accueil avec bandeau derni\u00e8re minute, pages rubriques et articles g\u00e9n\u00e9r\u00e9es depuis un fichier de donn\u00e9es, recherche interne, articles li\u00e9s, affichage de la localisation et de la m\u00e9t\u00e9o du lecteur, charte \u00e9ditoriale et pages l\u00e9gales, m\u00e9tadonn\u00e9es SEO et plan du site.",
+    "case.actuel.result": "Un site d\u2019infos en ligne, adapt\u00e9 au mobile, actuellement en phase de contenu final avant lancement.",
     "case.visit": "Voir le site en ligne",
     "case.back": "Retour au portfolio",
 
