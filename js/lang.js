@@ -10,7 +10,7 @@ const i18nData = {
     // Home Page (index.html)
     "hero.tag": "GRAPHIC DESIGN · BRANDING · WEB",
     "hero.title": "Look bigger than you are.",
-    "hero.text": "I'm Hubert, founder of Hubcreate. I design event flyers, brand identities and websites for businesses and organizers who want to stand out.",
+    "hero.text": "Hubcreate designs event flyers, brand identities and websites for businesses and organizers who want to stand out.",
     "hero.btn1": "See my work",
     "hero.btn2": "Start a project",
     "services.tag": "SERVICES",
@@ -215,7 +215,7 @@ const i18nData = {
     // Page d'accueil (index.html)
     "hero.tag": "GRAPHISME · BRANDING · WEB",
     "hero.title": "Ayez l'air plus grand que vous n'êtes.",
-    "hero.text": "Je suis Hubert, fondateur de Hubcreate. Je conçois des flyers d'événements, des identités de marque et des sites web pour les entreprises et organisateurs qui souhaitent se démarquer.",
+    "hero.text": "Hubcreate conçoit des flyers d'événements, des identités de marque et des sites web pour les entreprises et organisateurs qui souhaitent se démarquer.",
     "hero.btn1": "Voir mes réalisations",
     "hero.btn2": "Lancer un projet",
     "services.tag": "SERVICES",
