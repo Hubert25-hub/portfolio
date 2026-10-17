@@ -179,6 +179,11 @@ const i18nData = {
     "case.actuel.brief": "ACTUEL needed a complete rebuild of its news website: a fast, readable platform to publish articles across 10 categories, with search and newsletter signup.",
     "case.actuel.done": "Rebuilt as a fast static site: homepage with a breaking-news ticker, category and article pages rendered from a data file, on-site search, related articles, reader location and weather display, editorial charter and legal pages, SEO metadata and sitemap.",
     "case.actuel.result": "A live, mobile-friendly news site, currently in its final content phase before launch.",
+    "case.ayeprep.title": "ayePREP",
+    "case.ayeprep.subtitle": "Brand identity for a Canadian exam-prep platform.",
+    "case.ayeprep.brief": "ayePREP, an AYEGROUPE sub-brand (ayeprep.com), needed a full identity for its French-language TCF and TEF Canada exam-prep platform. A logo that signals Canada and education, built to the AYEGROUPE guidelines.",
+    "case.ayeprep.done": "Designed a logo combining a red and navy maple leaf inside a navy circle with an open book at its base, plus the ayePREP wordmark in Archivo. Three iterations, then the app icon, iPhone mockups, and a 10-page brand guideline document.",
+    "case.ayeprep.result": "A client-approved logo, live on the platform, delivered with a full export package: PNG, JPG, favicons, guidelines and README.",
     "case.visit": "Visit live site",
     "case.back": "Back to portfolio",
 
@@ -389,6 +394,11 @@ const i18nData = {
     "case.actuel.brief": "ACTUEL avait besoin d\u2019une refonte compl\u00e8te de son site d\u2019infos : une plateforme rapide et lisible pour publier des articles dans 10 rubriques, avec recherche et inscription newsletter.",
     "case.actuel.done": "Reconstruit comme un site statique rapide : accueil avec bandeau derni\u00e8re minute, pages rubriques et articles g\u00e9n\u00e9r\u00e9es depuis un fichier de donn\u00e9es, recherche interne, articles li\u00e9s, affichage de la localisation et de la m\u00e9t\u00e9o du lecteur, charte \u00e9ditoriale et pages l\u00e9gales, m\u00e9tadonn\u00e9es SEO et plan du site.",
     "case.actuel.result": "Un site d\u2019infos en ligne, adapt\u00e9 au mobile, actuellement en phase de contenu final avant lancement.",
+    "case.ayeprep.title": "ayePREP",
+    "case.ayeprep.subtitle": "Identit\u00e9 de marque pour une plateforme canadienne de pr\u00e9paration aux examens.",
+    "case.ayeprep.brief": "ayePREP, sous-marque d\u2019AYEGROUPE (ayeprep.com), avait besoin d\u2019une identit\u00e9 compl\u00e8te pour sa plateforme de pr\u00e9paration au TCF et TEF Canada en fran\u00e7ais. Un logo qui \u00e9voque le Canada et l\u2019\u00e9ducation, construit selon la charte AYEGROUPE.",
+    "case.ayeprep.done": "Cr\u00e9ation d\u2019un logo qui combine une feuille d\u2019\u00e9rable bicolore dans un cercle bleu marine avec un livre ouvert \u00e0 sa base, plus le mot-symbole ayePREP en Archivo. Trois versions it\u00e9ratives, suivies de l\u2019ic\u00f4ne d\u2019application, de maquettes iPhone et d\u2019un guide de marque de 10 pages.",
+    "case.ayeprep.result": "Un logo approuv\u00e9 par le client, en ligne sur la plateforme, livr\u00e9 avec un package d\u2019export complet : PNG, JPG, favicons, guidelines et README.",
     "case.visit": "Voir le site en ligne",
     "case.back": "Retour au portfolio",
 
