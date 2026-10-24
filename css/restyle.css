@@ -214,7 +214,7 @@ body.page-home .hero2-top .hero2-langpill { margin-inline: auto; }
 .svc-field { display: grid; gap: .4rem; font-weight: 700; }
 .svc-field input, .svc-field select, .svc-field textarea { font: inherit; padding: .8rem 1rem; border: 1px solid var(--svc-line); border-radius: 12px; background: var(--svc-bg); color: var(--svc-ink); width: 100%; }
 .svc-form-btn { justify-self: start; }
-.svc-form-note { color: var(--svc-muted); font-size: .92rem; margin: 0; }
+.svc-form-note { color: var(--svc-muted); font-size: .92rem; margin: 0; } .svc-form-actions { display: flex; flex-wrap: wrap; gap: .75rem; }
 .proj-viewer { padding: 16px; background: rgba(11, 17, 29, .96); backdrop-filter: blur(6px); }
 .pv-box { max-width: none; width: 100%; height: 100%; border-radius: 0; display: grid; grid-template-columns: 1.6fr 1fr; }
 .pv-box img { max-height: none; height: 100%; object-fit: contain; }

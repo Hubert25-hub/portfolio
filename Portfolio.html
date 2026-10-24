@@ -304,8 +304,11 @@
           <option data-i18n="about.budget4">Over $1000</option>
         </select></label>
         <label class="svc-field"><span data-i18n="about.formMessage">Message</span><textarea name="message" required rows="4" data-i18n-ph="about.formMessagePh" placeholder="Tell me about your project"></textarea></label>
-        <button class="svc2-btn svc-form-btn" type="submit" data-i18n="svc.formSubmit">Send via WhatsApp</button>
-        <p class="svc-form-note" data-i18n="about.formNote">Submit opens WhatsApp with your message prefilled.</p>
+        <div class="svc-form-actions">
+          <button class="svc2-btn svc-form-btn" type="submit" data-i18n="svc.formSubmit">Send via WhatsApp</button>
+          <button class="svc2-btn svc-form-btn" type="button" id="svcEmailBtn" data-i18n="svc.formEmail">Send via email</button>
+        </div>
+        <p class="svc-form-note" data-i18n="svc.formNote">Send it via WhatsApp or email. Either way, your message is prefilled.</p>
       </form>
     </section>
   </div>
@@ -315,6 +318,7 @@
   <div class="footer-inner">
     <img class="footer-logo" src="image/hubcreate_whitehorizontale.svg" alt="Hubcreate logo">
     <span data-i18n="footer.rights">&copy; 2026 Hubcreate. All rights reserved.</span>
+    <a href="https://www.tiktok.com/@hubcreate3" target="_blank" rel="noopener">TikTok</a>
   </div>
 </footer>
 
@@ -455,6 +459,22 @@
       var lines = ["Name: " + name, "Service or package: " + need, "Budget: " + budget, "Message: " + msg];
       window.open("https://wa.me/17789521823?text=" + encodeURIComponent(lines.join("\n")), "_blank");
     });
+    /* Email button: same answers, opened in the visitor's email app, nothing stored */
+    var emailBtn = document.getElementById("svcEmailBtn");
+    if (emailBtn) {
+      emailBtn.addEventListener("click", function () {
+        if (!form.reportValidity()) return;
+        var name = form.querySelector('[name="name"]').value.trim();
+        var needSel = form.querySelector('[name="need"]');
+        var need = needSel.options[needSel.selectedIndex].text;
+        var budSel = form.querySelector('[name="budget"]');
+        var budget = budSel.options[budSel.selectedIndex].text;
+        var msg = form.querySelector('[name="message"]').value.trim();
+        var lines = ["Name: " + name, "Service or package: " + need, "Budget: " + budget, "Message: " + msg];
+        var subject = "Project inquiry from " + name;
+        window.location.href = "mailto:hubertdjobokou3@gmail.com?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(lines.join("\n"));
+      });
+    }
   }
 })();
 </script>
