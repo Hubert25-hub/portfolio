@@ -17,6 +17,14 @@
 /* Match the home header: hide the theme button. The theme still follows the stored preference. */
 #themeToggle,
 .nav ul li:has(> #themeToggle) { display: none !important; }
+/* Project card click: quick horizontal mirror flip on the card image (transform-only). */
+.proj-card img { transform-origin: center center; }
+.proj-card.proj-mirror img { animation: projMirrorFlip 0.35s ease-in-out; }
+@keyframes projMirrorFlip {
+  0% { transform: scaleX(1); }
+  50% { transform: scaleX(-1); }
+  100% { transform: scaleX(1); }
+}
 </style>
 <script src="js/theme.js"></script>
 <script src="js/lang.js" defer></script>
@@ -429,8 +437,39 @@
     viewer.classList.add("open");
   }
   function closeViewer() { viewer.classList.remove("open"); }
+  /* Project card click effect: mirror flip on the card image plus a short beep, then the viewer. */
+  var flipReduced = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var bipCtx = null;
+  function playBip() {
+    try {
+      var AC = window.AudioContext || window.webkitAudioContext;
+      if (!AC) return;
+      if (!bipCtx) bipCtx = new AC();
+      if (bipCtx.state === "suspended") bipCtx.resume();
+      var osc = bipCtx.createOscillator();
+      var gain = bipCtx.createGain();
+      osc.type = "sine";
+      osc.frequency.value = 880;
+      var t0 = bipCtx.currentTime;
+      gain.gain.setValueAtTime(0.08, t0);
+      gain.gain.exponentialRampToValueAtTime(0.001, t0 + 0.12);
+      osc.connect(gain);
+      gain.connect(bipCtx.destination);
+      osc.start(t0);
+      osc.stop(t0 + 0.12);
+    } catch (e) { /* audio must never block the viewer */ }
+  }
   items.forEach(function (card, i) {
-    card.addEventListener("click", function () { showViewer(i); });
+    card.addEventListener("click", function () {
+      if (!flipReduced && card.querySelector("img")) {
+        card.classList.remove("proj-mirror");
+        void card.offsetWidth;
+        card.classList.add("proj-mirror");
+        setTimeout(function () { card.classList.remove("proj-mirror"); }, 400);
+      }
+      playBip();
+      setTimeout(function () { showViewer(i); }, 350);
+    });
     card.setAttribute("tabindex", "0");
     card.addEventListener("keydown", function (e) { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); showViewer(i); } });
   });
