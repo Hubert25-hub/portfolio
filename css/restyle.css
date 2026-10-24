@@ -197,3 +197,34 @@ body.page-home .hero2-top .hero2-langpill { margin-inline: auto; }
 /* Second hero pill: Voir les travaux / See the work. */
 .hero2-cta-secondary { background: #101828; color: #fff; box-shadow: none; margin-left: .75rem; }
 :root[data-theme="dark"] .hero2-cta-secondary { background: #F2F4F7; color: #101828; }
+
+/* Services restructure: intro, section titles, notice, form, fullscreen viewer */
+.svc2-intro { font-size: 1.15rem; line-height: 1.7; color: var(--svc-muted); max-width: 68ch; margin: 0 0 2.5rem; }
+.svc2-intro strong { color: var(--svc-ink); }
+.svc-projects { margin-bottom: 3rem; }
+.svc-services { margin-bottom: 3rem; }
+.svc-title { font-size: clamp(1.7rem, 4vw, 2.4rem); font-weight: 800; position: relative; padding-bottom: .6rem; margin-bottom: 1rem; }
+.svc-title::after { content: ""; position: absolute; left: 0; bottom: 0; height: 4px; width: 0; background: linear-gradient(90deg, #FFB300, #FF7A00); border-radius: 999px; transition: width .8s ease; }
+.svc-title.in-view::after { width: 120px; }
+.svc-lede { color: var(--svc-muted); margin: 0 0 1.25rem; line-height: 1.6; }
+.svc-notice { display: inline-flex; gap: .5rem; align-items: center; border: 2px solid #FF7A00; color: #FF7A00; font-weight: 800; padding: .7rem 1.4rem; border-radius: 999px; margin: 0 0 1.5rem; }
+.svc-railwrap { display: block; margin-top: .25rem; }
+.svc-form { margin-top: 3rem; background: var(--svc-card); border: 1px solid var(--svc-line); border-radius: 20px; padding: 2rem; }
+.svc-form form { display: grid; gap: 1rem; max-width: 640px; }
+.svc-field { display: grid; gap: .4rem; font-weight: 700; }
+.svc-field input, .svc-field select, .svc-field textarea { font: inherit; padding: .8rem 1rem; border: 1px solid var(--svc-line); border-radius: 12px; background: var(--svc-bg); color: var(--svc-ink); width: 100%; }
+.svc-form-btn { justify-self: start; }
+.svc-form-note { color: var(--svc-muted); font-size: .92rem; margin: 0; }
+.proj-viewer { padding: 16px; background: rgba(11, 17, 29, .96); backdrop-filter: blur(6px); }
+.pv-box { max-width: none; width: 100%; height: 100%; border-radius: 0; display: grid; grid-template-columns: 1.6fr 1fr; }
+.pv-box img { max-height: none; height: 100%; object-fit: contain; }
+.pv-cap { padding: 2rem; display: flex; flex-direction: column; justify-content: center; }
+.pv-cap h3 { font-size: 2.25rem; }
+.pv-link { display: inline-block; margin-top: 1rem; padding: .8rem 1.6rem; border-radius: 999px; background: linear-gradient(135deg, #FFB300, #FF7A00); color: #fff; font-weight: 800; text-decoration: none; width: fit-content; }
+.pv-close, .pv-prev, .pv-next { width: 44px; height: 44px; }
+@media (max-width: 760px) {
+  .pv-box { grid-template-columns: 1fr; grid-template-rows: auto 1fr; }
+  .pv-box img { max-height: 52vh; height: auto; }
+  .pv-cap { padding: 1.25rem; }
+  .svc-form { padding: 1.25rem; }
+}
