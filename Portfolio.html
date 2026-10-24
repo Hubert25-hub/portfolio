@@ -473,6 +473,79 @@
     card.setAttribute("tabindex", "0");
     card.addEventListener("keydown", function (e) { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); showViewer(i); } });
   });
+  /* Projects rail auto-scroll: the row scrolls by itself in a seamless loop.
+     Duplicates (aria-hidden) extend the row so scrollLeft can wrap without a jump.
+     Any visitor interaction pauses it; it resumes about 3 seconds after the
+     interaction ends and the viewer is closed. Reduced motion disables it. */
+  var AUTO_SCROLL_PX_PER_SECOND = 90;
+  var AUTO_SCROLL_RESUME_DELAY_MS = 3000;
+  var autoMotion = (window.matchMedia ? window.matchMedia("(prefers-reduced-motion: reduce)") : null);
+  var autoResumeAt = 0;
+  var autoSetWidth = 0;
+  var autoScrollWidth = 0;
+  var autoHovering = false;
+  var autoLastTime = 0;
+  var autoLastMeasureCheck = 0;
+  items.forEach(function (card, i) {
+    var dup = card.cloneNode(true);
+    dup.setAttribute("data-dup", "true");
+    dup.setAttribute("aria-hidden", "true");
+    dup.removeAttribute("data-viewer");
+    dup.removeAttribute("tabindex");
+    dup.addEventListener("click", function () {
+      if (!flipReduced && dup.querySelector("img")) {
+        dup.classList.remove("proj-mirror");
+        void dup.offsetWidth;
+        dup.classList.add("proj-mirror");
+        setTimeout(function () { dup.classList.remove("proj-mirror"); }, 400);
+      }
+      playBip();
+      setTimeout(function () { showViewer(i); }, 350);
+    });
+    rail.appendChild(dup);
+  });
+  function autoMeasure() {
+    if (!rail || !items.length) return;
+    var firstDup = rail.querySelector(".proj-card[data-dup=\"true\"]");
+    if (!firstDup) { autoSetWidth = 0; return; }
+    autoSetWidth = firstDup.getBoundingClientRect().left - items[0].getBoundingClientRect().left;
+    autoScrollWidth = rail.scrollWidth;
+  }
+  function autoPause() { autoResumeAt = performance.now() + AUTO_SCROLL_RESUME_DELAY_MS; }
+  if (rail) {
+    rail.addEventListener("wheel", autoPause, { passive: true });
+    rail.addEventListener("touchstart", autoPause, { passive: true });
+    rail.addEventListener("touchend", autoPause, { passive: true });
+    rail.addEventListener("pointerdown", autoPause);
+    rail.addEventListener("pointerenter", function () { autoHovering = true; });
+    rail.addEventListener("pointerleave", function () { autoHovering = false; autoPause(); });
+  }
+  if (prev) prev.addEventListener("click", autoPause);
+  if (next) next.addEventListener("click", autoPause);
+  document.addEventListener("visibilitychange", function () { if (!document.hidden) autoPause(); });
+  window.addEventListener("resize", autoMeasure);
+  window.addEventListener("load", autoMeasure);
+  autoMeasure();
+  function autoTick(now) {
+    requestAnimationFrame(autoTick);
+    if (!rail || autoSetWidth <= 0) return;
+    if (autoMotion && autoMotion.matches) return;
+    if (document.hidden) return;
+    if (viewer.classList.contains("open") || autoHovering) { autoResumeAt = now + AUTO_SCROLL_RESUME_DELAY_MS; autoLastTime = now; return; }
+    if (now < autoResumeAt) { autoLastTime = now; return; }
+    if (now - autoLastMeasureCheck > 500) {
+      autoLastMeasureCheck = now;
+      if (rail.scrollWidth !== autoScrollWidth) autoMeasure();
+    }
+    if (!autoLastTime) autoLastTime = now;
+    var dt = (now - autoLastTime) / 1000;
+    autoLastTime = now;
+    if (dt > 0.1) dt = 0.1;
+    var nextPos = rail.scrollLeft + AUTO_SCROLL_PX_PER_SECOND * dt;
+    while (nextPos >= autoSetWidth) nextPos -= autoSetWidth;
+    rail.scrollLeft = nextPos;
+  }
+  if (rail) requestAnimationFrame(autoTick);
   document.getElementById("pvClose").addEventListener("click", closeViewer);
   document.getElementById("pvPrev").addEventListener("click", function () { showViewer(vIndex - 1); });
   document.getElementById("pvNext").addEventListener("click", function () { showViewer(vIndex + 1); });
