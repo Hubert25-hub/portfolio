@@ -12,8 +12,10 @@
 <link href="css/index.css" rel="stylesheet">
 <link href="css/theme.css" rel="stylesheet">
 <link href="css/chat.css" rel="stylesheet">
+<link href="css/restyle.css" rel="stylesheet">
 <script src="js/theme.js"></script>
 <script src="js/lang.js" defer></script>
+<script src="js/restyle-lang.js" defer></script>
 </head>
 <body>
 
@@ -22,10 +24,10 @@
   <nav>
     <ul>
       <li><a href="index.html" aria-current="page" data-i18n="nav.home">Home</a></li>
-      <li><a href="Portfolio.html" data-i18n="nav.portfolio">Portfolio</a></li>
+      <li><a href="Portfolio.html" data-i18n="nav.portfolio">Projects</a></li>
       <li><a href="service.html" data-i18n="nav.services">Services</a></li>
       <li><a href="Aboutme.html" data-i18n="nav.about">About me</a></li>
-      <li><a href="service.html#contact" class="contact" data-i18n="nav.contact">Contact</a></li>
+      <li><a href="Aboutme.html#start-project" class="contact" data-i18n="nav.contact">Contact</a></li>
       <li>
         <div class="lang-switcher" role="radiogroup" aria-label="Language selector">
           <button type="button" class="lang-btn active" data-lang="en" aria-checked="true">EN</button>
@@ -37,23 +39,31 @@
 </header>
 
 <main>
-  <section class="hero">
-    <div class="hero-inner">
-      <div>
-        <span class="hero-tag" data-i18n="hero.tag">GRAPHIC DESIGN · BRANDING · WEB</span>
-        <h1 data-i18n="hero.title">Look bigger than you are.</h1>
-        <p data-i18n="hero.text">Hubcreate designs event flyers, brand identities and websites for businesses and organizers who want to stand out.</p>
-        <div class="buttons">
-          <a class="btn btn-primary" href="Portfolio.html" data-i18n="hero.btn1">See my work</a>
-          <a class="btn btn-outline" href="service.html" data-i18n="hero.btn2">Start a project</a>
+  <section class="hero2">
+    <div class="hero2-inner">
+      <div class="hero2-top">
+        <nav class="hero2-pillnav" aria-label="Sections">
+          <a href="Portfolio.html" data-i18n="hero.pillWork">Work</a>
+          <a href="service.html" data-i18n="nav.services">Services</a>
+          <a href="Aboutme.html#start-project" data-i18n="nav.contact">Contact</a>
+        </nav>
+        <div class="hero2-langpill" role="radiogroup" aria-label="Language selector">
+          <button type="button" class="lang-btn active" data-lang="en" aria-checked="true">EN</button>
+          <button type="button" class="lang-btn" data-lang="fr" aria-checked="false">FR</button>
         </div>
       </div>
-      <div class="collage">
-        <img class="c1" src="IMAGES/img1.png" alt="Level Party event flyer with a yellow and orange design" data-i18n-alt="alt.img1">
-        <img class="c2" src="IMAGES/img2.png" alt="Well Day event flyer for a community day on 30 July" data-i18n-alt="alt.img2">
-        <img class="c3" src="IMAGES/img3.png" alt="Ole Readyaa event flyer with bold yellow lettering" data-i18n-alt="alt.img3">
-      </div>
+      <h1 class="hero2-word">HUB<button class="hero2-ring" type="button" id="heroRing"><span class="sr-only" data-i18n="hero.ringLabel">Toggle light and dark theme</span><svg viewBox="0 0 120 120" aria-hidden="true"><defs><linearGradient id="heroRingGrad" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FFB300"/><stop offset="1" stop-color="#FF7A00"/></linearGradient></defs><path class="ring-arc" d="M 89.7 30.3 A 42 42 0 1 0 89.7 89.7" fill="none" stroke="url(#heroRingGrad)" stroke-width="13" stroke-linecap="round"/><circle cx="89.7" cy="30.3" r="10" fill="#FFFFFF"/><circle cx="89.7" cy="30.3" r="4.5" fill="#FF7A00"/><circle cx="89.7" cy="89.7" r="10" fill="#FFFFFF"/><circle cx="89.7" cy="89.7" r="4.5" fill="#FF7A00"/></svg></button>REATE<span class="hero2-dot">.</span></h1>
+      <p class="hero2-slogan" data-i18n="hero.title">Look bigger than you are.</p>
+      <p class="hero2-sub" data-i18n="hero.text">Hubcreate designs event flyers, brand identities and websites for businesses and organizers who want to stand out.</p>
+      <a class="hero2-cta" href="https://wa.me/17789521823" target="_blank" rel="noopener" data-i18n="hero.cta">A project?</a>
+      <p class="hero2-hint" id="heroRingHint"><span data-i18n="hero.ringHint">Tap the ring · light ↔ dark</span> <span class="arrow" aria-hidden="true">↓</span></p>
     </div>
+    <div class="hero2-marquee"><div class="hero2-marquee-track"><span class="mq-group"><span data-i18n="hero.marquee">Design • Branding • Websites • Flyers • Logos</span></span><span class="mq-group" aria-hidden="true"><span data-i18n="hero.marquee">Design • Branding • Websites • Flyers • Logos</span></span></div></div>
+    <nav class="hero2-giantnav" aria-label="Sections">
+      <a href="Portfolio.html" data-i18n="hero.giantWork">WORK</a>
+      <a href="service.html" data-i18n="nav.services">Services</a>
+      <a href="Aboutme.html#start-project" data-i18n="nav.contact">Contact</a>
+    </nav>
   </section>
 
   <div class="promo-marquee" role="note" aria-label="Promotions"><div class="promo-track"><span data-i18n="promo.item1">🔥 10% off all projects for new clients</span><span class="promo-sep" aria-hidden="true">✦</span><span data-i18n="promo.item2">💥 20% off the full package: logo + branding + website + domain name</span><span class="promo-sep" aria-hidden="true">✦</span><span data-i18n="promo.item1">🔥 10% off all projects for new clients</span><span class="promo-sep" aria-hidden="true">✦</span><span data-i18n="promo.item2">💥 20% off the full package: logo + branding + website + domain name</span><span class="promo-sep" aria-hidden="true">✦</span></div></div>
@@ -145,7 +155,7 @@
         <h2 data-i18n="cta.title">Have a project in mind?</h2>
         <p data-i18n="cta.text">Fill in the short form and I'll get back to you.</p>
       </div>
-      <a class="btn btn-gradient" href="service.html#contact" data-i18n="cta.btn">Tell me about your project</a>
+      <a class="btn btn-gradient" href="Aboutme.html#start-project" data-i18n="cta.btn">Tell me about your project</a>
     </div>
   </section>
 </main>
@@ -160,6 +170,27 @@
 
 <script src="js/chat.js" defer></script>
 <script src="js/hero-motion.js" defer></script>
+<script>
+(function () {
+  var ring = document.getElementById("heroRing");
+  var hint = document.getElementById("heroRingHint");
+  if (!ring) return;
+  ring.addEventListener("click", function () {
+    var toggle = document.getElementById("themeToggle");
+    if (toggle) {
+      toggle.click();
+    } else {
+      var root = document.documentElement;
+      var next = root.getAttribute("data-theme") === "dark" ? "light" : "dark";
+      try { localStorage.setItem("preferred_theme", next); } catch (e) { /* ignore */ }
+      root.setAttribute("data-theme", next);
+    }
+    var arc = ring.querySelector(".ring-arc");
+    if (arc) { arc.style.animation = "none"; void arc.getBoundingClientRect(); arc.style.animation = ""; }
+    if (hint) hint.classList.add("is-faded");
+  });
+})();
+</script>
   <a class="whatsapp-float" href="https://wa.me/17789521823" target="_blank" rel="noopener" aria-label="Chat on WhatsApp"><svg viewBox="0 0 448 512" aria-hidden="true"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-55.7-5.7-9.8 5.7-9.1 16.3-30.4 3-6.1 1.5-11.4-1.4-14.2-2.8-2.8-12.5-30.1-17-40.9-4.5-10.8-9-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></svg></a>
 </body>
 </html>
