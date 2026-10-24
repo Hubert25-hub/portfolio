@@ -507,3 +507,78 @@ footer a:hover {
 .card .website-link:hover img { transform: translateY(-6px); box-shadow: var(--shadow-hover); border-color: rgba(255, 122, 0, 0.4); }
 .card .website-link:hover .title { color: var(--orange); }
 .visit-link { display: inline-block; margin-top: 8px; font-weight: 700; font-size: .92rem; color: var(--orange); }
+
+/* ========================================================
+   Fullscreen project viewer
+   The popup fills the viewport. The dark frame around the
+   panel stays clickable so backdrop click still closes it.
+   ======================================================== */
+#viewer {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  height: 100dvh;
+  max-width: none;
+  max-height: none;
+  margin: 0;
+  padding: 16px;
+  background: transparent;
+}
+#viewer::backdrop {
+  background: rgba(11, 17, 29, 0.96);
+  backdrop-filter: blur(6px);
+}
+#viewer .lb {
+  height: 100%;
+  max-height: none;
+  grid-template-columns: 1.6fr 1fr;
+  border-radius: 16px;
+}
+#viewer .lb img {
+  height: 100%;
+  max-height: none;
+}
+#viewer .lb-text {
+  padding: 64px 40px 40px;
+}
+#viewer .lb-text h2 {
+  font-size: 2.25rem;
+}
+#viewer .lb-text p {
+  font-size: 1.05rem;
+}
+#viewer .lb-close {
+  top: 16px;
+  right: 20px;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--ink);
+  color: #fff;
+  border-radius: 50%;
+  font-size: 1.6rem;
+}
+#viewer .lb-close:hover {
+  background: var(--orange);
+  color: #fff;
+}
+#viewer .lb-nav button {
+  padding: 12px 26px;
+  font-size: 1rem;
+}
+@media (max-width: 800px) {
+  #viewer {
+    padding: 12px;
+  }
+  #viewer .lb {
+    grid-template-columns: 1fr;
+    overflow-y: auto;
+  }
+  #viewer .lb img {
+    height: auto;
+    max-height: 52vh;
+  }
+}
