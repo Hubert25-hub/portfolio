@@ -84,11 +84,6 @@ html { scroll-behavior: smooth; }
 .about2-submit { margin-top: 1.25rem; width: 100%; padding: 1rem; border: 0; border-radius: 999px; background: linear-gradient(135deg, #FFB300, #FF7A00); color: #fff; font: inherit; font-weight: 800; font-size: 1.05rem; cursor: pointer; }
 .about2-note { color: #667085; font-size: .9rem; margin-top: .75rem; }
 .about2-start { display: inline-block; margin-top: 1rem; padding: .8rem 1.6rem; border-radius: 999px; background: linear-gradient(135deg, #FFB300, #FF7A00); color: #fff; font-weight: 800; text-decoration: none; }
-.about2-reach ul { list-style: none; padding: 0; margin: 0; }
-.about2-reach li { margin: .7rem 0; color: #D0D5DD; }
-.about2-reach a { color: #fff; }
-.about2-reach a:hover { color: #FF7A00; }
-.about2-reach .label { display: inline-block; min-width: 70px; color: #98A2B3; font-weight: 700; }
 
 /* ================= SERVICES (service.html) ================= */
 .svc2 { --svc-bg: #FAFAF7; --svc-ink: #101828; --svc-card: #fff; --svc-muted: #667085; --svc-line: #E4E7EC; background: var(--svc-bg); color: var(--svc-ink); }
