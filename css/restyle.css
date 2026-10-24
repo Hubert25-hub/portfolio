@@ -239,7 +239,7 @@ body.page-home .hero2-top .hero2-langpill { margin-inline: auto; }
 .about2-hero .about2-bio { margin-bottom: 1rem; }
 .about2-hero .about2-bio:last-child { margin-bottom: 0; }
 .about2-card .about2-name { color: #101828; animation: nameZoom 3.2s ease-in-out infinite; transform-origin: left center; }
-@keyframes nameZoom { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.04); } }
+@keyframes nameZoom { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.08); } }
 .about2-icon { display: flex; flex-direction: column; align-items: center; gap: .3rem; }
 .about2-icon span { font-size: .8rem; color: #667085; font-weight: 600; }
 .about2-dot::before { content: ""; display: inline-block; width: .55em; height: .55em; border-radius: 50%; background: #FF7A00; margin-right: .5rem; flex: none; }
@@ -269,3 +269,19 @@ body.page-home .hero2-top .hero2-langpill { margin-inline: auto; }
 @media (prefers-reduced-motion: reduce) {
   .about2-card .about2-name { animation: none; }
 }
+
+/* ================= ABOUT FOLLOW-UP (2026-10-24): flame crop, edu/lang panels ================= */
+/* Card photo: show the full 949x784 image so the baked-in bottom-left flame badge
+   stays visible at every width. The old 250x300 portrait box cropped 148 original
+   px off the left (badge sits at x ~3-11%), hiding the badge. Aspect match = zero crop. */
+.about2-photo img { height: auto; min-height: 0; aspect-ratio: 949 / 784; }
+/* Education/Languages panels: rounded, slightly lighter than the page, subtle border. */
+.about2-edu, .about2-lang { background: #1D2939; border: 1px solid rgba(255, 255, 255, .12); border-radius: 20px; padding: 1.5rem; }
+/* Section headings keep the orange dot and gain the gradient underline bar. */
+.about2-edu h2, .about2-lang h2 { position: relative; padding-bottom: .6rem; }
+.about2-edu h2::after, .about2-lang h2::after { content: ""; position: absolute; left: 0; bottom: 0; width: 90px; height: 4px; border-radius: 999px; background: linear-gradient(90deg, #FFB300, #FF7A00); }
+/* Levels become small orange pills. */
+.about2-lang li span { background: #FF7A00; color: #fff; font-weight: 800; font-size: .85rem; padding: .3rem .85rem; border-radius: 999px; white-space: nowrap; }
+/* A bit more breathing room between items. */
+.about2-edu li { margin-bottom: 1.5rem; padding-bottom: 1.5rem; }
+.about2-lang li { margin-bottom: 1.25rem; padding-bottom: 1.25rem; }
