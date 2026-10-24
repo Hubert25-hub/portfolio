@@ -58,7 +58,22 @@
     "proj.typeMockup": "Mockup",
     "viewer.close": "Close",
     "viewer.prev": "Previous project",
-    "viewer.next": "Next project"
+    "viewer.next": "Next project",
+    "svc.intro1": "Think of your brand like a beautiful flower: when it looks this good, the bees show up on their own, and they stay for the honey. Give us your idea, and we'll turn it into something sweet, smooth, and hard to resist.",
+    "svc.introBold": "You're in the right place.",
+    "svc.intro2": "Scroll down to taste the proof, or message us on WhatsApp and let's make yours just as sweet.",
+    "svc.projectsTitle": "Our previous work",
+    "svc.projectsLede": "Websites, logos, flyers and branding, designed and delivered by Hubcreate.",
+    "svc.tapNotice": "Tap a project to see it in full size",
+    "svc.servicesTitle": "Our services",
+    "svc.formTitle": "Tell me about your project",
+    "svc.formNeed": "Service or package",
+    "svc.needOther": "Something else",
+    "svc.formSubmit": "Send via WhatsApp",
+    "proj.typeWebsite": "Website",
+    "proj.hubDesc": "The Hubcreate website, designed and built by Hubcreate.",
+    "pv.linkCase": "View case study",
+    "pv.linkSite": "Visit site",
   };
   var fr = {
     "nav.portfolio": "Projets",
@@ -114,7 +129,22 @@
     "proj.typeMockup": "Maquette",
     "viewer.close": "Fermer",
     "viewer.prev": "Projet précédent",
-    "viewer.next": "Projet suivant"
+    "viewer.next": "Projet suivant",
+    "svc.intro1": "Imaginez votre marque comme une belle fleur : quand elle est belle comme ça, les abeilles viennent d'elles-mêmes, et elles restent pour le miel. Donnez-nous votre idée, et nous la transformerons en quelque chose de doux, de fluide et d'irrésistible.",
+    "svc.introBold": "Vous êtes au bon endroit.",
+    "svc.intro2": "Faites défiler pour goûter la preuve, ou écrivez-nous sur WhatsApp et rendons la vôtre tout aussi douce.",
+    "svc.projectsTitle": "Nos travaux précédents",
+    "svc.projectsLede": "Sites web, logos, flyers et image de marque, conçus et livrés par Hubcreate.",
+    "svc.tapNotice": "Appuyez sur un projet pour le voir en grand",
+    "svc.servicesTitle": "Nos services",
+    "svc.formTitle": "Parlez-moi de votre projet",
+    "svc.formNeed": "Service ou forfait",
+    "svc.needOther": "Autre chose",
+    "svc.formSubmit": "Envoyer via WhatsApp",
+    "proj.typeWebsite": "Site web",
+    "proj.hubDesc": "Le site Hubcreate, conçu et réalisé par Hubcreate.",
+    "pv.linkCase": "Voir l'étude de cas",
+    "pv.linkSite": "Voir le site",
   };
   Object.assign(i18nData.en, en);
   Object.assign(i18nData.fr, fr);
