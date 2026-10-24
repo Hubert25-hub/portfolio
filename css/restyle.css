@@ -35,8 +35,9 @@ html { scroll-behavior: smooth; }
 @keyframes hintBounce { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(5px); } }
 .hero2-marquee { background: #101828; color: #FAFAF7; overflow: hidden; padding: .9rem 0; margin-top: 2.5rem; }
 :root[data-theme="dark"] .hero2-marquee { background: #1D2939; border-top: 1px solid rgba(255, 255, 255, .12); border-bottom: 1px solid rgba(255, 255, 255, .12); }
-.hero2-marquee-track { display: flex; gap: 3rem; width: max-content; animation: hero2scroll 24s linear infinite; }
-.hero2-marquee-track span { font-weight: 700; letter-spacing: .08em; white-space: nowrap; }
+.hero2-marquee-track { display: flex; width: max-content; animation: hero2scroll 24s linear infinite; }
+.mq-group { display: flex; gap: 3rem; padding-right: 3rem; }
+.mq-group span { font-weight: 700; letter-spacing: .08em; white-space: nowrap; }
 @keyframes hero2scroll { to { transform: translateX(-50%); } }
 .hero2-giantnav { display: flex; flex-wrap: wrap; gap: 1.5rem 2.5rem; padding: 2rem 1.25rem 1rem; max-width: 1120px; margin: 0 auto; }
 .hero2-giantnav a { font-size: clamp(1.6rem, 6vw, 4rem); font-weight: 800; letter-spacing: -.01em; color: inherit; text-decoration: none; }
@@ -70,7 +71,8 @@ html { scroll-behavior: smooth; }
 .about2-bilingual { color: #D0D5DD; margin-top: 1rem; }
 .about2-tools { margin-bottom: 2.5rem; }
 .tools-marquee { overflow: hidden; background: #0B111D; border: 1px solid #1D2939; border-radius: 22px; padding: 1rem 0; -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); }
-.tools-track { display: flex; gap: .75rem; width: max-content; animation: toolScroll 28s linear infinite; padding: 0 .75rem; }
+.tools-track { display: flex; width: max-content; animation: toolScroll 28s linear infinite; }
+.tools-group { display: flex; gap: .75rem; padding-right: .75rem; }
 .tools-track:hover, .tools-track:focus-within { animation-play-state: paused; }
 @keyframes toolScroll { to { transform: translateX(-50%); } }
 .tool-pill { display: inline-flex; align-items: center; gap: .55rem; background: rgba(255, 255, 255, .08); border: 1px solid rgba(255, 255, 255, .14); color: #fff; border-radius: 999px; padding: .5rem 1rem; font-weight: 600; white-space: nowrap; }
@@ -106,8 +108,7 @@ html { scroll-behavior: smooth; }
 .svc2-card h2 { margin: 0 0 .35rem; font-size: 1.25rem; }
 .svc2-card p { margin: 0; color: var(--svc-muted); line-height: 1.6; }
 .svc2-marquee { background: #101828; color: #FAFAF7; overflow: hidden; padding: .9rem 0; margin-bottom: 2.5rem; }
-.svc2-marquee-track { display: flex; gap: 3rem; width: max-content; animation: hero2scroll 24s linear infinite; }
-.svc2-marquee-track span { font-weight: 700; letter-spacing: .08em; white-space: nowrap; }
+.svc2-marquee-track { display: flex; width: max-content; animation: hero2scroll 24s linear infinite; }
 .svc2-packages { margin-bottom: 3rem; }
 .svc2-packages h2, .how h2 { font-size: clamp(1.7rem, 4vw, 2.4rem); font-weight: 800; margin: 0 0 .5rem; }
 .svc2-note { color: var(--svc-muted); margin: 0 0 1.5rem; }
