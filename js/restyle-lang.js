@@ -7,6 +7,7 @@
   var en = {
     "nav.portfolio": "Projects",
     "hero.cta": "A project?",
+    "hero.cta2": "See the work",
     "hero.marquee": "Design • Branding • Websites • Flyers • Logos",
     "hero.ringHint": "Tap the ring · light ↔ dark",
     "hero.ringLabel": "Toggle light and dark theme",
@@ -62,6 +63,7 @@
   var fr = {
     "nav.portfolio": "Projets",
     "hero.cta": "Un projet?",
+    "hero.cta2": "Voir les travaux",
     "hero.marquee": "Design • Branding • Sites web • Flyers • Logos",
     "hero.ringHint": "Touche l'anneau · clair ↔ sombre",
     "hero.ringLabel": "Basculer entre le thème clair et sombre",
