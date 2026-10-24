@@ -285,3 +285,7 @@ body.page-home .hero2-top .hero2-langpill { margin-inline: auto; }
 /* A bit more breathing room between items. */
 .about2-edu li { margin-bottom: 1.5rem; padding-bottom: 1.5rem; }
 .about2-lang li { margin-bottom: 1.25rem; padding-bottom: 1.25rem; }
+/* Orange band fix (2026-10-24): the photo container stretched to the card row height
+   while the aspect-matched image is shorter, so its #FF7A00 background showed as a
+   solid orange band below the photo. Hug the image height and drop the orange fill. */
+.about2-photo { background: transparent; align-self: start; }
