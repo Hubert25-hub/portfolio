@@ -116,8 +116,22 @@
   };
   Object.assign(i18nData.en, en);
   Object.assign(i18nData.fr, fr);
+  function applyPlaceholders(lang) {
+    var dict = i18nData[lang];
+    if (!dict) return;
+    document.querySelectorAll("[data-i18n-ph]").forEach(function (el) {
+      var key = el.getAttribute("data-i18n-ph");
+      if (dict[key]) el.setAttribute("placeholder", dict[key]);
+    });
+  }
   try {
     var lang = localStorage.getItem("preferred_lang") || "en";
     if (typeof applyTranslations === "function") applyTranslations(lang);
+    applyPlaceholders(lang);
   } catch (e) { /* ignore */ }
+  /* lang.js sets documentElement.lang on every switch; follow it for placeholders. */
+  new MutationObserver(function () {
+    var l = (document.documentElement.lang || "en").slice(0, 2);
+    applyPlaceholders(l);
+  }).observe(document.documentElement, { attributes: true, attributeFilter: ["lang"] });
 })();
