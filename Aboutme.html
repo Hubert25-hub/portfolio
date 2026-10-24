@@ -10,10 +10,12 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link href="css/blog.css" rel="stylesheet">
-  <link href="css/lang-switcher.css" rel="stylesheet">
+<link href="css/lang-switcher.css" rel="stylesheet">
 <link href="css/theme.css" rel="stylesheet">
+<link href="css/restyle.css" rel="stylesheet">
 <script src="js/theme.js"></script>
 <script src="js/lang.js" defer></script>
+<script src="js/restyle-lang.js" defer></script>
 </head>
 <body>
 
@@ -22,10 +24,10 @@
   <nav>
     <ul>
       <li><a href="index.html" data-i18n="nav.home">Home</a></li>
-      <li><a href="Portfolio.html" data-i18n="nav.portfolio">Portfolio</a></li>
+      <li><a href="Portfolio.html" data-i18n="nav.portfolio">Projects</a></li>
       <li><a href="service.html" data-i18n="nav.services">Services</a></li>
       <li><a href="Aboutme.html" aria-current="page" data-i18n="nav.about">About me</a></li>
-      <li><a href="service.html#contact" class="contact" data-i18n="nav.contact">Contact</a></li>
+      <li><a href="#start-project" class="contact" data-i18n="nav.contact">Contact</a></li>
       <li>
         <div class="lang-switcher" role="radiogroup" aria-label="Language selector">
           <button type="button" class="lang-btn active" data-lang="en" aria-checked="true">EN</button>
@@ -36,69 +38,111 @@
   </nav>
 </header>
 
-<main>
-  <section class="banner">
-    <span class="banner-tag" data-i18n="about.tag">ABOUT</span>
-    <h1 data-i18n="about.title">About me</h1>
-    <p data-i18n="about.subtitle">Graphic designer and web developer with a business education.</p>
-  </section>
+<main class="about2">
+  <div class="about2-inner">
+    <h1 class="about2-title" data-i18n="about.title">About me</h1>
 
-  <section class="intro">
-    <img src="IMAGES/profile.jpg" alt="Portrait of Hubert">
-    <div>
-      <span class="section-tag" data-i18n="about.hello">HELLO</span>
-      <h2 data-i18n="about.greeting">I'm Hubert</h2>
-      <p data-i18n="about.bio1">I design flyers, logos and websites for businesses and event organizers through my creative studio, Hubcreate. I'm bilingual, so I can work seamlessly with clients in both English and French.</p>
-      <p data-i18n="about.bio2">I recently earned a Bachelor of Commerce, which means I approach every project strategically , focusing on your business goals, your audience, and premium visual execution.</p>
-      <a class="btn btn-primary" href="service.html#contact" data-i18n="about.btn">Work with me</a>
-    </div>
-  </section>
-
-  <section class="details">
-    <div class="block">
-      <h2 data-i18n="about.educationTitle">Education</h2>
-      <ul>
-        <li><strong data-i18n="about.edu1Title">Bachelor of Commerce</strong> UCW</li>
-        <li><strong data-i18n="about.edu2Title">Information and Communication Technology</strong> Pacific Link College</li>
-        <li><strong data-i18n="about.edu3Title">Bachelor's degree in Human Resource Management</strong> University of Togo</li>
-      </ul>
-    </div>
-    <div class="block">
-      <h2 data-i18n="about.langTitle">Languages</h2>
-      <ul>
-        <li><strong data-i18n="about.langEng">English</strong> <span data-i18n="about.levelEng">Fluent</span></li>
-        <li><strong data-i18n="about.langFr">French</strong> <span data-i18n="about.levelFr">Native</span></li>
-      </ul>
-    </div>
-    <div class="block">
-      <h2 data-i18n="about.designSkillsTitle">Design skills</h2>
-      <ul>
-        <li class="skill"><img src="image/skills/photoshop-plain.svg" alt="" width="40" height="40"><span><strong>Adobe Photoshop</strong> <span data-i18n="about.psDesc">Photo editing and graphic design</span></span></li>
-        <li class="skill"><img src="image/skills/illustrator-plain.svg" alt="" width="40" height="40"><span><strong>Adobe Illustrator</strong> <span data-i18n="about.aiDesc">Vector graphics and illustration</span></span></li>
-        <li class="skill"><img src="image/skills/figma-original.svg" alt="" width="40" height="40"><span><strong>Figma</strong> <span data-i18n="about.figmaDesc">UI/UX design and prototyping</span></span></li>
-        <li class="skill"><img src="image/skills/affinity.png.png" alt="" width="40" height="40"><span><strong>Affinity</strong> <span data-i18n="about.affinityDesc">Vector graphics, logos and layouts</span></span></li>
-      </ul>
-    </div>
-    <div class="block">
-      <h2 data-i18n="about.webSkillsTitle">Web skills</h2>
-      <ul>
-        <li class="skill"><img src="image/skills/html5-original.svg" alt="" width="40" height="40"><span><strong>HTML</strong> <span data-i18n="about.htmlDesc">Structure and semantic web content</span></span></li>
-        <li class="skill"><img src="image/skills/css3-original.svg" alt="" width="40" height="40"><span><strong>CSS</strong> <span data-i18n="about.cssDesc">Modern layout, design systems &amp; responsive UI</span></span></li>
-        <li class="skill"><img src="image/skills/javascript-original.svg" alt="" width="40" height="40"><span><strong>JavaScript</strong> <span data-i18n="about.jsDesc">Dynamic interactions &amp; web apps</span></span></li>
-        
-      </ul>
-    </div>
-  </section>
-
-  <section class="cta">
-    <div class="cta-inner">
-      <div>
-        <h2 data-i18n="cta.title">Have a project in mind?</h2>
-        <p data-i18n="cta.text">Fill in the short form and I'll get back to you.</p>
+    <section class="about2-card" aria-label="Hubert Djobokou">
+      <div class="about2-photo">
+        <img src="IMAGES/profile.jpg" alt="Portrait of Hubert">
+        <span class="about2-flame" aria-hidden="true">🔥</span>
       </div>
-      <a class="btn btn-gradient" href="service.html#contact" data-i18n="cta.btn">Tell me about your project</a>
+      <div>
+        <h2 class="about2-name" data-i18n="about.cardName">Hubert Djobokou</h2>
+        <p class="about2-tag" data-i18n="about.cardTag">A driven mind building a greater tomorrow.</p>
+        <div class="about2-icons">
+          <a href="https://wa.me/17789521823" target="_blank" rel="noopener" aria-label="Chat on WhatsApp"><svg viewBox="0 0 448 512" aria-hidden="true"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-55.7-5.7-9.8 5.7-9.1 16.3-30.4 3-6.1 1.5-11.4-1.4-14.2-2.8-2.8-12.5-30.1-17-40.9-4.5-10.8-9-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></svg></a>
+          <a href="https://www.tiktok.com/@hubcreate3" target="_blank" rel="noopener" aria-label="TikTok"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.53.02C13.84 0 15.14.01 16.44 0c.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg></a>
+          <a href="mailto:hubertdjobokou3@gmail.com" aria-label="Email"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2Zm0 4-8 5-8-5V6l8 5 8-5v2Z"/></svg></a>
+        </div>
+        <a class="about2-start" href="#start-project" data-i18n="about.startProject">Start a project</a>
+      </div>
+    </section>
+
+    <p class="about2-bio" data-i18n="about.cardBio">I'm Hubert Djobokou, founder of Hubcreate, a graphic and web designer helping small businesses and event organizers look bigger than they are. Based in Surrey, BC, working remotely with clients across Canada and Africa, most of them over WhatsApp.</p>
+
+    <section class="about2-services">
+      <h2 data-i18n="nav.services">Services</h2>
+      <ul>
+        <li data-i18n="about.svc1">Flyers &amp; event visuals</li>
+        <li data-i18n="about.svc2">Logos &amp; brand identity</li>
+        <li data-i18n="about.svc3">Websites</li>
+      </ul>
+    </section>
+
+    <div class="about2-grid">
+      <section>
+        <h2 data-i18n="about.educationTitle">Education</h2>
+        <ul>
+          <li><strong data-i18n="about.edu1Title">Bachelor of Commerce</strong> UCW</li>
+          <li><strong data-i18n="about.edu2Title">Information and Communication Technology</strong> Pacific Link College</li>
+          <li><strong data-i18n="about.edu3Title">Bachelor's degree in Human Resource Management</strong> University of Togo</li>
+        </ul>
+      </section>
+      <section>
+        <h2 data-i18n="about.langTitle">Languages</h2>
+        <ul>
+          <li><strong data-i18n="about.langEng">English</strong> <span data-i18n="about.levelEng">Fluent</span></li>
+          <li><strong data-i18n="about.langFr">French</strong> <span data-i18n="about.levelFr">Native</span></li>
+        </ul>
+        <p class="about2-bilingual" data-i18n="about.bilingualLine">An asset for working with each client in their own language, in Canada as in Africa.</p>
+      </section>
     </div>
-  </section>
+
+    <section class="about2-tools">
+      <h2 data-i18n="about.toolsTitle">Tools &amp; Skills</h2>
+      <div class="tools-marquee">
+        <div class="tools-track">
+          <span class="tool-pill"><span class="tool-badge">Ps</span>Adobe Photoshop</span>
+          <span class="tool-pill"><span class="tool-badge">Ai</span>Adobe Illustrator</span>
+          <span class="tool-pill"><span class="tool-badge">Fg</span>Figma</span>
+          <span class="tool-pill"><span class="tool-badge">Af</span>Affinity</span>
+          <span class="tool-pill"><span class="tool-badge">&lt;/&gt;</span>HTML</span>
+          <span class="tool-pill"><span class="tool-badge">{ }</span>CSS</span>
+          <span class="tool-pill"><span class="tool-badge">JS</span>JavaScript</span>
+          <span class="tool-pill"><span class="tool-badge">Dv</span>DaVinci Resolve</span>
+          <span class="tool-pill" aria-hidden="true"><span class="tool-badge">Ps</span>Adobe Photoshop</span>
+          <span class="tool-pill" aria-hidden="true"><span class="tool-badge">Ai</span>Adobe Illustrator</span>
+          <span class="tool-pill" aria-hidden="true"><span class="tool-badge">Fg</span>Figma</span>
+          <span class="tool-pill" aria-hidden="true"><span class="tool-badge">Af</span>Affinity</span>
+          <span class="tool-pill" aria-hidden="true"><span class="tool-badge">&lt;/&gt;</span>HTML</span>
+          <span class="tool-pill" aria-hidden="true"><span class="tool-badge">{ }</span>CSS</span>
+          <span class="tool-pill" aria-hidden="true"><span class="tool-badge">JS</span>JavaScript</span>
+          <span class="tool-pill" aria-hidden="true"><span class="tool-badge">Dv</span>DaVinci Resolve</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="about2-form" id="start-project">
+      <h2 data-i18n="about.formTitle">Let's work together</h2>
+      <form id="aboutForm">
+        <label for="fName" data-i18n="about.formName">Name</label>
+        <input id="fName" name="name" type="text" required data-i18n-ph="about.formNamePh" placeholder="Your name">
+        <label for="fEmail" data-i18n="about.formEmail">Email</label>
+        <input id="fEmail" name="email" type="email" required data-i18n-ph="about.formEmailPh" placeholder="Your@email.com">
+        <label for="fBudget" data-i18n="about.formBudget">Budget</label>
+        <select id="fBudget" name="budget">
+          <option value="" data-i18n="about.formBudgetPh">Select…</option>
+          <option value="under100" data-i18n="about.budget1">Under $100</option>
+          <option value="100to300" data-i18n="about.budget2">$100 to $300</option>
+          <option value="300to1000" data-i18n="about.budget3">$300 to $1000</option>
+          <option value="over1000" data-i18n="about.budget4">Over $1000</option>
+        </select>
+        <label for="fMessage" data-i18n="about.formMessage">Message</label>
+        <textarea id="fMessage" name="message" required data-i18n-ph="about.formMessagePh" placeholder="Tell me about your project"></textarea>
+        <button class="about2-submit" type="submit" data-i18n="about.formSubmit">Submit</button>
+        <p class="about2-note" data-i18n="about.formNote">Submit opens WhatsApp with your message prefilled.</p>
+      </form>
+    </section>
+
+    <section class="about2-reach">
+      <h2 data-i18n="contact.directTitle">Reach me directly</h2>
+      <ul>
+        <li><span class="label" data-i18n="contact.email">Email</span> <a href="mailto:hubertdjobokou3@gmail.com">hubertdjobokou3@gmail.com</a></li>
+        <li><span class="label" data-i18n="contact.phone">Phone</span> <a href="tel:+17789521823">+1 778 952 1823</a></li>
+      </ul>
+    </section>
+  </div>
 </main>
 
 <footer>
@@ -108,6 +152,29 @@
     <a href="https://www.facebook.com/profile.php?id=100072044043817" target="_blank" rel="noopener">Facebook</a>
   </div>
 </footer>
+
+<script>
+(function () {
+  var form = document.getElementById("aboutForm");
+  if (!form) return;
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+    var lang = (document.documentElement.lang || "en").slice(0, 2);
+    var labels = lang === "fr"
+      ? { name: "Nom", email: "E-mail", budget: "Budget", message: "Message" }
+      : { name: "Name", email: "Email", budget: "Budget", message: "Message" };
+    var budgetSelect = document.getElementById("fBudget");
+    var budgetText = budgetSelect.options[budgetSelect.selectedIndex].text;
+    var lines = [
+      labels.name + ": " + document.getElementById("fName").value,
+      labels.email + ": " + document.getElementById("fEmail").value
+    ];
+    if (budgetSelect.value) lines.push(labels.budget + ": " + budgetText);
+    lines.push(labels.message + ": " + document.getElementById("fMessage").value);
+    window.open("https://wa.me/17789521823?text=" + encodeURIComponent(lines.join("\n")), "_blank");
+  });
+})();
+</script>
 
 </body>
 </html>
