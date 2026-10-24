@@ -476,7 +476,10 @@
   /* Projects rail auto-scroll: the row scrolls by itself in a seamless loop.
      Duplicates (aria-hidden) extend the row so scrollLeft can wrap without a jump.
      Any visitor interaction pauses it; it resumes about 3 seconds after the
-     interaction ends and the viewer is closed. Reduced motion disables it. */
+     interaction ends and the viewer is closed. Reduced motion disables it.
+     Snap is switched off while auto-scrolling (mandatory snap would snap
+     every small step back to the card start) and restored on every pause,
+     so manual scrolling still snaps. */
   var AUTO_SCROLL_PX_PER_SECOND = 90;
   var AUTO_SCROLL_RESUME_DELAY_MS = 3000;
   var autoMotion = (window.matchMedia ? window.matchMedia("(prefers-reduced-motion: reduce)") : null);
@@ -486,6 +489,8 @@
   var autoHovering = false;
   var autoLastTime = 0;
   var autoLastMeasureCheck = 0;
+  var autoSnapOff = false;
+  function autoSnapRestore() { if (autoSnapOff && rail) { rail.style.scrollSnapType = ""; autoSnapOff = false; } }
   items.forEach(function (card, i) {
     var dup = card.cloneNode(true);
     dup.setAttribute("data-dup", "true");
@@ -511,7 +516,7 @@
     autoSetWidth = firstDup.getBoundingClientRect().left - items[0].getBoundingClientRect().left;
     autoScrollWidth = rail.scrollWidth;
   }
-  function autoPause() { autoResumeAt = performance.now() + AUTO_SCROLL_RESUME_DELAY_MS; }
+  function autoPause() { autoResumeAt = performance.now() + AUTO_SCROLL_RESUME_DELAY_MS; autoSnapRestore(); }
   if (rail) {
     rail.addEventListener("wheel", autoPause, { passive: true });
     rail.addEventListener("touchstart", autoPause, { passive: true });
@@ -529,10 +534,10 @@
   function autoTick(now) {
     requestAnimationFrame(autoTick);
     if (!rail || autoSetWidth <= 0) return;
-    if (autoMotion && autoMotion.matches) return;
-    if (document.hidden) return;
-    if (viewer.classList.contains("open") || autoHovering) { autoResumeAt = now + AUTO_SCROLL_RESUME_DELAY_MS; autoLastTime = now; return; }
-    if (now < autoResumeAt) { autoLastTime = now; return; }
+    if (autoMotion && autoMotion.matches) { autoSnapRestore(); return; }
+    if (document.hidden) { autoSnapRestore(); return; }
+    if (viewer.classList.contains("open") || autoHovering) { autoResumeAt = now + AUTO_SCROLL_RESUME_DELAY_MS; autoLastTime = now; autoSnapRestore(); return; }
+    if (now < autoResumeAt) { autoLastTime = now; autoSnapRestore(); return; }
     if (now - autoLastMeasureCheck > 500) {
       autoLastMeasureCheck = now;
       if (rail.scrollWidth !== autoScrollWidth) autoMeasure();
@@ -543,6 +548,7 @@
     if (dt > 0.1) dt = 0.1;
     var nextPos = rail.scrollLeft + AUTO_SCROLL_PX_PER_SECOND * dt;
     while (nextPos >= autoSetWidth) nextPos -= autoSetWidth;
+    if (!autoSnapOff) { rail.style.scrollSnapType = "none"; autoSnapOff = true; }
     rail.scrollLeft = nextPos;
   }
   if (rail) requestAnimationFrame(autoTick);
