@@ -289,3 +289,10 @@ body.page-home .hero2-top .hero2-langpill { margin-inline: auto; }
    while the aspect-matched image is shorter, so its #FF7A00 background showed as a
    solid orange band below the photo. Hug the image height and drop the orange fill. */
 .about2-photo { background: transparent; align-self: start; }
+
+/* ================= HOME MASCOT (index.html) ================= */
+/* Mascot section between the homepage marquee and footer: image only,
+   transparent background so it fits both light and dark themes. */
+.home-mascot { background: transparent; text-align: center; padding: 2.5rem 1.25rem; }
+.home-mascot img { height: 200px; width: auto; max-width: 90vw; object-fit: contain; display: block; margin: 0 auto; }
+@media (max-width: 640px) { .home-mascot img { height: 160px; } }
