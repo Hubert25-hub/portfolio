@@ -291,3 +291,12 @@ body.page-home .hero2-top .hero2-langpill { margin-inline: auto; }
 .home-mascot { background: transparent; text-align: center; padding: 2.5rem 1.25rem; }
 .home-mascot img { height: 200px; width: auto; max-width: 90vw; object-fit: contain; display: block; margin: 0 auto; }
 @media (max-width: 640px) { .home-mascot img { height: 160px; } }
+
+/* ================= NAV PILL (animated nav, version 1) ================= */
+/* Orange pill behind the current page link in the header nav. Each page
+   already marks its link with aria-current="page", so no HTML change needed.
+   Entrance animation on page load; respects reduced motion. */
+.nav a[aria-current="page"] { position: relative; z-index: 0; color: #fff; text-decoration: none; }
+.nav a[aria-current="page"]::before { content: ""; position: absolute; inset: -0.45rem -0.9rem; background: #FF7A00; border-radius: 999px; z-index: -1; animation: navPillIn .45s cubic-bezier(.65,0,.35,1) both; }
+@keyframes navPillIn { from { transform: translateX(-16px); opacity: 0; } to { transform: translateX(0); opacity: 1; } }
+@media (prefers-reduced-motion: reduce) { .nav a[aria-current="page"]::before { animation: none; } }
