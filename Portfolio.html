@@ -522,28 +522,34 @@
   }
   function cylStepNext() { cylTweenTo(cylRot - CYL_STEP); cylIdleSince = performance.now(); }
   function cylStepPrev() { cylTweenTo(cylRot + CYL_STEP); cylIdleSince = performance.now(); }
+  /* Drag without pointer capture: capturing the pointer on the stage retargets
+     the click to the stage, so card clicks (flip + viewer) would never fire.
+     Window-level move/up listeners keep the drag working outside the stage. */
+  function cylOnMove(e) {
+    if (!cylDragging) return;
+    var dx = e.clientX - cylLastX;
+    cylMoved += Math.abs(dx);
+    cylRot += dx * 0.25;
+    var dt = Math.max(1, performance.now() - cylLastT);
+    cylVel = (dx * 0.25) / (dt / 16.7);
+    cylLastX = e.clientX; cylLastT = performance.now();
+    if (cylMoved > 6) cylDragged = true;
+  }
+  function cylEndDrag() {
+    if (!cylDragging) return;
+    cylDragging = false; cylIdleSince = performance.now();
+    cylVel = Math.max(-1.2, Math.min(1.2, cylVel));
+    window.removeEventListener("pointermove", cylOnMove);
+    window.removeEventListener("pointerup", cylEndDrag);
+    window.removeEventListener("pointercancel", cylEndDrag);
+  }
   if (cylStage) {
     cylStage.addEventListener("pointerdown", function (e) {
       cylDragging = true; cylMoved = 0; cylDragged = false; cylLastX = e.clientX; cylLastT = performance.now(); cylTween = null; cylVel = 0;
-      try { cylStage.setPointerCapture(e.pointerId); } catch (err) { /* ignore */ }
+      window.addEventListener("pointermove", cylOnMove);
+      window.addEventListener("pointerup", cylEndDrag);
+      window.addEventListener("pointercancel", cylEndDrag);
     });
-    cylStage.addEventListener("pointermove", function (e) {
-      if (!cylDragging) return;
-      var dx = e.clientX - cylLastX;
-      cylMoved += Math.abs(dx);
-      cylRot += dx * 0.25;
-      var dt = Math.max(1, performance.now() - cylLastT);
-      cylVel = (dx * 0.25) / (dt / 16.7);
-      cylLastX = e.clientX; cylLastT = performance.now();
-      if (cylMoved > 6) cylDragged = true;
-    });
-    function cylEndDrag() {
-      if (!cylDragging) return;
-      cylDragging = false; cylIdleSince = performance.now();
-      cylVel = Math.max(-1.2, Math.min(1.2, cylVel));
-    }
-    cylStage.addEventListener("pointerup", cylEndDrag);
-    cylStage.addEventListener("pointercancel", cylEndDrag);
     cylStage.addEventListener("pointerenter", function () { cylHovering = true; });
     cylStage.addEventListener("pointerleave", function () { cylHovering = false; cylIdleSince = performance.now(); });
   }
