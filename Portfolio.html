@@ -25,6 +25,16 @@
   50% { transform: scaleX(-1); }
   100% { transform: scaleX(1); }
 }
+/* Projects 3D cylinder (2026-10-24): replaces the scrolling rail. Cards keep
+   their .proj-card look; the ring positions them in 3D. */
+.cyl-stage { perspective: 1400px; height: 430px; position: relative; overflow: hidden; cursor: grab; touch-action: pan-y; user-select: none; -webkit-user-select: none; }
+.cyl-stage:active { cursor: grabbing; }
+.cyl-ring { position: absolute; left: 50%; top: 50%; width: 0; height: 0; transform-style: preserve-3d; }
+.cyl-ring .proj-card { position: absolute; left: 0; top: 0; width: 240px; min-width: 0; max-width: none; scroll-snap-align: none; will-change: transform; }
+@media (max-width: 520px) {
+  .cyl-stage { height: 360px; }
+  .cyl-ring .proj-card { width: 180px; }
+}
 </style>
 <script src="js/theme.js"></script>
 <script src="js/lang.js" defer></script>
@@ -52,7 +62,8 @@
       <p class="svc-lede" data-i18n="svc.projectsLede">Websites, logos, flyers and branding, designed and delivered by Hubcreate.</p>
       <p class="svc-notice"><span aria-hidden="true">&#10532;</span> <span data-i18n="svc.tapNotice">Tap a project to see it in full size</span></p>
       <div class="svc-railwrap">
-        <div class="projects2-rail" id="projectsRail">
+        <div class="cyl-stage" id="cylStage">
+          <div class="cyl-ring" id="cylRing">
 <article class="proj-card" data-viewer data-pos="1" data-full="IMAGES/lux_picssage.png" data-title="Lux Picssage Massage" data-type-key="proj.typeWebsite" data-desc-key="case.lux.subtitle" data-link="work-lux-picssage.html" data-link-key="pv.linkCase" tabindex="0">
   <img src="IMAGES/lux_picssage.png" alt="Lux Picssage Massage website" loading="lazy" data-i18n-alt="work.w1.alt">
   <div class="proj-body">
@@ -166,6 +177,7 @@
               <p class="proj-desc" data-i18n="alt.img10">Hubcreate brand mockup</p>
             </div>
           </article>
+          </div>
         </div>
         <div class="rail-nav">
           <button type="button" id="railPrev"><span aria-hidden="true">‹</span><span class="sr-only" data-i18n="projects.prev">Previous projects</span></button>
@@ -348,11 +360,10 @@
 
 <script>
 (function () {
-  var rail = document.getElementById("projectsRail");
+  /* Projects nav buttons now rotate the 3D cylinder (handlers in the cylinder block below). */
   var prev = document.getElementById("railPrev");
   var next = document.getElementById("railNext");
-  if (rail && prev) prev.addEventListener("click", function () { rail.scrollBy({ left: -320, behavior: "smooth" }); });
-  if (rail && next) next.addEventListener("click", function () { rail.scrollBy({ left: 320, behavior: "smooth" }); });
+  var cylDragged = false;
 
   /* Section title underline draw-in */
   try {
@@ -461,6 +472,7 @@
   }
   items.forEach(function (card, i) {
     card.addEventListener("click", function () {
+      if (cylDragged) { cylDragged = false; return; }
       if (!flipReduced && card.querySelector("img")) {
         card.classList.remove("proj-mirror");
         void card.offsetWidth;
@@ -473,85 +485,91 @@
     card.setAttribute("tabindex", "0");
     card.addEventListener("keydown", function (e) { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); showViewer(i); } });
   });
-  /* Projects rail auto-scroll: the row scrolls by itself in a seamless loop.
-     Duplicates (aria-hidden) extend the row so scrollLeft can wrap without a jump.
-     Any visitor interaction pauses it; it resumes about 3 seconds after the
-     interaction ends and the viewer is closed. Reduced motion disables it.
-     Snap is switched off while auto-scrolling (mandatory snap would snap
-     every small step back to the card start) and restored on every pause,
-     so manual scrolling still snaps. */
-  var AUTO_SCROLL_PX_PER_SECOND = 90;
-  var AUTO_SCROLL_RESUME_DELAY_MS = 3000;
-  var autoMotion = (window.matchMedia ? window.matchMedia("(prefers-reduced-motion: reduce)") : null);
-  var autoResumeAt = 0;
-  var autoSetWidth = 0;
-  var autoScrollWidth = 0;
-  var autoHovering = false;
-  var autoLastTime = 0;
-  var autoLastMeasureCheck = 0;
-  var autoSnapOff = false;
-  function autoSnapRestore() { if (autoSnapOff && rail) { rail.style.scrollSnapType = ""; autoSnapOff = false; } }
-  items.forEach(function (card, i) {
-    var dup = card.cloneNode(true);
-    dup.setAttribute("data-dup", "true");
-    dup.setAttribute("aria-hidden", "true");
-    dup.removeAttribute("data-viewer");
-    dup.removeAttribute("tabindex");
-    dup.addEventListener("click", function () {
-      if (!flipReduced && dup.querySelector("img")) {
-        dup.classList.remove("proj-mirror");
-        void dup.offsetWidth;
-        dup.classList.add("proj-mirror");
-        setTimeout(function () { dup.classList.remove("proj-mirror"); }, 400);
-      }
-      playBip();
-      setTimeout(function () { showViewer(i); }, 350);
+  /* Projects 3D cylinder (2026-10-24): replaces the scrolling rail.
+     The 15 cards sit on a rotating ring. Auto-spin pauses on hover, drag,
+     viewer open, or hidden tab, and resumes about 3 seconds after the
+     interaction ends. Reduced motion disables auto-spin. A drag never
+     opens the viewer (see the cylDragged guard in the card click handler). */
+  var cylStage = document.getElementById("cylStage");
+  var cylRing = document.getElementById("cylRing");
+  var cylCards = items;
+  var CYL_N = cylCards.length;
+  var CYL_STEP = 360 / CYL_N;
+  var cylReduced = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var CYL_BASE_SPEED = cylReduced ? 0 : 0.08;
+  var cylRot = 0, cylVel = CYL_BASE_SPEED, cylDragging = false, cylLastX = 0, cylLastT = 0, cylMoved = 0, cylTween = null, cylIdleSince = performance.now(), cylHovering = false;
+  function cylRadius() {
+    if (!cylCards.length) return 0;
+    var w = cylCards[0].offsetWidth + 12;
+    return Math.round(w / (2 * Math.tan(Math.PI / CYL_N)));
+  }
+  function cylRender() {
+    if (!cylRing) return;
+    var r = cylRadius();
+    cylRing.style.transform = "translateZ(-" + r + "px) rotateX(-7deg) rotateY(" + cylRot + "deg)";
+    cylCards.forEach(function (c, i) {
+      var a = (cylRot + i * CYL_STEP) * Math.PI / 180;
+      c.style.transform = "rotateY(" + (i * CYL_STEP) + "deg) translateZ(" + r + "px) translate(-50%, -50%)";
+      c.style.filter = Math.cos(a) > 0 ? "brightness(1)" : "brightness(.55)";
     });
-    rail.appendChild(dup);
-  });
-  function autoMeasure() {
-    if (!rail || !items.length) return;
-    var firstDup = rail.querySelector(".proj-card[data-dup=\"true\"]");
-    if (!firstDup) { autoSetWidth = 0; return; }
-    autoSetWidth = firstDup.getBoundingClientRect().left - items[0].getBoundingClientRect().left;
-    autoScrollWidth = rail.scrollWidth;
   }
-  function autoPause() { autoResumeAt = performance.now() + AUTO_SCROLL_RESUME_DELAY_MS; autoSnapRestore(); }
-  if (rail) {
-    rail.addEventListener("wheel", autoPause, { passive: true });
-    rail.addEventListener("touchstart", autoPause, { passive: true });
-    rail.addEventListener("touchend", autoPause, { passive: true });
-    rail.addEventListener("pointerdown", autoPause);
-    rail.addEventListener("pointerenter", function () { autoHovering = true; });
-    rail.addEventListener("pointerleave", function () { autoHovering = false; autoPause(); });
+  function cylTweenTo(target) {
+    while (target - cylRot > 180) target -= 360;
+    while (target - cylRot < -180) target += 360;
+    if (cylReduced) { cylRot = target; cylVel = 0; cylIdleSince = performance.now(); return; }
+    cylTween = { from: cylRot, to: target, start: performance.now(), dur: 700 };
+    cylVel = 0;
   }
-  if (prev) prev.addEventListener("click", autoPause);
-  if (next) next.addEventListener("click", autoPause);
-  document.addEventListener("visibilitychange", function () { if (!document.hidden) autoPause(); });
-  window.addEventListener("resize", autoMeasure);
-  window.addEventListener("load", autoMeasure);
-  autoMeasure();
-  function autoTick(now) {
-    requestAnimationFrame(autoTick);
-    if (!rail || autoSetWidth <= 0) return;
-    if (autoMotion && autoMotion.matches) { autoSnapRestore(); return; }
-    if (document.hidden) { autoSnapRestore(); return; }
-    if (viewer.classList.contains("open") || autoHovering) { autoResumeAt = now + AUTO_SCROLL_RESUME_DELAY_MS; autoLastTime = now; autoSnapRestore(); return; }
-    if (now < autoResumeAt) { autoLastTime = now; autoSnapRestore(); return; }
-    if (now - autoLastMeasureCheck > 500) {
-      autoLastMeasureCheck = now;
-      if (rail.scrollWidth !== autoScrollWidth) autoMeasure();
+  function cylStepNext() { cylTweenTo(cylRot - CYL_STEP); cylIdleSince = performance.now(); }
+  function cylStepPrev() { cylTweenTo(cylRot + CYL_STEP); cylIdleSince = performance.now(); }
+  if (cylStage) {
+    cylStage.addEventListener("pointerdown", function (e) {
+      cylDragging = true; cylMoved = 0; cylDragged = false; cylLastX = e.clientX; cylLastT = performance.now(); cylTween = null; cylVel = 0;
+      try { cylStage.setPointerCapture(e.pointerId); } catch (err) { /* ignore */ }
+    });
+    cylStage.addEventListener("pointermove", function (e) {
+      if (!cylDragging) return;
+      var dx = e.clientX - cylLastX;
+      cylMoved += Math.abs(dx);
+      cylRot += dx * 0.25;
+      var dt = Math.max(1, performance.now() - cylLastT);
+      cylVel = (dx * 0.25) / (dt / 16.7);
+      cylLastX = e.clientX; cylLastT = performance.now();
+      if (cylMoved > 6) cylDragged = true;
+    });
+    function cylEndDrag() {
+      if (!cylDragging) return;
+      cylDragging = false; cylIdleSince = performance.now();
+      cylVel = Math.max(-1.2, Math.min(1.2, cylVel));
     }
-    if (!autoLastTime) autoLastTime = now;
-    var dt = (now - autoLastTime) / 1000;
-    autoLastTime = now;
-    if (dt > 0.1) dt = 0.1;
-    var nextPos = rail.scrollLeft + AUTO_SCROLL_PX_PER_SECOND * dt;
-    while (nextPos >= autoSetWidth) nextPos -= autoSetWidth;
-    if (!autoSnapOff) { rail.style.scrollSnapType = "none"; autoSnapOff = true; }
-    rail.scrollLeft = nextPos;
+    cylStage.addEventListener("pointerup", cylEndDrag);
+    cylStage.addEventListener("pointercancel", cylEndDrag);
+    cylStage.addEventListener("pointerenter", function () { cylHovering = true; });
+    cylStage.addEventListener("pointerleave", function () { cylHovering = false; cylIdleSince = performance.now(); });
   }
-  if (rail) requestAnimationFrame(autoTick);
+  if (prev) prev.addEventListener("click", cylStepPrev);
+  if (next) next.addEventListener("click", cylStepNext);
+  document.addEventListener("visibilitychange", function () { if (!document.hidden) cylIdleSince = performance.now(); });
+  function cylTick(now) {
+    requestAnimationFrame(cylTick);
+    if (!cylRing || !cylCards.length) return;
+    if (cylTween) {
+      var p = Math.min(1, (now - cylTween.start) / cylTween.dur);
+      var e = 1 - Math.pow(1 - p, 3);
+      cylRot = cylTween.from + (cylTween.to - cylTween.from) * e;
+      if (p >= 1) { cylTween = null; cylIdleSince = now; }
+    } else if (!cylDragging) {
+      if (cylReduced || document.hidden || viewer.classList.contains("open") || cylHovering) { cylVel = 0; cylIdleSince = now; }
+      else {
+        cylRot += cylVel;
+        cylVel *= 0.95;
+        if (now - cylIdleSince > 3000) cylVel += (CYL_BASE_SPEED - cylVel) * 0.02;
+      }
+    }
+    cylRender();
+  }
+  cylRender();
+  requestAnimationFrame(cylTick);
   document.getElementById("pvClose").addEventListener("click", closeViewer);
   document.getElementById("pvPrev").addEventListener("click", function () { showViewer(vIndex - 1); });
   document.getElementById("pvNext").addEventListener("click", function () { showViewer(vIndex + 1); });
