@@ -39,6 +39,31 @@
 <script src="js/theme.js"></script>
 <script src="js/lang.js" defer></script>
 <script src="js/restyle-lang.js" defer></script>
+<style>
+/* Giant-list Prices: full-width rows in huge type, tap to expand. */
+.svc2-pricelist { border-top: 1px solid rgba(16,24,40,.14); }
+.svc2-row { border-bottom: 1px solid rgba(16,24,40,.14); }
+.svc2-rowhead { width: 100%; display: flex; align-items: center; gap: 16px; padding: 28px 8px; background: none; border: 0; cursor: pointer; text-align: left; font-family: inherit; }
+.svc2-rowname { font-family: Manrope, sans-serif; font-weight: 800; font-size: clamp(2rem, 7vw, 4rem); line-height: 1; letter-spacing: -0.02em; color: #101828; flex: 1 1 auto; min-width: 0; }
+.svc2-rowbadge { background: #FF7A00; color: #fff; font-size: .8rem; font-weight: 700; padding: 6px 12px; border-radius: 999px; text-transform: uppercase; letter-spacing: .04em; white-space: nowrap; }
+.svc2-rowprice { font-weight: 800; font-size: clamp(1.25rem, 4vw, 2rem); color: #FF7A00; white-space: nowrap; }
+.svc2-rowchev { font-size: 2rem; line-height: 1; color: #101828; transition: transform .3s ease; }
+.svc2-row.open .svc2-rowchev { transform: rotate(45deg); }
+.svc2-panel { display: grid; grid-template-rows: 0fr; transition: grid-template-rows .35s ease; }
+.svc2-panel > div { overflow: hidden; }
+.svc2-row.open .svc2-panel { grid-template-rows: 1fr; }
+.svc2-panel ul { list-style: none; margin: 0 0 20px; padding: 0 0 4px; display: grid; gap: 10px; }
+.svc2-panel li { font-size: 1.05rem; }
+.svc2-panel li::before { content: "\2713"; color: #FF7A00; font-weight: 800; margin-right: 10px; }
+.svc2-panel .svc2-btn { margin-bottom: 28px; }
+@media (max-width: 520px) {
+  .svc2-rowhead { flex-wrap: wrap; padding: 22px 4px; }
+  .svc2-rowprice { flex-basis: 100%; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .svc2-panel, .svc2-rowchev { transition: none; }
+}
+</style>
 </head>
 <body>
 
@@ -263,43 +288,83 @@
 <section class="svc2-packages">
       <h2 class="svc-title" data-i18n="pricing.title">Simple, clear packages</h2>
       <p class="svc2-note" data-i18n="pricing.note">Launch pricing : new client? Get an extra 10% off.</p>
-      <div class="svc2-pricegrid">
-        <div class="svc2-price">
-          <h3 data-i18n="pricing.s1.name">Starter</h3>
-          <p class="svc2-amount" data-i18n="pricing.s1.price">From $98.99</p>
-          <ul>
-            <li data-i18n="pricing.s1.f1">1 flyer or poster</li>
-            <li data-i18n="pricing.s1.f2">2 revisions included</li>
-            <li data-i18n="pricing.s1.f3">HD delivery (print + social)</li>
-            <li data-i18n="pricing.s1.f4">48-hour turnaround</li>
-          </ul>
-          <a class="svc2-btn" href="https://wa.me/17789521823?text=Bonjour%20%21%20Je%20suis%20int%C3%A9ress%C3%A9%20par%20le%20forfait%20Starter." target="_blank" rel="noopener" data-i18n="pricing.cta">Choose</a>
+      <div class="svc2-pricelist">
+      <article class="svc2-row">
+        <button type="button" class="svc2-rowhead" aria-expanded="false" aria-controls="price-panel-s1">
+          <span class="svc2-rowname" data-i18n="pricing.s1.name">Starter</span>
+          <span class="svc2-rowprice" data-i18n="pricing.s1.price">From $98.99</span>
+          <span class="svc2-rowchev" aria-hidden="true">+</span>
+        </button>
+        <div class="svc2-panel" id="price-panel-s1" role="region">
+          <div>
+            <ul>
+              <li data-i18n="pricing.s1.f1">1 flyer or poster</li>
+              <li data-i18n="pricing.s1.f2">2 revisions included</li>
+              <li data-i18n="pricing.s1.f3">HD delivery (print + social)</li>
+              <li data-i18n="pricing.s1.f4">48-hour turnaround</li>
+            </ul>
+            <a class="svc2-btn" href="https://wa.me/17789521823?text=Bonjour%20%21%20Je%20suis%20int%C3%A9ress%C3%A9%20par%20le%20forfait%20Starter." target="_blank" rel="noopener" data-i18n="pricing.cta">Choose</a>
+          </div>
         </div>
-        <div class="svc2-price featured">
-          <span class="svc2-badge" data-i18n="pricing.badge">Popular</span>
-          <h3 data-i18n="pricing.s2.name">Pro</h3>
-          <p class="svc2-amount" data-i18n="pricing.s2.price">From $299.99</p>
-          <ul>
-            <li data-i18n="pricing.s2.f1">Professional logo</li>
-            <li data-i18n="pricing.s2.f2">Color palette + typography</li>
-            <li data-i18n="pricing.s2.f3">Mini brand guide</li>
-            <li data-i18n="pricing.s2.f4">3 revisions + source files</li>
-          </ul>
-          <a class="svc2-btn" href="https://wa.me/17789521823?text=Bonjour%20%21%20Je%20suis%20int%C3%A9ress%C3%A9%20par%20le%20forfait%20Pro." target="_blank" rel="noopener" data-i18n="pricing.cta">Choose</a>
+      </article>
+      <article class="svc2-row open">
+        <button type="button" class="svc2-rowhead" aria-expanded="true" aria-controls="price-panel-s2">
+          <span class="svc2-rowname" data-i18n="pricing.s2.name">Pro</span>
+          <span class="svc2-rowbadge" data-i18n="pricing.badge">Popular</span>
+          <span class="svc2-rowprice" data-i18n="pricing.s2.price">From $299.99</span>
+          <span class="svc2-rowchev" aria-hidden="true">+</span>
+        </button>
+        <div class="svc2-panel" id="price-panel-s2" role="region">
+          <div>
+            <ul>
+              <li data-i18n="pricing.s2.f1">Professional logo</li>
+              <li data-i18n="pricing.s2.f2">Color palette + typography</li>
+              <li data-i18n="pricing.s2.f3">Mini brand guide</li>
+              <li data-i18n="pricing.s2.f4">3 revisions + source files</li>
+            </ul>
+            <a class="svc2-btn" href="https://wa.me/17789521823?text=Bonjour%20%21%20Je%20suis%20int%C3%A9ress%C3%A9%20par%20le%20forfait%20Pro." target="_blank" rel="noopener" data-i18n="pricing.cta">Choose</a>
+          </div>
         </div>
-        <div class="svc2-price">
-          <h3 data-i18n="pricing.s3.name">Premium</h3>
-          <p class="svc2-amount" data-i18n="pricing.s3.price">From $999.99</p>
-          <ul>
-            <li data-i18n="pricing.s3.f1">Custom website</li>
-            <li data-i18n="pricing.s3.f2">Responsive mobile + desktop</li>
-            <li data-i18n="pricing.s3.f3">Contact form</li>
-            <li data-i18n="pricing.s3.f4">Domain name (1st year) + launch</li>
-          </ul>
-          <a class="svc2-btn" href="https://wa.me/17789521823?text=Bonjour%20%21%20Je%20suis%20int%C3%A9ress%C3%A9%20par%20le%20forfait%20Premium." target="_blank" rel="noopener" data-i18n="pricing.cta">Choose</a>
+      </article>
+      <article class="svc2-row">
+        <button type="button" class="svc2-rowhead" aria-expanded="false" aria-controls="price-panel-s3">
+          <span class="svc2-rowname" data-i18n="pricing.s3.name">Premium</span>
+          <span class="svc2-rowprice" data-i18n="pricing.s3.price">From $999.99</span>
+          <span class="svc2-rowchev" aria-hidden="true">+</span>
+        </button>
+        <div class="svc2-panel" id="price-panel-s3" role="region">
+          <div>
+            <ul>
+              <li data-i18n="pricing.s3.f1">Custom website</li>
+              <li data-i18n="pricing.s3.f2">Responsive mobile + desktop</li>
+              <li data-i18n="pricing.s3.f3">Contact form</li>
+              <li data-i18n="pricing.s3.f4">Domain name (1st year) + launch</li>
+            </ul>
+            <a class="svc2-btn" href="https://wa.me/17789521823?text=Bonjour%20%21%20Je%20suis%20int%C3%A9ress%C3%A9%20par%20le%20forfait%20Premium." target="_blank" rel="noopener" data-i18n="pricing.cta">Choose</a>
+          </div>
         </div>
+      </article>
       </div>
     </section>
+<script>
+(function () {
+  var rows = document.querySelectorAll('.svc2-row');
+  rows.forEach(function (row) {
+    var head = row.querySelector('.svc2-rowhead');
+    head.addEventListener('click', function () {
+      var wasOpen = row.classList.contains('open');
+      rows.forEach(function (r) {
+        r.classList.remove('open');
+        r.querySelector('.svc2-rowhead').setAttribute('aria-expanded', 'false');
+      });
+      if (!wasOpen) {
+        row.classList.add('open');
+        head.setAttribute('aria-expanded', 'true');
+      }
+    });
+  });
+})();
+</script>
 
     <section class="svc-form" id="projectForm">
       <h2 class="svc-title" data-i18n="svc.formTitle">Tell me about your project</h2>
