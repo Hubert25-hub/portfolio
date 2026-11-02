@@ -288,6 +288,13 @@ body.page-home .hero2-top .hero2-langpill { margin-inline: auto; }
 /* ================= HOME MASCOT (index.html) ================= */
 /* Mascot section between the homepage marquee and footer: image only,
    transparent background so it fits both light and dark themes. */
+.home-promo { background: transparent; }
+.home-promo img { width: 100%; display: block; }
+@media (max-width: 640px) {
+  .home-promo { overflow-x: auto; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
+  .home-promo::-webkit-scrollbar { display: none; }
+  .home-promo img { height: 360px; width: auto; max-width: none; }
+}
 .home-mascot { background: transparent; text-align: center; padding: 2.5rem 1.25rem; }
 .home-mascot img { height: 200px; width: auto; max-width: 90vw; object-fit: contain; display: block; margin: 0 auto; }
 @media (max-width: 640px) { .home-mascot img { height: 160px; } }
