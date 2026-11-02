@@ -175,7 +175,13 @@
     panel.appendChild(form);
     root.appendChild(launcher);
     root.appendChild(panel);
-    document.body.appendChild(root);
+    var dock = document.getElementById('hubDock');
+    if (dock) {
+      root.classList.add('docked');
+      dock.appendChild(root);
+    } else {
+      document.body.appendChild(root);
+    }
 
     // ----- Helpers -----
     function scrollDown() {

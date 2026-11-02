@@ -290,6 +290,11 @@ body.page-home .hero2-top .hero2-langpill { margin-inline: auto; }
    transparent background so it fits both light and dark themes. */
 .home-promo { background: transparent; }
 .home-promo img { width: 100%; display: block; }
+.hub-dock { position: fixed; right: 20px; bottom: 20px; z-index: 9998; display: flex; align-items: center; gap: 10px; background: #ffffff; padding: 8px; border-radius: 999px; box-shadow: 0 10px 30px rgba(13, 27, 42, .28); }
+.hub-dock .whatsapp-float { position: static; width: 56px; height: 56px; flex: none; box-shadow: none; }
+.hc-root.docked { position: static; }
+.hc-root.docked .hc-launcher { box-shadow: none; }
+.hc-root.docked .hc-panel { bottom: 84px; }
 @media (max-width: 640px) {
   .home-promo { overflow-x: auto; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
   .home-promo::-webkit-scrollbar { display: none; }
