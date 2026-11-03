@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Suivi de projets — Hubcreate</title>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Suivi projets">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #101828; --orange: #FF7A00; --yellow: #FFB300; --paper: #FAFAF7;
+    --card: #ffffff; --line: #E7E4DC; --muted: #667085; --red: #D92D20; --green: #12805C;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Manrope', sans-serif; background: var(--paper); color: var(--ink); -webkit-font-smoothing: antialiased; }
+  button { font-family: inherit; cursor: pointer; }
+
+  /* ---------- Écran de verrouillage ---------- */
+  #lock { min-height: 100dvh; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 24px; background: var(--ink); color: #fff; }
+  #lock .logo { font-weight: 800; font-size: 26px; letter-spacing: -.02em; }
+  #lock .logo span { color: var(--orange); }
+  #lock .hello { margin-top: 26px; font-size: 30px; font-weight: 800; }
+  #lock .sub { color: #B8C0CC; margin-top: 6px; font-size: 15px; }
+  #pinDots { display: flex; gap: 14px; margin: 28px 0 8px; }
+  #pinDots i { width: 16px; height: 16px; border-radius: 50%; border: 2px solid #475467; display: block; }
+  #pinDots i.on { background: var(--orange); border-color: var(--orange); }
+  #lockErr { color: #FF8A7A; min-height: 22px; font-weight: 600; font-size: 14px; }
+  #pad { display: grid; grid-template-columns: repeat(3, 76px); gap: 12px; margin-top: 14px; }
+  #pad button { height: 64px; border-radius: 50%; border: 1px solid #2A3648; background: #182234; color: #fff; font-size: 24px; font-weight: 700; }
+  #pad button:active { background: var(--orange); border-color: var(--orange); }
+  #pad .ghost { visibility: hidden; }
+  #pad .del { font-size: 19px; }
+
+  /* ---------- App ---------- */
+  #app { display: none; max-width: 880px; margin: 0 auto; padding: 20px 16px 90px; }
+  header.top { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+  header.top .brand { font-weight: 800; font-size: 20px; letter-spacing: -.02em; }
+  header.top .brand span { color: var(--orange); }
+  header.top h1 { font-size: 15px; color: var(--muted); font-weight: 600; margin-top: 2px; }
+  #btnNew { border: none; border-radius: 999px; padding: 12px 18px; font-weight: 800; font-size: 15px; color: #fff; background: linear-gradient(135deg, var(--yellow), var(--orange)); box-shadow: 0 6px 16px rgba(255,122,0,.35); }
+
+  .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 20px 0 6px; }
+  .stat { background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 14px; }
+  .stat .n { font-size: 24px; font-weight: 800; }
+  .stat .l { font-size: 12.5px; color: var(--muted); font-weight: 700; text-transform: uppercase; letter-spacing: .06em; margin-top: 2px; }
+  .stat .sub { font-size: 13px; font-weight: 700; margin-top: 4px; }
+  @media (max-width: 560px) { .stats { grid-template-columns: 1fr 1fr; } }
+
+  .filters { display: flex; gap: 8px; overflow-x: auto; padding: 12px 2px; scrollbar-width: none; }
+  .filters::-webkit-scrollbar { display: none; }
+  .filters button { flex: none; border: 1px solid var(--line); background: var(--card); border-radius: 999px; padding: 8px 14px; font-weight: 700; font-size: 14px; color: var(--muted); }
+  .filters button.on { background: var(--ink); color: #fff; border-color: var(--ink); }
+
+  .proj { background: var(--card); border: 1px solid var(--line); border-radius: 18px; padding: 16px; margin-bottom: 12px; text-align: left; width: 100%; display: block; }
+  .proj:active { transform: scale(.995); }
+  .proj .row1 { display: flex; align-items: flex-start; justify-content: space-between; gap: 10px; }
+  .proj .client { font-size: 17px; font-weight: 800; }
+  .proj .name { font-size: 14.5px; color: var(--muted); font-weight: 600; margin-top: 1px; }
+  .pill { flex: none; font-size: 12px; font-weight: 800; padding: 5px 10px; border-radius: 999px; text-transform: uppercase; letter-spacing: .04em; }
+  .st-Prospect { background: #EAECF0; color: #475467; }
+  .st-Encours { background: #FFE9D2; color: #B54708; }
+  .st-Enattente { background: #FEF0C7; color: #93370D; }
+  .st-Livre { background: #D3F8DF; color: #027A48; }
+  .st-Termine { background: #101828; color: #fff; }
+  .st-Annule { background: #FEE4E2; color: #B42318; }
+  .proj .money { display: flex; flex-wrap: wrap; gap: 6px 18px; margin-top: 12px; font-size: 14.5px; }
+  .proj .money b { font-weight: 800; }
+  .proj .money .reste { color: var(--orange); font-weight: 800; }
+  .proj .money .reste.zero { color: var(--green); }
+  .proj .meta { display: flex; flex-wrap: wrap; gap: 6px 16px; margin-top: 8px; font-size: 13.5px; color: var(--muted); font-weight: 600; }
+  .proj .meta .late { color: var(--red); font-weight: 800; }
+  .proj .notes { margin-top: 8px; font-size: 13.5px; color: var(--muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .empty { text-align: center; color: var(--muted); padding: 44px 20px; font-weight: 600; }
+  #msg { text-align: center; color: var(--muted); font-weight: 600; padding: 30px 10px; }
+
+  /* ---------- Formulaire ---------- */
+  #formWrap { display: none; position: fixed; inset: 0; background: rgba(16,24,40,.55); z-index: 50; align-items: flex-end; justify-content: center; }
+  #formWrap.open { display: flex; }
+  form#form { background: var(--paper); width: 100%; max-width: 560px; max-height: 92dvh; overflow-y: auto; border-radius: 22px 22px 0 0; padding: 22px 20px 30px; }
+  form#form h2 { font-size: 20px; font-weight: 800; margin-bottom: 14px; }
+  form#form label { display: block; font-size: 13px; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: .05em; margin: 14px 0 6px; }
+  form#form input, form#form select, form#form textarea { width: 100%; border: 1.5px solid var(--line); border-radius: 12px; padding: 12px; font: inherit; font-size: 16px; background: #fff; color: var(--ink); }
+  form#form textarea { resize: vertical; min-height: 64px; }
+  .two { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .formBtns { display: flex; gap: 10px; margin-top: 22px; }
+  #btnSave { flex: 1; border: none; border-radius: 999px; padding: 14px; font-weight: 800; font-size: 16px; color: #fff; background: linear-gradient(135deg, var(--yellow), var(--orange)); }
+  #btnCancel { border: 1.5px solid var(--line); background: #fff; border-radius: 999px; padding: 14px 20px; font-weight: 800; font-size: 16px; }
+  #btnDelete { width: 100%; margin-top: 14px; border: none; background: none; color: var(--red); font-weight: 800; font-size: 15px; padding: 8px; }
+</style>
+</head>
+<body>
+
+<!-- Verrouillage PIN -->
+<div id="lock">
+  <div class="logo">hub<span>create</span></div>
+  <div class="hello">Bonjour.</div>
+  <div class="sub">Suivi de projets — entre ton code</div>
+  <div id="pinDots"><i></i><i></i><i></i><i></i></div>
+  <div id="lockErr"></div>
+  <div id="pad">
+    <button data-k="1">1</button><button data-k="2">2</button><button data-k="3">3</button>
+    <button data-k="4">4</button><button data-k="5">5</button><button data-k="6">6</button>
+    <button data-k="7">7</button><button data-k="8">8</button><button data-k="9">9</button>
+    <button class="ghost">.</button><button data-k="0">0</button><button class="del" data-k="del">⌫</button>
+  </div>
+</div>
+
+<!-- Application -->
+<div id="app">
+  <header class="top">
+    <div>
+      <div class="brand">hub<span>create</span></div>
+      <h1>Suivi de projets</h1>
+    </div>
+    <button id="btnNew" type="button">+ Nouveau projet</button>
+  </header>
+
+  <section class="stats">
+    <div class="stat"><div class="n" id="stEncours">0</div><div class="l">En cours</div></div>
+    <div class="stat"><div class="n" id="stAttente">0</div><div class="l">En attente</div></div>
+    <div class="stat"><div class="n" id="stRecette" style="font-size:19px">—</div><div class="l">À recevoir</div><div class="sub" id="stRecetteSub"></div></div>
+  </section>
+
+  <nav class="filters" id="filters"></nav>
+  <div id="msg">Chargement…</div>
+  <main id="list"></main>
+</div>
+
+<!-- Formulaire projet -->
+<div id="formWrap">
+  <form id="form">
+    <h2 id="formTitle">Nouveau projet</h2>
+    <label for="fClient">Client</label>
+    <input id="fClient" required autocomplete="off" placeholder="Nom du client">
+    <label for="fProjet">Projet</label>
+    <input id="fProjet" required autocomplete="off" placeholder="Site web, logo, flyer…">
+    <div class="two">
+      <div>
+        <label for="fType">Type</label>
+        <select id="fType">
+          <option>Site web</option><option>Logo</option><option>Branding</option>
+          <option>Flyer</option><option>Visuels réseaux sociaux</option><option>Maintenance</option><option>Autre</option>
+        </select>
+      </div>
+      <div>
+        <label for="fStatut">Statut</label>
+        <select id="fStatut">
+          <option>Prospect</option><option>En cours</option><option>En attente</option>
+          <option>Livré</option><option>Terminé</option><option>Annulé</option>
+        </select>
+      </div>
+    </div>
+    <div class="two">
+      <div>
+        <label for="fPrix">Prix total</label>
+        <input id="fPrix" type="number" min="0" step="any" inputmode="decimal" placeholder="0">
+      </div>
+      <div>
+        <label for="fDevise">Devise</label>
+        <select id="fDevise"><option>FCFA</option><option>CAD</option><option>USD</option></select>
+      </div>
+    </div>
+    <div class="two">
+      <div>
+        <label for="fAcompte">Acompte reçu</label>
+        <input id="fAcompte" type="number" min="0" step="any" inputmode="decimal" placeholder="0">
+      </div>
+      <div>
+        <label for="fEcheance">Échéance</label>
+        <input id="fEcheance" type="date">
+      </div>
+    </div>
+    <label for="fNotes">Notes</label>
+    <textarea id="fNotes" placeholder="Ce qu'on attend, le contexte, le prochain pas…"></textarea>
+    <div class="formBtns">
+      <button type="button" id="btnCancel">Annuler</button>
+      <button type="submit" id="btnSave">Enregistrer</button>
+    </div>
+    <button type="button" id="btnDelete" style="display:none">Supprimer ce projet</button>
+  </form>
+</div>
+
+<script>
+// ============================================================
+// CONFIG — l'adresse du déploiement Google (terminée par /exec)
+// sera insérée ici avant la mise en ligne.
+// ============================================================
+var ENDPOINT = 'https://script.google.com/macros/s/AKfycbwjhKSOdFTGYFrBIZdWcBeO8LLZaIL_bAdsVeSkcCiqMJAmQlV8KwcPVt72v6STxqHN/exec';
+var DEMO = window.__DEMO_DATA || null; // aperçu seulement, jamais en production
+
+var STATUTS = ['Prospect', 'En cours', 'En attente', 'Livré', 'Terminé', 'Annulé'];
+var projets = [];
+var filtre = 'Tous';
+var code = sessionStorage.getItem('sp_code') || '';
+var editLigne = null;
+
+function $(id) { return document.getElementById(id); }
+function fmt(n, devise) {
+  var s = new Intl.NumberFormat('fr-FR').format(Math.round(n * 100) / 100);
+  return s + ' ' + devise;
+}
+function dateFr(iso) {
+  if (!iso) return '';
+  var p = iso.split('-');
+  return p.length === 3 ? p[2] + '/' + p[1] + '/' + p[0] : iso;
+}
+function stClass(st) {
+  return 'st-' + st.replace(/\s/g, '').replace('É', 'E').replace('é', 'e');
+}
+function reste(p) { return (Number(p.prix) || 0) - (Number(p.acompte) || 0); }
+function aujourdhui() {
+  var d = new Date();
+  var p = function (n) { return (n < 10 ? '0' : '') + n; };
+  return d.getFullYear() + '-' + p(d.getMonth() + 1) + '-' + p(d.getDate());
+}
+
+/* ---------- Réseau ---------- */
+function api(payload) {
+  payload.code = code;
+  return fetch(ENDPOINT, {
+    method: 'POST',
+    headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+    body: JSON.stringify(payload)
+  }).then(function (r) { return r.json(); });
+}
+function charger() {
+  if (DEMO) { projets = DEMO.slice(); afficherApp(); rendre(); return; }
+  $('msg').textContent = 'Chargement…';
+  $('msg').style.display = 'block';
+  api({ action: 'lire' }).then(function (res) {
+    if (!res.ok) { retourVerrou('Code incorrect'); return; }
+    projets = res.projets || [];
+    afficherApp();
+    rendre();
+  }).catch(function () { $('msg').textContent = 'Connexion impossible. Vérifie ta connexion et réessaie.'; });
+}
+
+/* ---------- Verrouillage ---------- */
+var pin = '';
+function majDots() {
+  var dots = $('pinDots').children;
+  for (var i = 0; i < 4; i++) dots[i].className = i < pin.length ? 'on' : '';
+}
+$('pad').addEventListener('click', function (e) {
+  var k = e.target.getAttribute('data-k');
+  if (!k) return;
+  if (k === 'del') { pin = pin.slice(0, -1); majDots(); return; }
+  if (pin.length >= 4) return;
+  pin += k; majDots();
+  if (pin.length === 4) {
+    code = pin;
+    if (DEMO) { sessionStorage.setItem('sp_code', code); charger(); return; }
+    api({ action: 'lire' }).then(function (res) {
+      if (!res.ok) { retourVerrou('Code incorrect'); return; }
+      sessionStorage.setItem('sp_code', code);
+      projets = res.projets || [];
+      afficherApp();
+      rendre();
+    }).catch(function () { retourVerrou('Connexion impossible'); });
+  }
+});
+function retourVerrou(msgErr) {
+  pin = ''; majDots();
+  $('lockErr').textContent = msgErr || '';
+  $('lock').style.display = 'flex';
+  $('app').style.display = 'none';
+}
+function afficherApp() {
+  $('lock').style.display = 'none';
+  $('app').style.display = 'block';
+}
+
+/* ---------- Rendu ---------- */
+function rendreFiltres() {
+  var f = $('filters');
+  f.innerHTML = '';
+  ['Tous'].concat(STATUTS).forEach(function (st) {
+    var b = document.createElement('button');
+    b.type = 'button';
+    b.textContent = st;
+    if (filtre === st) b.className = 'on';
+    b.addEventListener('click', function () { filtre = st; rendre(); });
+    f.appendChild(b);
+  });
+}
+function rendre() {
+  rendreFiltres();
+  var encours = projets.filter(function (p) { return p.statut === 'En cours'; }).length;
+  var attente = projets.filter(function (p) { return p.statut === 'En attente'; }).length;
+  $('stEncours').textContent = encours;
+  $('stAttente').textContent = attente;
+  var parDevise = {};
+  projets.forEach(function (p) {
+    if (p.statut === 'Terminé' || p.statut === 'Annulé') return;
+    var r = reste(p);
+    if (r > 0) parDevise[p.devise] = (parDevise[p.devise] || 0) + r;
+  });
+  var devises = Object.keys(parDevise);
+  $('stRecette').textContent = devises.length ? fmt(parDevise[devises[0]], devises[0]) : '0';
+  $('stRecetteSub').textContent = devises.slice(1).map(function (d) { return '+ ' + fmt(parDevise[d], d); }).join('  ');
+
+  var list = $('list');
+  list.innerHTML = '';
+  var visibles = projets.filter(function (p) { return filtre === 'Tous' || p.statut === filtre; });
+  $('msg').style.display = visibles.length ? 'none' : 'block';
+  $('msg').textContent = projets.length
+    ? 'Aucun projet dans cette catégorie.'
+    : 'Aucun projet pour le moment. Touche « + Nouveau projet » pour commencer.';
+  var ajd = aujourdhui();
+  visibles.forEach(function (p) {
+    var card = document.createElement('button');
+    card.type = 'button';
+    card.className = 'proj';
+    var r = reste(p);
+    var enRetard = p.echeance && p.echeance < ajd && p.statut !== 'Livré' && p.statut !== 'Terminé' && p.statut !== 'Annulé';
+    var html = '<div class="row1"><div><div class="client"></div><div class="name"></div></div>' +
+      '<span class="pill ' + stClass(p.statut) + '"></span></div>' +
+      '<div class="money"><span>Prix: <b>' + fmt(p.prix, p.devise) + '</b></span>' +
+      '<span>Acompte: <b>' + fmt(p.acompte, p.devise) + '</b></span>' +
+      '<span class="reste' + (r <= 0 ? ' zero' : '') + '">' + (r > 0 ? 'Reste: ' + fmt(r, p.devise) : 'Soldé') + '</span></div>' +
+      '<div class="meta"><span>' + p.type + '</span>' +
+      (p.echeance ? '<span class="' + (enRetard ? 'late' : '') + '">Échéance: ' + dateFr(p.echeance) + (enRetard ? ' — en retard' : '') + '</span>' : '') +
+      '</div>' +
+      (p.notes ? '<div class="notes"></div>' : '');
+    card.innerHTML = html;
+    card.querySelector('.client').textContent = p.client;
+    card.querySelector('.name').textContent = p.projet;
+    card.querySelector('.pill').textContent = p.statut;
+    if (p.notes) card.querySelector('.notes').textContent = p.notes;
+    card.addEventListener('click', function () { ouvrirForm(p); });
+    list.appendChild(card);
+  });
+}
+
+/* ---------- Formulaire ---------- */
+function ouvrirForm(p) {
+  editLigne = p ? p.ligne : null;
+  $('formTitle').textContent = p ? 'Modifier le projet' : 'Nouveau projet';
+  $('fClient').value = p ? p.client : '';
+  $('fProjet').value = p ? p.projet : '';
+  $('fType').value = p ? p.type : 'Site web';
+  $('fStatut').value = p ? p.statut : 'Prospect';
+  $('fPrix').value = p ? (p.prix || '') : '';
+  $('fDevise').value = p ? p.devise : 'FCFA';
+  $('fAcompte').value = p ? (p.acompte || '') : '';
+  $('fEcheance').value = p ? (p.echeance || '') : '';
+  $('fNotes').value = p ? p.notes : '';
+  $('btnDelete').style.display = p ? 'block' : 'none';
+  $('formWrap').className = 'open';
+}
+function fermerForm() { $('formWrap').className = ''; }
+$('btnNew').addEventListener('click', function () { ouvrirForm(null); });
+$('btnCancel').addEventListener('click', fermerForm);
+$('formWrap').addEventListener('click', function (e) { if (e.target === $('formWrap')) fermerForm(); });
+$('form').addEventListener('submit', function (e) {
+  e.preventDefault();
+  var payload = {
+    action: editLigne ? 'modifier' : 'ajouter',
+    ligne: editLigne,
+    client: $('fClient').value.trim(),
+    projet: $('fProjet').value.trim(),
+    type: $('fType').value,
+    statut: $('fStatut').value,
+    prix: parseFloat($('fPrix').value) || 0,
+    devise: $('fDevise').value,
+    acompte: parseFloat($('fAcompte').value) || 0,
+    echeance: $('fEcheance').value,
+    notes: $('fNotes').value.trim()
+  };
+  if (DEMO) {
+    if (editLigne) {
+      projets = projets.map(function (p) { return p.ligne === editLigne ? Object.assign({}, p, payload) : p; });
+    } else {
+      payload.ligne = projets.length + 2;
+      projets.push(payload);
+    }
+    fermerForm(); rendre(); return;
+  }
+  $('btnSave').textContent = 'Enregistrement…';
+  api(payload).then(function (res) {
+    $('btnSave').textContent = 'Enregistrer';
+    if (!res.ok) { alert('Erreur: ' + (res.erreur || 'inconnue')); return; }
+    projets = res.projets || projets;
+    fermerForm(); rendre();
+  }).catch(function () { $('btnSave').textContent = 'Enregistrer'; alert('Connexion impossible.'); });
+});
+$('btnDelete').addEventListener('click', function () {
+  if (!editLigne) return;
+  if (!confirm('Supprimer ce projet ?')) return;
+  if (DEMO) {
+    projets = projets.filter(function (p) { return p.ligne !== editLigne; });
+    fermerForm(); rendre(); return;
+  }
+  api({ action: 'supprimer', ligne: editLigne }).then(function (res) {
+    if (!res.ok) { alert('Erreur: ' + (res.erreur || 'inconnue')); return; }
+    projets = res.projets || [];
+    fermerForm(); rendre();
+  }).catch(function () { alert('Connexion impossible.'); });
+});
+
+/* ---------- Démarrage ---------- */
+if (DEMO) { /* l'aperçu démarre sur l'écran PIN, un code quelconque déverrouille */ }
+else if (code) { charger(); }
+</script>
+</body>
+</html>
