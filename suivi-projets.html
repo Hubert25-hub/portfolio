@@ -37,6 +37,10 @@
   /* ---------- App ---------- */
   #app { display: none; max-width: 880px; margin: 0 auto; padding: 20px 16px 90px; }
   header.top { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.topActions { display: flex; align-items: center; gap: 16px; }
+.homeLink { color: var(--muted); font-weight: 700; font-size: 14px; text-decoration: none; white-space: nowrap; }
+.homeLink:hover { color: var(--orange); }
+.lockHome { display: inline-block; margin-top: 28px; }
   header.top .brand { font-weight: 800; font-size: 20px; letter-spacing: -.02em; }
   header.top .brand span { color: var(--orange); }
   header.top h1 { font-size: 15px; color: var(--muted); font-weight: 600; margin-top: 2px; }
@@ -106,6 +110,7 @@
     <button data-k="7">7</button><button data-k="8">8</button><button data-k="9">9</button>
     <button class="ghost">.</button><button data-k="0">0</button><button class="del" data-k="del">⌫</button>
   </div>
+  <a class="homeLink lockHome" href="index.html">← Retour à l'accueil du site</a>
 </div>
 
 <!-- Application -->
@@ -115,7 +120,7 @@
       <div class="brand">hub<span>create</span></div>
       <h1>Suivi de projets</h1>
     </div>
-    <button id="btnNew" type="button">+ Nouveau projet</button>
+    <div class="topActions"><a class="homeLink" href="index.html">← Accueil</a><button id="btnNew" type="button">+ Nouveau projet</button></div>
   </header>
 
   <section class="stats">
