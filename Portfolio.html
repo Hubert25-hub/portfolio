@@ -86,38 +86,42 @@
       <h2 class="svc-title" data-i18n="svc.projectsTitle">Our previous work</h2>
       <p class="svc-lede" data-i18n="svc.projectsLede">Websites, logos, flyers and branding, designed and delivered by Hubcreate.</p>
       <p class="svc-notice"><span aria-hidden="true">&#10532;</span> <span data-i18n="svc.tapNotice">Tap a project to see it in full size</span></p>
-      <div class="svc-railwrap">
-        <div class="cyl-stage" id="cylStage">
-          <div class="cyl-ring" id="cylRing">
-<article class="proj-card" data-viewer data-pos="1" data-full="IMAGES/lux_picssage.png" data-title="Lux Picssage Massage" data-type-key="proj.typeWebsite" data-desc-key="case.lux.subtitle" data-link="work-lux-picssage.html" data-link-key="pv.linkCase" tabindex="0">
+      <div class="ptabs" role="tablist" aria-label="Project categories">
+  <button class="ptab is-active" type="button" data-filter="all" data-i18n="proj.tabAll">All</button>
+  <button class="ptab" type="button" data-filter="sites" data-i18n="proj.tabWeb">Websites</button>
+  <button class="ptab" type="button" data-filter="logos" data-i18n="proj.tabLogo">Logos &amp; branding</button>
+  <button class="ptab" type="button" data-filter="flyers" data-i18n="proj.tabFlyer">Flyers &amp; visuals</button>
+</div>
+<div class="pgrid" id="projGrid">
+<article class="proj-card" data-cat="sites" data-viewer data-pos="1" data-full="IMAGES/lux_picssage.png" data-title="Lux Picssage Massage" data-type-key="proj.typeWebsite" data-desc-key="case.lux.subtitle" data-link="work-lux-picssage.html" data-link-key="pv.linkCase" tabindex="0">
   <img src="IMAGES/lux_picssage.png" alt="Lux Picssage Massage website" loading="lazy" data-i18n-alt="work.w1.alt">
   <div class="proj-body">
     <h3 data-i18n="work.w1.title">Lux Picssage Massage</h3>
     <p class="proj-type" data-i18n="work.w1.meta">Website: design &amp; build</p>
   </div>
 </article>
-<article class="proj-card" data-viewer data-pos="2" data-full="IMAGES/ayeprep-splash-mockup.png" data-title="ayePREP" data-type-key="proj.typeWebsite" data-desc-key="case.ayeprep.subtitle" data-link="work-ayeprep.html" data-link-key="pv.linkCase" tabindex="0">
+<article class="proj-card" data-cat="logos" data-viewer data-pos="2" data-full="IMAGES/ayeprep-splash-mockup.png" data-title="ayePREP" data-type-key="proj.typeWebsite" data-desc-key="case.ayeprep.subtitle" data-link="work-ayeprep.html" data-link-key="pv.linkCase" tabindex="0">
   <img src="IMAGES/ayeprep-splash-mockup.png" alt="ayePREP logo" loading="lazy" data-i18n-alt="work.w2.alt">
   <div class="proj-body">
     <h3 data-i18n="work.w2.title">ayePREP</h3>
     <p class="proj-type" data-i18n="work.w2.meta">Logo &amp; branding</p>
   </div>
 </article>
-<article class="proj-card" data-viewer data-pos="3" data-full="IMAGES/actuel_ss.png" data-title="ACTUEL" data-type-key="proj.typeWebsite" data-desc-key="case.actuel.subtitle" data-link="work-actuel.html" data-link-key="pv.linkCase" tabindex="0">
+<article class="proj-card" data-cat="sites" data-viewer data-pos="3" data-full="IMAGES/actuel_ss.png" data-title="ACTUEL" data-type-key="proj.typeWebsite" data-desc-key="case.actuel.subtitle" data-link="work-actuel.html" data-link-key="pv.linkCase" tabindex="0">
   <img src="IMAGES/actuel_ss.png" alt="ACTUEL news website" loading="lazy" data-i18n-alt="work.w3.alt">
   <div class="proj-body">
     <h3><span data-i18n="work.w3.title">ACTUEL</span> <em class="proj-badge" data-i18n="work.w3.badge">In progress</em></h3>
     <p class="proj-type" data-i18n="work.w3.meta">News website</p>
   </div>
 </article>
-<article class="proj-card" data-viewer data-pos="4" data-full="IMAGES/hubcreate.png" data-title="Hubcreate.dev" data-type-key="proj.typeWebsite" data-desc-key="proj.hubDesc" data-link="https://hubcreate.dev/" data-link-key="pv.linkSite" tabindex="0">
+<article class="proj-card" data-cat="sites" data-viewer data-pos="4" data-full="IMAGES/hubcreate.png" data-title="Hubcreate.dev" data-type-key="proj.typeWebsite" data-desc-key="proj.hubDesc" data-link="https://hubcreate.dev/" data-link-key="pv.linkSite" tabindex="0">
   <img src="IMAGES/hubcreate.png" alt="Hubcreate.dev website" loading="lazy">
   <div class="proj-body">
     <h3>Hubcreate.dev</h3>
     <p class="proj-type" data-i18n="work.w1.meta">Website: design &amp; build</p>
   </div>
 </article>
-<article class="proj-card" data-viewer data-pos="5" data-full="IMAGES/Cyn%27cy%20store.jpg" data-title="Cyn'cy Store" data-type="Logo" data-desc-key="portfolio.item11Desc">
+<article class="proj-card" data-cat="logos" data-viewer data-pos="5" data-full="IMAGES/Cyn%27cy%20store.jpg" data-title="Cyn'cy Store" data-type="Logo" data-desc-key="portfolio.item11Desc">
             <img src="IMAGES/Cyn%27cy%20store.jpg" alt="Cyn'cy Store logo" loading="lazy" data-i18n-alt="alt.img11">
             <div class="proj-body">
               <h3 data-i18n="portfolio.item11Title">Cyn'cy Store</h3>
@@ -125,7 +129,7 @@
               <p class="proj-desc" data-i18n="portfolio.item11Desc">Logo and brand identity for Cyn'cy Store: a bold yellow square mark with custom black lettering.</p>
             </div>
           </article>
-<article class="proj-card" data-viewer data-pos="6" data-full="IMAGES/XTRAVENT.jpg" data-title="Xtravent" data-type="Logo" data-desc-key="portfolio.item12Desc">
+<article class="proj-card" data-cat="logos" data-viewer data-pos="6" data-full="IMAGES/XTRAVENT.jpg" data-title="Xtravent" data-type="Logo" data-desc-key="portfolio.item12Desc">
             <img src="IMAGES/XTRAVENT.jpg" alt="Xtravent logo system" loading="lazy" data-i18n-alt="alt.img12">
             <div class="proj-body">
               <h3 data-i18n="portfolio.item12Title">Xtravent</h3>
@@ -133,7 +137,7 @@
               <p class="proj-desc" data-i18n="portfolio.item12Desc">Complete logo system for Xtravent: ticket-stub emblem, gradient wordmark and app icon.</p>
             </div>
           </article>
-<article class="proj-card" data-viewer data-pos="7" data-full="IMAGES/16-19.jpg" data-title="Restaurant flyer I" data-type-key="proj.typeFlyer" data-desc-key="portfolio.item13Desc">
+<article class="proj-card" data-cat="flyers" data-viewer data-pos="7" data-full="IMAGES/16-19.jpg" data-title="Restaurant flyer I" data-type-key="proj.typeFlyer" data-desc-key="portfolio.item13Desc">
             <img src="IMAGES/16-19.jpg" alt="Restaurant promotional visual" loading="lazy" data-i18n-alt="alt.img13">
             <div class="proj-body">
               <h3 data-i18n="portfolio.item13Title">Restaurant flyer I</h3>
@@ -141,7 +145,7 @@
               <p class="proj-desc" data-i18n="portfolio.item13Desc">Promotional visual designed for a restaurant.</p>
             </div>
           </article>
-<article class="proj-card" data-viewer data-pos="8" data-full="IMAGES/23-25.jpg" data-title="Restaurant flyer II" data-type-key="proj.typeFlyer" data-desc-key="portfolio.item14Desc">
+<article class="proj-card" data-cat="flyers" data-viewer data-pos="8" data-full="IMAGES/23-25.jpg" data-title="Restaurant flyer II" data-type-key="proj.typeFlyer" data-desc-key="portfolio.item14Desc">
             <img src="IMAGES/23-25.jpg" alt="Restaurant promotional visual" loading="lazy" data-i18n-alt="alt.img14">
             <div class="proj-body">
               <h3 data-i18n="portfolio.item14Title">Restaurant flyer II</h3>
@@ -149,28 +153,28 @@
               <p class="proj-desc" data-i18n="portfolio.item14Desc">Promotional visual designed for a restaurant.</p>
             </div>
           </article>
-<article class="proj-card" data-viewer data-pos="9" data-full="IMAGES/img4.png" data-title="Savage Mood" data-type-key="proj.typeFlyer">
+<article class="proj-card" data-cat="flyers" data-viewer data-pos="9" data-full="IMAGES/img4.png" data-title="Savage Mood" data-type-key="proj.typeFlyer">
             <img src="IMAGES/img4.png" alt="Savage Mood event flyer" loading="lazy">
             <div class="proj-body">
               <h3>Savage Mood</h3>
               <p class="proj-type" data-i18n="proj.typeFlyer">Event flyer</p>
             </div>
           </article>
-<article class="proj-card" data-viewer data-pos="10" data-full="IMAGES/img5.png" data-title="Ole Ready" data-type-key="proj.typeFlyer">
+<article class="proj-card" data-cat="flyers" data-viewer data-pos="10" data-full="IMAGES/img5.png" data-title="Ole Ready" data-type-key="proj.typeFlyer">
             <img src="IMAGES/img5.png" alt="Ole Ready event flyer" loading="lazy">
             <div class="proj-body">
               <h3>Ole Ready</h3>
               <p class="proj-type" data-i18n="proj.typeFlyer">Event flyer</p>
             </div>
           </article>
-<article class="proj-card" data-viewer data-pos="11" data-full="IMAGES/img6.png" data-title="Nightlife flyer" data-type-key="proj.typeFlyer">
+<article class="proj-card" data-cat="flyers" data-viewer data-pos="11" data-full="IMAGES/img6.png" data-title="Nightlife flyer" data-type-key="proj.typeFlyer">
             <img src="IMAGES/img6.png" alt="Nightlife flyer" loading="lazy">
             <div class="proj-body">
               <h3>Nightlife flyer</h3>
               <p class="proj-type" data-i18n="proj.typeFlyer">Event flyer</p>
             </div>
           </article>
-<article class="proj-card" data-viewer data-pos="12" data-full="IMAGES/Primary_svg.svg" data-title="AYEGROUPE logo" data-type="Logo" data-desc-key="alt.img7">
+<article class="proj-card" data-cat="logos" data-viewer data-pos="12" data-full="IMAGES/Primary_svg.svg" data-title="AYEGROUPE logo" data-type="Logo" data-desc-key="alt.img7">
             <img src="IMAGES/Primary_svg.svg" alt="AYEGROUPE logo" loading="lazy" data-i18n-alt="alt.img7">
             <div class="proj-body">
               <h3>AYEGROUPE logo</h3>
@@ -178,7 +182,7 @@
               <p class="proj-desc" data-i18n="alt.img7">AYEGROUPE logo</p>
             </div>
           </article>
-<article class="proj-card" data-viewer data-pos="13" data-full="IMAGES/hucreate_svg.logoyellow.svg" data-title="Hubcreate emblem" data-type="Logo" data-desc-key="alt.img8">
+<article class="proj-card" data-cat="logos" data-viewer data-pos="13" data-full="IMAGES/hucreate_svg.logoyellow.svg" data-title="Hubcreate emblem" data-type="Logo" data-desc-key="alt.img8">
             <img src="IMAGES/hucreate_svg.logoyellow.svg" alt="Hubcreate emblem" loading="lazy" data-i18n-alt="alt.img8">
             <div class="proj-body">
               <h3>Hubcreate emblem</h3>
@@ -186,7 +190,7 @@
               <p class="proj-desc" data-i18n="alt.img8">Hubcreate emblem on an orange gradient icon</p>
             </div>
           </article>
-<article class="proj-card" data-viewer data-pos="14" data-full="IMAGES/ayemokup.png" data-title="AYEGROUPE mockup" data-type-key="proj.typeMockup" data-desc-key="alt.img9">
+<article class="proj-card" data-cat="logos" data-viewer data-pos="14" data-full="IMAGES/ayemokup.png" data-title="AYEGROUPE mockup" data-type-key="proj.typeMockup" data-desc-key="alt.img9">
             <img src="IMAGES/ayemokup.png" alt="AYEGROUPE brand mockup" loading="lazy" data-i18n-alt="alt.img9">
             <div class="proj-body">
               <h3>AYEGROUPE mockup</h3>
@@ -194,7 +198,7 @@
               <p class="proj-desc" data-i18n="alt.img9">AYEGROUPE brand mockup</p>
             </div>
           </article>
-<article class="proj-card" data-viewer data-pos="15" data-full="IMAGES/hubcreate_mockup.png" data-title="Hubcreate mockup" data-type-key="proj.typeMockup" data-desc-key="alt.img10">
+<article class="proj-card" data-cat="logos" data-viewer data-pos="15" data-full="IMAGES/hubcreate_mockup.png" data-title="Hubcreate mockup" data-type-key="proj.typeMockup" data-desc-key="alt.img10">
             <img src="IMAGES/hubcreate_mockup.png" alt="Hubcreate brand mockup" loading="lazy" data-i18n-alt="alt.img10">
             <div class="proj-body">
               <h3>Hubcreate mockup</h3>
@@ -202,21 +206,21 @@
               <p class="proj-desc" data-i18n="alt.img10">Hubcreate brand mockup</p>
             </div>
           </article>
-          <article class="proj-card" data-viewer data-pos="16" data-full="IMAGES/verballink_ss.png" data-title="Verbal Link Institute" data-type-key="proj.typeWebsite" data-desc-key="case.verballink.subtitle" data-link="work-verballink.html" data-link-key="pv.linkCase" tabindex="0">
+<article class="proj-card" data-cat="sites" data-viewer data-pos="16" data-full="IMAGES/verballink_ss.png" data-title="Verbal Link Institute" data-type-key="proj.typeWebsite" data-desc-key="case.verballink.subtitle" data-link="work-verballink.html" data-link-key="pv.linkCase" tabindex="0">
             <img src="IMAGES/verballink_ss.png" alt="Verbal Link Institute website" loading="lazy" data-i18n-alt="work.w16.alt">
             <div class="proj-body">
               <h3 data-i18n="work.w16.title">Verbal Link Institute</h3>
               <p class="proj-type" data-i18n="work.w16.meta">Website: design &amp; build</p>
             </div>
           </article>
-          </div>
-        </div>
-        <div class="rail-nav">
-          <button type="button" id="railPrev"><span aria-hidden="true">‹</span><span class="sr-only" data-i18n="projects.prev">Previous projects</span></button>
-          <button type="button" id="railNext"><span aria-hidden="true">›</span><span class="sr-only" data-i18n="projects.next">Next projects</span></button>
-        </div>
-      </div>
-    </section>
+<article class="proj-card" data-viewer data-pos="17" data-full="IMAGES/afala_ss.jpg" data-title="AFALA Immigration" data-type-key="proj.typeWebsite" data-desc-key="case.afala.subtitle" data-link="work-afala.html" data-link-key="pv.linkCase" tabindex="0" data-cat="sites">
+  <img src="IMAGES/afala_ss.jpg" alt="AFALA Immigration website" loading="lazy" data-i18n-alt="work.w17.alt">
+  <div class="proj-body">
+    <h3 data-i18n="work.w17.title">AFALA Immigration</h3>
+    <p class="proj-type" data-i18n="work.w17.meta">Website</p>
+  </div>
+</article>
+</div></section>
 
     <section class="svc-services" aria-label="Services">
       <h2 class="svc-title" data-i18n="svc.servicesTitle">Our services</h2>
@@ -506,7 +510,7 @@
     var desc = descKey ? dict(descKey) : "";
     descEl.textContent = desc;
     descEl.style.display = desc ? "" : "none";
-    document.getElementById("pvCount").textContent = card.getAttribute("data-pos") + " / 15";
+    document.getElementById("pvCount").textContent = card.getAttribute("data-pos") + " / " + items.length;
     var link = document.getElementById("pvLink");
     var href = card.getAttribute("data-link");
     if (href) {
@@ -707,5 +711,34 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 </script>
 <!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "68e6baea63b941b48ab3369f305f2371"}'></script><!-- End Cloudflare Web Analytics -->
+<style>
+.ptabs{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin:26px auto 30px;padding:0 16px}
+.ptab{font:inherit;font-weight:700;font-size:15px;padding:10px 22px;border-radius:999px;border:1.5px solid var(--line,#e3e0d8);background:var(--card,#fff);color:var(--ink,#101828);cursor:pointer;transition:all .25s ease}
+.ptab:hover{border-color:#FF7A00;color:#FF7A00}
+.ptab.is-active{background:linear-gradient(135deg,#FFB300,#FF7A00);border-color:transparent;color:#fff;box-shadow:0 8px 20px rgba(255,122,0,.35)}
+.pgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:22px;max-width:1180px;margin:0 auto;padding:0 20px 10px}
+.pgrid .proj-card{position:relative!important;transform:none!important;width:auto!important;height:auto!important;opacity:0;translate:0 12px;transition:opacity .45s ease,translate .45s ease;cursor:pointer}
+.pgrid .proj-card.in{opacity:1;translate:0 0}
+.pgrid .proj-card img{width:100%;aspect-ratio:4/3;object-fit:cover;display:block}
+@media (prefers-reduced-motion: reduce){.pgrid .proj-card{transition:none}}
+</style>
+<script>
+(function(){
+  var tabs=document.querySelectorAll('.ptab');
+  var cards=Array.prototype.slice.call(document.querySelectorAll('#projGrid .proj-card'));
+  function apply(cat){
+    tabs.forEach(function(t){t.classList.toggle('is-active', t.getAttribute('data-filter')===cat);});
+    var k=0;
+    cards.forEach(function(c){
+      var show=(cat==='all'||c.getAttribute('data-cat')===cat);
+      if(show){ c.style.display=''; var d=k++; setTimeout(function(){c.classList.add('in');}, 30+d*45); }
+      else { c.classList.remove('in'); c.style.display='none'; }
+    });
+  }
+  tabs.forEach(function(t){ t.addEventListener('click', function(){ apply(t.getAttribute('data-filter')); }); });
+  var q=new URLSearchParams(location.search).get('vue');
+  apply(q && ['sites','logos','flyers'].indexOf(q)>=0 ? q : 'all');
+})();
+</script>
 </body>
 </html>
