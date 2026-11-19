@@ -1,0 +1,18 @@
+/* Hubcreate — effets (ajoutés 2026-11-18) : curseur personnalisé, révélation
+   au défilement, transition de page. Charte : Ink #101828, Orange #FF7A00. */
+
+/* 01 · Curseur personnalisé (activé par js/effects.js, pointeur fin seulement) */
+html.hc-cursor-on, html.hc-cursor-on * { cursor: none !important; }
+.hc-cursor-dot { position: fixed; left: 0; top: 0; width: 6px; height: 6px; border-radius: 50%; background: #FF7A00; z-index: 99990; pointer-events: none; }
+.hc-cursor-ring { position: fixed; left: 0; top: 0; width: 34px; height: 34px; border-radius: 50%; border: 1.5px solid rgba(255, 122, 0, .75); z-index: 99989; pointer-events: none; transition: width .25s ease, height .25s ease, background-color .25s ease, border-color .25s ease; }
+.hc-cursor-ring.is-active { width: 58px; height: 58px; background: rgba(255, 122, 0, .08); border-color: rgba(255, 122, 0, .95); }
+
+/* 03 · Révélation au défilement (masqué seulement si le JS a démarré) */
+html.hc-fx [data-reveal] { opacity: 0; transform: translateY(26px); transition: opacity .7s ease, transform .7s cubic-bezier(.2, .6, .2, 1); }
+html.hc-fx [data-reveal].revealed { opacity: 1; transform: none; }
+
+/* 04 · Transition de page : panneau Ink qui balaie */
+#hcWipe { position: fixed; inset: 0; background: #101828; z-index: 9000; transform: translateX(-101%); pointer-events: none; }
+#hcWipe.wipe-cover { transform: translateX(0); transition: transform .45s cubic-bezier(.7, 0, .2, 1); pointer-events: all; }
+#hcWipe.wipe-exit { transform: translateX(101%); transition: transform .5s cubic-bezier(.7, 0, .2, 1); }
+#hcWipe.wipe-instant { transform: translateX(0); transition: none; }
